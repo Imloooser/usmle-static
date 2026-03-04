@@ -4,7 +4,7 @@ import { getDatasetStats } from '../services/scorePredictor';
 
 // SHA-256 hash of admin password — change this by running:
 // echo -n "yourpassword" | shasum -a 256
-const ADMIN_HASH = '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8'; // "password"
+const ADMIN_HASH = 'c19b5286d70ab56878862b25fc38ec67b191e79698d878a1431be777b252f057';
 
 async function sha256(text) {
   const data = new TextEncoder().encode(text);
@@ -81,7 +81,7 @@ function AdminDashboard() {
 
   if (!data) return null;
 
-  const { events, predictions, submissions } = data;
+  const { events, predictions, submissions, visitors } = data;
   const now = new Date();
   const today = now.toISOString().split('T')[0];
   const last7 = new Date(now - 7 * 86400000).toISOString();
@@ -90,6 +90,8 @@ function AdminDashboard() {
   const todayPredictions = predictions.filter(p => p.t?.startsWith(today));
   const week7Events = events.filter(e => e.t >= last7);
   const week7Predictions = predictions.filter(p => p.t >= last7);
+  const todayVisitors = (visitors || []).filter(v => v.t?.startsWith(today));
+  const uniqueIPs = new Set((visitors || []).map(v => v.ip).filter(Boolean));
 
   // Event count breakdown
   const eventCounts = {};
@@ -120,6 +122,8 @@ function AdminDashboard() {
         <Card num={todayEvents.length} label="Today Events" />
         <Card num={todayPredictions.length} label="Today Predictions" />
         <Card num={week7Events.length} label="7-Day Events" />
+        <Card num={uniqueIPs.size} label="Unique IPs" />
+        <Card num={todayVisitors.length} label="Today Visitors" />
       </div>
 
       {/* Dataset Stats */}
@@ -155,6 +159,8 @@ function AdminDashboard() {
         <thead>
           <tr>
             <th style={styles.th}>Time</th>
+            <th style={styles.th}>IP</th>
+            <th style={styles.th}>Location</th>
             <th style={styles.th}>Predicted</th>
             <th style={styles.th}>CI</th>
             <th style={styles.th}>Confidence</th>
@@ -166,6 +172,8 @@ function AdminDashboard() {
           {predictions.slice(-20).reverse().map((p, i) => (
             <tr key={i}>
               <td style={styles.tdMono}>{p.t?.substring(0, 19).replace('T', ' ')}</td>
+              <td style={styles.tdMono}>{p.ip || '—'}</td>
+              <td style={styles.td}>{p.loc || '—'}</td>
               <td style={{ ...styles.td, fontWeight: 700 }}>{p.p}</td>
               <td style={styles.td}>{p.ci}</td>
               <td style={styles.td}>{p.conf}%</td>
@@ -173,7 +181,7 @@ function AdminDashboard() {
               <td style={styles.td}>{p.ms}ms</td>
             </tr>
           ))}
-          {predictions.length === 0 && <tr><td style={styles.td} colSpan={6}>No predictions yet</td></tr>}
+          {predictions.length === 0 && <tr><td style={styles.td} colSpan={8}>No predictions yet</td></tr>}
         </tbody>
       </table>
 
@@ -196,6 +204,37 @@ function AdminDashboard() {
             </tr>
           ))}
           {submissions.length === 0 && <tr><td style={styles.td} colSpan={3}>No submissions yet</td></tr>}
+        </tbody>
+      </table>
+
+      {/* Visitor IPs */}
+      <h2 style={styles.sectionTitle}>Visitor IPs</h2>
+      <table style={styles.table}>
+        <thead>
+          <tr>
+            <th style={styles.th}>Time</th>
+            <th style={styles.th}>IP Address</th>
+            <th style={styles.th}>Location</th>
+            <th style={styles.th}>ISP/Org</th>
+            <th style={styles.th}>Device</th>
+            <th style={styles.th}>Referrer</th>
+          </tr>
+        </thead>
+        <tbody>
+          {(visitors || []).slice(-30).reverse().map((v, i) => {
+            const isMobile = (v.ua || '').match(/Mobile|Android|iPhone/i);
+            return (
+              <tr key={i}>
+                <td style={styles.tdMono}>{v.t?.substring(0, 19).replace('T', ' ')}</td>
+                <td style={styles.tdMono}>{v.ip}</td>
+                <td style={styles.td}>{[v.city, v.region, v.country].filter(Boolean).join(', ') || '\u2014'}</td>
+                <td style={styles.td}>{v.org || '\u2014'}</td>
+                <td style={styles.td}>{isMobile ? '\uD83D\uDCF1 Mobile' : '\uD83D\uDCBB Desktop'} {v.screen || ''}</td>
+                <td style={{ ...styles.td, maxWidth: 200, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{v.ref || 'Direct'}</td>
+              </tr>
+            );
+          })}
+          {(!visitors || visitors.length === 0) && <tr><td style={styles.td} colSpan={6}>No visitor data yet</td></tr>}
         </tbody>
       </table>
 

@@ -112,6 +112,7 @@ export function protectNetwork() {
       'www.googletagmanager.com',
       'www.google-analytics.com',
       'analytics.google.com',
+      'ipapi.co',
     ];
     if (url.startsWith('http') && !trusted.some(d => url.includes(d))) {
       console.warn('[Security] Blocked unauthorized fetch:', url);

@@ -10,6 +10,53 @@ import { predictScore, getDatasetStats } from './scorePredictor';
 const ANALYTICS_KEY = '_up_analytics';
 const PREDICTIONS_KEY = '_up_predictions';
 const SUBMISSIONS_KEY = '_up_submissions';
+const VISITORS_KEY = '_up_visitors';
+
+// ── IP / Geo lookup (cached per session) ──
+let _visitorInfo = null;
+let _ipFetchPromise = null;
+
+function fetchVisitorInfo() {
+  if (_visitorInfo) return Promise.resolve(_visitorInfo);
+  if (_ipFetchPromise) return _ipFetchPromise;
+  _ipFetchPromise = fetch('https://ipapi.co/json/')
+    .then(r => r.json())
+    .then(data => {
+      _visitorInfo = {
+        ip: data.ip || 'unknown',
+        city: data.city || '',
+        region: data.region || '',
+        country: data.country_name || data.country || '',
+        org: data.org || '',
+        timezone: data.timezone || '',
+      };
+      // Log unique visitor
+      const visitors = getStoredArray(VISITORS_KEY);
+      const isDuplicate = visitors.some(v => v.ip === _visitorInfo.ip &&
+        v.t?.startsWith(new Date().toISOString().split('T')[0]));
+      if (!isDuplicate) {
+        appendToStore(VISITORS_KEY, {
+          ..._visitorInfo,
+          t: new Date().toISOString(),
+          ua: navigator.userAgent?.substring(0, 200) || '',
+          ref: document.referrer?.substring(0, 200) || '',
+          lang: navigator.language || '',
+          screen: `${screen.width}x${screen.height}`,
+        }, 1000);
+      }
+      return _visitorInfo;
+    })
+    .catch(() => {
+      _visitorInfo = { ip: 'unknown', city: '', region: '', country: '', org: '', timezone: '' };
+      return _visitorInfo;
+    });
+  return _ipFetchPromise;
+}
+
+// Fire IP lookup on load
+if (typeof window !== 'undefined') {
+  fetchVisitorInfo();
+}
 
 function getStoredArray(key) {
   try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch { return []; }
@@ -44,15 +91,20 @@ export const predictAPI = {
           // eslint-disable-next-line prefer-promise-reject-errors
           reject({ response: { data: { error: result.error } } });
         } else {
-          // Log prediction locally
-          appendToStore(PREDICTIONS_KEY, {
+          // Log prediction locally (with IP if available)
+          const predEntry = {
             t: new Date().toISOString(),
             p: result.predictedScore,
             ci: `${result.lowEstimate}-${result.highEstimate}`,
             conf: result.confidence,
             inputs: Object.keys(scores).length,
             ms: duration,
-          });
+          };
+          if (_visitorInfo) {
+            predEntry.ip = _visitorInfo.ip;
+            predEntry.loc = _visitorInfo.city ? `${_visitorInfo.city}, ${_visitorInfo.country}` : _visitorInfo.country;
+          }
+          appendToStore(PREDICTIONS_KEY, predEntry);
 
           // Track in GA4
           gtagEvent('prediction_complete', {
@@ -82,12 +134,14 @@ export async function trackEvent(event, data = {}) {
   // Push to GA4
   gtagEvent(event, data);
 
-  // Store locally for admin dashboard
-  appendToStore(ANALYTICS_KEY, {
+  // Store locally for admin dashboard (with IP if available)
+  const entry = {
     e: event,
     d: data,
     t: new Date().toISOString(),
-  });
+  };
+  if (_visitorInfo) entry.ip = _visitorInfo.ip;
+  appendToStore(ANALYTICS_KEY, entry);
 }
 
 export async function submitScore(scoreData) {
@@ -118,6 +172,7 @@ export function getLocalAnalytics() {
     events: getStoredArray(ANALYTICS_KEY),
     predictions: getStoredArray(PREDICTIONS_KEY),
     submissions: getStoredArray(SUBMISSIONS_KEY),
+    visitors: getStoredArray(VISITORS_KEY),
   };
 }
 
@@ -125,6 +180,7 @@ export function clearLocalAnalytics() {
   localStorage.removeItem(ANALYTICS_KEY);
   localStorage.removeItem(PREDICTIONS_KEY);
   localStorage.removeItem(SUBMISSIONS_KEY);
+  localStorage.removeItem(VISITORS_KEY);
 }
 
 export default { predictAPI, trackEvent, submitScore };
