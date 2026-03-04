@@ -1,0 +1,15 @@
+spec:
+  name: usmlepredictor
+  region: nyc
+  static_sites:
+    - name: usmlepredictor-web
+      github:
+        repo: Imloooser/usmle-static
+        branch: main
+        deploy_on_push: true
+      build_command: npm install && npm run build
+      output_dir: build
+      environment_slug: node-js
+      catchall_document: index.html
+      routes:
+        - path: /
