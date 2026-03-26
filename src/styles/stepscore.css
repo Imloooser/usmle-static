@@ -224,7 +224,7 @@ body {
 
 .hero h2 {
   font-family: 'Satoshi', 'Inter', sans-serif;
-  font-size: clamp(52px, 12vw, 70px);
+  font-size: clamp(32px, 10vw, 40px);
   font-weight: 800;
   line-height: 1.05;
   margin-bottom: 22px;
@@ -246,7 +246,7 @@ body {
 
 .hero > p {
   color: var(--text-secondary);
-  font-size: 15px;
+  font-size: 13px;
   max-width: 560px;
   margin: 0 auto 24px;
   line-height: 1.7;

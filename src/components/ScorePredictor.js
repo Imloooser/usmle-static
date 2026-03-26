@@ -125,6 +125,18 @@ export default function ScorePredictor({ onNavigate }) {
 
   useEffect(() => {
     trackEvent('page_view', { page: 'home' });
+    
+    // Fetch dataset stats
+    const fetchStats = async () => {
+      try {
+        const res = await predictAPI.stats();
+        setStats(res.data);
+      } catch (err) {
+        console.error('Failed to fetch stats:', err);
+      }
+    };
+    fetchStats();
+
     const originalTitle = 'USMLE Step 2 CK Score Predictor - USMLEPredictor | Free & Instant 2026';
     if (result) {
       document.title = `Predicted Score: ${result.predictedScore} | USMLEPredictor.com`;
@@ -264,14 +276,13 @@ export default function ScorePredictor({ onNavigate }) {
                <div className="hero-badge">
                 <Zap size={14} aria-hidden="true" /> Most Accurate Step 2 CK Predictor
               </div> 
-            <h2>
-  Predict Your <span class="highlight">USMLE Step 2 CK - </span> 
-  Score
-</h2>
+              <h2>
+                Predict Your <span className="highlight">USMLE Step 2 CK</span> Score
+              </h2>
               <p>
                 Enter your NBME, UWSA, UWorld, or Free 120 practice exam scores below. Our proprietary 3-method ensemble algorithm analyzes
-                {' '}{stats?.totalDataPoints?.toLocaleString() || '5,039'}+ verified student score reports to predict
-                your Step 2 CK score with confidence interval, percentile ranking, and personalized study insights.
+                {' '}{stats?.totalDataPoints?.toLocaleString() || '5,039'}+ verified student score reports to provide
+                the most accurate prediction of your Step 2 CK performance.
               </p>
               <div className="hero-features">
                 <div className="feature">
