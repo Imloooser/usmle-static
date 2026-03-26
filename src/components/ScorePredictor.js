@@ -70,7 +70,7 @@ function SubmitScoreModal({ onClose, scores }) {
         <button className="modal-close" onClick={onClose}><X size={20} /></button>
         <div className="modal-header">
           <Gift size={24} />
-          <h3>Share Your Real Score</h3>
+          <h3>Share Your Real Score 234567898uytfdfghjkl</h3>
         </div>
         <p className="modal-desc">
           Got your Step 2 CK result? Share it anonymously to help improve predictions for everyone.
