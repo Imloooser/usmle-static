@@ -1,0 +1,35 @@
+# USMLEPredictor.com
+
+> Free, data-driven USMLE Step 2 CK score predictor and calculator.
+
+## Purpose
+USMLEPredictor uses an ensemble of three statistical methods (Weighted Average, KNN, and Regression) to predict a student's actual USMLE Step 2 CK score based on their practice exam results.
+
+## Key Data Points
+- **Dataset:** 5,039+ verified student score reports.
+- **Input Types:** NBME Forms 9-16, UWSA 1-3, UWorld %, Free 120 %.
+- **NBME Form 32:** Most predictive (r=0.92, ±5-7 pts precision).
+- **NBME Form 31:** High accuracy (r=0.91, ±5 pts precision).
+- **NBME 9-30:** Comprehensive benchmarking & trend analysis.
+- **UWSA 2:** High precision (r=0.89, -3.2 pts avg bias).
+- **Free 120:** Final check (r=0.85, ±8-10 pts precision).
+
+## 2026 Roadmap: Step 1 & Step 3
+- **Step 1 Predictor:** PASS/FAIL probability models and foundation metrics.
+- **Step 3 Predictor:** CCS performance and specialty-specific scoring.
+
+## Features
+- Predicted 3-digit score with 95% Confidence Interval.
+- National Percentile Ranking.
+- Score Trend Analysis (Improving/Stable/Declining).
+- Similar student profile comparisons (Practice Avg, Actual Score, UWorld %).
+- 100% Free & Private (No login required, no registration).
+
+## Technical Details
+- **Frontend:** React SPA (Client-Side Rendered).
+- **Backend:** Node.js API with custom-trained machine learning ensemble models.
+- **Analytics:** Data-driven and verified against real score reports.
+- **Privacy:** Scores are never stored with personal identifiable information.
+
+## How to use
+Visit [USMLEPredictor.com](https://usmlepredictor.com) and enter one or more practice scores to get an instant prediction.

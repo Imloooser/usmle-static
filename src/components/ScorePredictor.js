@@ -17,8 +17,8 @@ const SCORE_FIELDS = [
   { key: 'uwsa1', label: 'UWSA 1', group: 'uwsa', placeholder: '180–300' },
   { key: 'uwsa2', label: 'UWSA 2', group: 'uwsa', placeholder: '180–300' },
   { key: 'uwsa3', label: 'UWSA 3', group: 'uwsa', placeholder: '180–300' },
-  { key: 'free120', label: 'Free 120 %', group: 'other', placeholder: '0–100' },
-  { key: 'uworldPercent', label: 'UWorld %', group: 'other', placeholder: '0–100' },
+  { key: 'free120', label: 'Free 120 %', group: 'other', placeholder: '1–100' },
+  { key: 'uworldPercent', label: 'UWorld %', group: 'other', placeholder: '1–100' },
 ];
 
 function SubmitScoreModal({ onClose, scores }) {
@@ -70,7 +70,7 @@ function SubmitScoreModal({ onClose, scores }) {
         <button className="modal-close" onClick={onClose}><X size={20} /></button>
         <div className="modal-header">
           <Gift size={24} />
-          <h3>Share Your Real Score 234567898uytfdfghjkl</h3>
+          <h3>Share Your Real Score</h3>
         </div>
         <p className="modal-desc">
           Got your Step 2 CK result? Share it anonymously to help improve predictions for everyone.
@@ -110,7 +110,7 @@ function SubmitScoreModal({ onClose, scores }) {
   );
 }
 
-export default function ScorePredictor() {
+export default function ScorePredictor({ onNavigate }) {
   const [scores, setScores] = useState({});
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -125,8 +125,13 @@ export default function ScorePredictor() {
 
   useEffect(() => {
     trackEvent('page_view', { page: 'home' });
-    predictAPI.stats().then(res => setStats(res.data)).catch(() => {});
-  }, []);
+    const originalTitle = 'USMLE Step 2 CK Score Predictor - USMLEPredictor | Free & Instant 2026';
+    if (result) {
+      document.title = `Predicted Score: ${result.predictedScore} | USMLEPredictor.com`;
+    } else {
+      document.title = originalTitle;
+    }
+  }, [result]);
 
   const handleChange = (key, value) => {
     setScores(prev => ({
@@ -231,9 +236,9 @@ export default function ScorePredictor() {
             <div className="logo-icon-wrap">
               <Target size={28} className="logo-icon" aria-hidden="true" />
             </div>
-            <div>
-              <h1>USMLE Predictor</h1>
-              <p className="tagline">Step 2 CK Score Predictor</p>
+            <div className="logo-text-wrap">
+              <h1 className="logo-title">USMLE Predictor</h1>
+              <p className="logo-tagline" style={{ fontSize: '11px', color: '#5A6980' }}>Step 2 CK Score Predictor</p>
             </div>
           </div>
           <div className="header-pills">
@@ -256,19 +261,22 @@ export default function ScorePredictor() {
           <>
             {/* Hero */}
             <section className="hero" aria-label="Score predictor introduction">
-              <div className="hero-badge">
+               <div className="hero-badge">
                 <Zap size={14} aria-hidden="true" /> Most Accurate Step 2 CK Predictor
-              </div>
-              <h2>Predict Your USMLE Step 2 CK Score</h2>
+              </div> 
+            <h2>
+  Predict Your <span class="highlight">USMLE Step 2 CK - </span> 
+  Score
+</h2>
               <p>
                 Enter your NBME, UWSA, UWorld, or Free 120 practice exam scores below. Our proprietary 3-method ensemble algorithm analyzes
-                {' '}{stats?.totalDataPoints?.toLocaleString() || '5,000'}+ verified student score reports to predict
+                {' '}{stats?.totalDataPoints?.toLocaleString() || '5,039'}+ verified student score reports to predict
                 your Step 2 CK score with confidence interval, percentile ranking, and personalized study insights.
               </p>
               <div className="hero-features">
                 <div className="feature">
-                  <BarChart3 size={20} aria-hidden="true" />
-                  <span>{stats?.totalDataPoints?.toLocaleString() || '5,000'}+ verified data points</span>
+                  <BarChart3 size={18} aria-label="Chart Icon" />
+                  <span>{stats?.totalDataPoints?.toLocaleString() || '5,039'}+ verified data points</span>
                 </div>
                 <div className="feature">
                   <Zap size={20} aria-hidden="true" />
@@ -289,11 +297,11 @@ export default function ScorePredictor() {
             <div className="trust-bar">
               <div className="trust-item">
                 <Award size={16} />
-                <span>Used by {Math.floor((stats?.totalDataPoints || 5000) / 3)}+ students</span>
+                <span>Used by {Math.floor((stats?.totalDataPoints || 5039) / 3)}+ students</span>
               </div>
               <div className="trust-item">
                 <TrendingUp size={16} />
-                <span>Avg overperformance: +{stats?.avgOverperformance || 7} pts</span>
+                <span>Avg overperformance: +{stats?.avgOverperformance || 6.5} pts</span>
               </div>
             </div>
 
@@ -309,20 +317,26 @@ export default function ScorePredictor() {
               {error && <div className="form-error">{error}</div>}
 
               <div className="form-actions">
-                <button
-                  type="submit"
-                  className="btn-predict"
-                  disabled={loading || filledCount === 0}
-                >
-                  {loading ? (
-                    <span className="spinner" />
-                  ) : (
-                    <>
-                      <Target size={18} />
-                      Predict My Score
-                    </>
-                  )}
-                </button>
+                <div style={{ width: '100%', maxWidth: '360px' }}>
+              
+                    <button
+                      type="submit"
+                      className="btn-predict"
+                      disabled={loading || filledCount === 0}
+                    >
+
+                        {loading ? (
+                          <span className="spinner" />
+                        ) : (
+                          <>
+                            <Target size={20} aria-label="Target Icon" />
+                            Predict My Score
+                          </>
+                        )}
+
+                    </button>
+
+                </div>
                 <span className="input-count">
                   {filledCount} score{filledCount !== 1 ? 's' : ''} entered
                   {filledCount < 3 && filledCount > 0 && ' — add more for better accuracy'}
@@ -371,37 +385,6 @@ export default function ScorePredictor() {
           </>
         )}
       </main>
-
-      {/* Footer */}
-      <footer className="stepscore-footer" role="contentinfo">
-        <p><strong>USMLEPredictor.com</strong> — Free USMLE Step 2 CK Score Predictor</p>
-        <p className="footer-sub">
-          Predict your USMLE Step 2 CK score using NBME (Forms 9–16), UWSA (1–3), UWorld, and Free 120 scores.
-          Powered by {stats?.totalDataPoints?.toLocaleString() || '5,000'}+ verified student data points.
-        </p>
-        <p className="footer-sub">Not affiliated with NBME, USMLE, UWorld, or any official organization.</p>
-        <p className="footer-sub">
-          <span
-            className="contact-link"
-            role="link"
-            tabIndex={0}
-            onClick={() => {
-              const p = [105,110,102,111];
-              const d = [117,115,109,108,101,112,114,101,100,105,99,116,111,114,46,99,111,109];
-              const addr = p.map(c => String.fromCharCode(c)).join('') + String.fromCharCode(64) + d.map(c => String.fromCharCode(c)).join('');
-              const a = document.createElement('a');
-              a.setAttribute('href', 'mai' + 'lto:' + addr);
-              document.body.appendChild(a);
-              a.click();
-              document.body.removeChild(a);
-            }}
-            onKeyDown={(e) => e.key === 'Enter' && e.target.click()}
-          >
-            Contact Us
-          </span>
-        </p>
-        <p className="footer-sub">&copy; {new Date().getFullYear()} USMLEPredictor. All rights reserved.</p>
-      </footer>
 
       {/* Submit Score Modal */}
       {showSubmitModal && (

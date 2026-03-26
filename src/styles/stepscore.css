@@ -130,8 +130,8 @@ body {
   background-clip: text;
 }
 
-.tagline {
-  font-size: 11px;
+.logo p {
+  font-size: 4px;
   color: var(--text-light);
   margin-top: -2px;
   letter-spacing: 0.3px;
@@ -155,6 +155,27 @@ body {
   color: var(--primary-light);
   font-weight: 500;
   white-space: nowrap;
+}
+
+.nav-pill {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.nav-pill:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: var(--primary-light);
+  color: var(--primary-light);
 }
 
 .accent-pill {
@@ -202,15 +223,25 @@ body {
 }
 
 .hero h2 {
-  font-size: 32px;
+  font-family: 'Satoshi', 'Inter', sans-serif;
+  font-size: clamp(52px, 12vw, 70px);
   font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 12px;
-  background: linear-gradient(135deg, #f1f5f9 0%, #94a3b8 100%);
+  line-height: 1.05;
+  margin-bottom: 22px;
+   margin-top: 22px;
+  letter-spacing: -0.025em;
+
+  background: linear-gradient(135deg, #f8fafc, #94a3b8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.2;
+
+  text-shadow: 0 0 40px rgba(148, 163, 184, 0.15);
+}
+
+.hero h2 .highlight {
+  background: linear-gradient(135deg, #4f46e5, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero > p {
@@ -364,12 +395,14 @@ body {
   color: var(--text);
   background: var(--bg-elevated);
   transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: auto;
   -moz-appearance: textfield;
   min-height: 44px; /* touch friendly */
 }
 
 .field select {
   appearance: none;
+  -webkit-appearance: none;
   cursor: pointer;
 }
 
@@ -1100,9 +1133,6 @@ body {
     width: 100%;
   }
 
-  .hero h2 {
-    font-size: 24px;
-  }
 
   .hero-features {
     grid-template-columns: 1fr;
@@ -1147,9 +1177,6 @@ body {
     gap: 8px;
   }
 
-  .hero h2 {
-    font-size: 26px;
-  }
 
   .hero-features {
     grid-template-columns: 1fr;
@@ -1184,9 +1211,6 @@ body {
 
 /* Tablets (601px - 768px) */
 @media (min-width: 601px) and (max-width: 768px) {
-  .hero h2 {
-    font-size: 30px;
-  }
 
   .hero-features {
     grid-template-columns: 1fr 1fr;
@@ -1199,9 +1223,6 @@ body {
     padding: 36px 24px 60px;
   }
 
-  .hero h2 {
-    font-size: 36px;
-  }
 
   .gauge-score {
     font-size: 80px;
