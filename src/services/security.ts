@@ -27,7 +27,7 @@ export function initSecurity() {
 
   // 2. Disable right-click context menu on the app
   document.addEventListener('contextmenu', (e) => {
-    if (!e.target.closest('input, textarea, select')) {
+    if (!(e.target as HTMLElement)?.closest('input, textarea, select')) {
       e.preventDefault();
     }
   });
@@ -48,7 +48,8 @@ export function initSecurity() {
 
   // 4. Disable drag on content
   document.addEventListener('dragstart', (e) => {
-    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+    const target = e.target as HTMLElement;
+    if (target?.tagName !== 'INPUT' && target?.tagName !== 'TEXTAREA') {
       e.preventDefault();
     }
   });
@@ -77,8 +78,10 @@ export function initSecurity() {
 // Checks that critical prediction functions haven't been tampered with
 function setupIntegrityCheck() {
   // Store references to critical functions at init time
-  let _predictScore = null;
-  let _getDatasetStats = null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let _predictScore: any = null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let _getDatasetStats: any = null;
 
   import('./scorePredictor').then(mod => {
     _predictScore = mod.predictScore;
@@ -104,7 +107,7 @@ export function protectNetwork() {
   // Monitor for unauthorized network requests
   const originalFetch = window.fetch;
   window.fetch = function (...args) {
-    const url = typeof args[0] === 'string' ? args[0] : args[0]?.url || '';
+    const url = typeof args[0] === 'string' ? args[0] : (args[0] as Request)?.url || '';
     // Allow only trusted domains
     const trusted = [
       'fonts.googleapis.com',

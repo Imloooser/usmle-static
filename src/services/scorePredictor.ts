@@ -242,10 +242,10 @@ export function predictScore(input: ScoreInput) {
 
   if (method2Score && method3Score) {
     ensembleScore = 0.35 * method1Score + 0.40 * method2Score + 0.25 * method3Score;
-    ensembleStd = knnResult.std;
+    ensembleStd = knnResult!.std;
   } else if (method2Score) {
     ensembleScore = 0.45 * method1Score + 0.55 * method2Score;
-    ensembleStd = knnResult.std;
+    ensembleStd = knnResult!.std;
   } else if (method3Score) {
     ensembleScore = 0.55 * method1Score + 0.45 * method3Score;
     ensembleStd = corrections.stdDev;
@@ -313,7 +313,7 @@ function findSimilarStudents(input: ScoreInput) {
         distance: Math.round(distance * 10) / 10,
       };
     })
-    .filter(s => s !== null && s.distance < 15)
+    .filter((s): s is NonNullable<typeof s> => s !== null && s.distance < 15)
     .sort((a, b) => a.distance - b.distance)
     .slice(0, 8);
 }
