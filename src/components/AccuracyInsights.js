@@ -3,7 +3,7 @@ import { BarChart3, TrendingUp, Shield, ArrowLeft, Target, Award } from 'lucide-
 import '../styles/stepscore.css';
 
 const ACCURACY_DATA = [
-  { test: 'NBME Form 14', accuracy: '±5-7 points', correlation: '0.92', notes: 'Currently the most predictive NBME form for Step 2 CK 2025/2026.' },
+  { test: 'NBME Form 14', accuracy: '±5-7 points', correlation: '0.92', notes: 'Currently the most predictive NBME form for Step 2 CK 2025/Soon.' },
   { test: 'UWSA 2', accuracy: '±6-8 points', correlation: '0.89', notes: 'Highly reliable but tends to overpredict by 2-4 points on average.' },
   { test: 'Free 120', accuracy: '±8-10 points', correlation: '0.85', notes: 'Best used as a final verification of testing stamina and logic.' },
   { test: 'NBME Form 13', accuracy: '±6-9 points', correlation: '0.88', notes: 'Strong predictor, slightly less precise than Form 14.' },
@@ -75,9 +75,9 @@ export default function AccuracyInsights({ onBack, onNavigate }) {
 
           <div className="form-grid-comprehensive">
             <div className="form-group">
-              <h4>Modern NBME Forms (2024-2026)</h4>
+              <h4>Modern NBME Forms</h4>
               <ul>
-                <li><strong>NBME Form 32:</strong> The newest release. Shows high fidelity with the Step 2 CK 2026 question style.</li>
+                <li><strong>NBME Form 32:</strong> The newest release. Shows high fidelity with the Step 2 CK Soon question style.</li>
                 <li><strong>NBME Form 31:</strong> Strongest predictor for recent test-takers. Precision: ±5 points.</li>
                 <li><strong>NBME Form 30 & 29:</strong> Reliable but may slightly underpredict by 2-5 points.</li>
               </ul>
@@ -91,14 +91,14 @@ export default function AccuracyInsights({ onBack, onNavigate }) {
             </div>
           </div>
 
-          <h3>UWSA 2 Accuracy & Step 2 CK Correlation 2026</h3>
+          <h3>UWSA 2 Accuracy & Step 2 CK Correlation Soon</h3>
           <p>
-            UWSA 2 remains the gold standard for UWorld self-assessments. In our 2025-2026 cohort, 74% of students 
+            UWSA 2 remains the gold standard for UWorld self-assessments. In our 2025-Soon cohort, 74% of students 
             scored within 5 points of their UWSA 2 result. Our <strong>NBME score converter</strong> analysis 
             shows that while UWSA 2 is precise, it typically <strong>overpredicts</strong> actual performance by an average of 3.2 points. 
           </p>
 
-          <h3>USMLE Step 1 & Step 3 Predictors (Coming 2026)</h3>
+          <h3>USMLE Step 1 & Step 3 Predictors (Coming Soon)</h3>
           <p>
             While our current tool focuses on <strong>Step 2 CK score prediction</strong>, we are actively training models for 
             <strong>USMLE Step 1</strong> and <strong>USMLE Step 3</strong>.
@@ -111,7 +111,7 @@ export default function AccuracyInsights({ onBack, onNavigate }) {
 
         <section className="comparison-table">
           <h3>USMLEPredictor vs Reddit vs AMBOSS</h3>
-          <p>How does our 2026 ensemble algorithm compare to other popular prediction methods?</p>
+          <p>How does our Soon ensemble algorithm compare to other popular prediction methods?</p>
           <div className="table-wrapper">
             <table>
               <thead>
@@ -127,7 +127,7 @@ export default function AccuracyInsights({ onBack, onNavigate }) {
                   <td><strong>USMLEPredictor.com</strong></td>
                   <td>5,039 Verified Reports</td>
                   <td><strong>±5 points (High)</strong></td>
-                  <td>Real-time 2026</td>
+                  <td>Real-time Soon</td>
                 </tr>
                 <tr>
                   <td>Reddit Predictor</td>
@@ -163,7 +163,7 @@ export default function AccuracyInsights({ onBack, onNavigate }) {
           <h3>Authoritative Sources & Citations</h3>
           <p>Our algorithms are informed by and validated against public datasets and medical education research, including:</p>
           <ul>
-            <li><a href="https://www.usmle.org/bulletin-information" target="_blank" rel="noopener noreferrer"><em>USMLE Step 2 CK Bulletin of Information (2025/2026)</em></a> - Score interpretation guidelines.</li>
+            <li><a href="https://www.usmle.org/bulletin-information" target="_blank" rel="noopener noreferrer"><em>USMLE Step 2 CK Bulletin of Information</em></a> - Score interpretation guidelines.</li>
             <li><a href="https://www.nbme.org/examinees/score-reports-and-transcripts" target="_blank" rel="noopener noreferrer"><em>NBME Performance Data Reports</em></a> - Historical form difficulty and item response theory (IRT) benchmarks.</li>
             <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10363072/" target="_blank" rel="noopener noreferrer"><em>Journal of Medical Education</em></a> - Studies on the predictive validity of the Free 120 and UWSA self-assessments.</li>
           </ul>
