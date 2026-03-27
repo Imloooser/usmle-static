@@ -4,6 +4,7 @@ import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { predictAPI, trackEvent, submitScore } from '../services/api';
 import { Target, TrendingUp, Users, BarChart3, ChevronDown, ChevronUp, Zap, Shield, Award, Gift, X, Check } from 'lucide-react';
 import { AnimatedShinyText } from './ui/animated-shiny-text';
+import LoadingScreen from './LoadingScreen';
 
 const ScoreResults = lazy(() => import('./ScoreResults'));
 
@@ -244,12 +245,7 @@ export default function ScorePredictor() {
 
   return (
     <div className="stepscore-app">
-      {loading && (
-        <div className="loading-overlay">
-          <div className="spinner"></div>
-          <p>Analyzing your scores...</p>
-        </div>
-      )}
+      {loading && <LoadingScreen />}
       <header className="stepscore-header" role="banner">
         <div className="header-content">
           <div className="logo">
