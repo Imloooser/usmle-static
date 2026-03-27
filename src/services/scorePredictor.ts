@@ -94,9 +94,30 @@ function computeDatasetCorrections() {
   const variance = diffs.reduce((sum, d) => sum + Math.pow(d - avgOverperformance, 2), 0) / diffs.length;
   const stdDev = Math.sqrt(variance);
 
+  const statusCorrections: any = {};
+  ['US_MD', 'US_DO', 'Non_US_IMG'].forEach(status => {
+    const statusDiffs: number[] = [];
+    (dataset as any[]).filter(s => s.status === status).forEach(student => {
+      const scores: number[] = [];
+      ['nbme9','nbme10','nbme11','nbme12','nbme13','nbme14','nbme15','nbme16'].forEach(f => {
+        if (student[f]) scores.push(student[f]);
+      });
+      if (scores.length < 2) return;
+      const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+      statusDiffs.push(student.actualScore - avg);
+    });
+    if (statusDiffs.length > 20) {
+      statusCorrections[status] = {
+        avg: statusDiffs.reduce((a, b) => a + b, 0) / statusDiffs.length,
+        n: statusDiffs.length,
+      };
+    }
+  });
+
   _cachedCorrections = {
     avgOverperformance: Math.round(avgOverperformance * 10) / 10,
     stdDev: Math.round(stdDev * 10) / 10,
+    statusCorrections,
   };
   return _cachedCorrections;
 }
@@ -311,6 +332,7 @@ function findSimilarStudents(input: ScoreInput) {
         status: student.status?.replace(/_/g, ' ') || 'Unknown',
         uworldPercent: student.uworldPercent,
         distance: Math.round(distance * 10) / 10,
+        source: 'Verified data point',
       };
     })
     .filter((s): s is NonNullable<typeof s> => s !== null && s.distance < 15)
@@ -319,7 +341,7 @@ function findSimilarStudents(input: ScoreInput) {
 }
 
 function calculateTrend(nbmeScores: { label: string, score: number }[]) {
-  if (nbmeScores.length < 2) return { direction: 'insufficient', message: 'Need 2+ NBMEs for trend analysis', scores: nbmeScores };
+  if (nbmeScores.length < 2) return { direction: 'insufficient', perExam: 0, message: 'Need 2+ NBMEs for trend analysis', scores: nbmeScores };
 
   const n = nbmeScores.length;
   let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
@@ -334,19 +356,30 @@ function calculateTrend(nbmeScores: { label: string, score: number }[]) {
   const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
   const avg = sumY / n;
 
-  let direction = 'stable', message = `Scores are stable around ${Math.round(avg)}.`;
+  let direction: string, message: string;
   if (slope > 3) {
     direction = 'strongly_improving';
-    message = `Strong upward trend: gaining ~${Math.round(slope)} points per exam.`;
+    message = `Strong upward trend: gaining ~${Math.round(slope)} points per exam. Great momentum!`;
   } else if (slope > 1) {
     direction = 'improving';
-    message = `Improving: gaining ~${Math.round(slope)} points per exam.`;
-  } else if (slope < -3) {
+    message = `Improving: gaining ~${Math.round(slope)} points per exam. Solid progress.`;
+  } else if (slope > -1) {
+    direction = 'stable';
+    message = `Scores are stable around ${Math.round(avg)}. Consistent performance.`;
+  } else if (slope > -3) {
+    direction = 'declining';
+    message = `Slight decline: ~${Math.round(Math.abs(slope))} points per exam. Consider reviewing weak areas.`;
+  } else {
     direction = 'strongly_declining';
-    message = `Declining trend: ~${Math.round(Math.abs(slope))} points per exam.`;
+    message = `Declining trend: ~${Math.round(Math.abs(slope))} points per exam. May need to refocus strategy.`;
   }
 
-  return { direction, scores: nbmeScores, message };
+  return {
+    direction,
+    perExam: Math.round(slope * 10) / 10,
+    scores: nbmeScores,
+    message,
+  };
 }
 
 function generateInsights(input: ScoreInput, predicted: number, similar: any[], trend: any) {
