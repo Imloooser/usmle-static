@@ -257,7 +257,7 @@ export default function ScorePredictor({ onNavigate }) {
             {stats && (
               <span className="stat-pill" aria-label={`${stats.totalDataPoints?.toLocaleString()} data points in our dataset`}>
                 <Users size={14} aria-hidden="true" />
-                {stats.totalDataPoints?.toLocaleString()} data points
+                {stats.totalDataPoints?.toLocaleString()} <span className="hide-xs">data points</span>
               </span>
             )}
             <span className="stat-pill accent-pill">

@@ -31,7 +31,7 @@ export default function AccuracyInsights({ onBack, onNavigate }) {
           </div>
           <button className="nav-pill" onClick={onBack}>
             <ArrowLeft size={16} />
-            <span>Back to Predictor</span>
+            <span>Back <span className="hide-xs">to Predictor</span></span>
           </button>
         </div>
       </header>
@@ -135,12 +135,6 @@ export default function AccuracyInsights({ onBack, onNavigate }) {
                   <td>±8 points (Variable)</td>
                   <td>Stagnant (2022)</td>
                 </tr>
-                <tr>
-                  <td>AMBOSS Predictor</td>
-                  <td>QBank Performance</td>
-                  <td>±7 points (Proprietary)</td>
-                  <td>Frequent</td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -150,7 +144,7 @@ export default function AccuracyInsights({ onBack, onNavigate }) {
           <div className="quote-grid">
             <div className="quote-card">
               <p>"Predicted 258, Actual 259. The NBME 14 and UWSA 2 weighted average was spot on for my dedicated period."</p>
-              <span>— MD Student, Class of 2025</span>
+              <span>— MD Student</span>
             </div>
             <div className="quote-card">
               <p>"USMLEPredictor gave me the confidence to move my test date up. It's much faster than filling out a spreadsheet."</p>

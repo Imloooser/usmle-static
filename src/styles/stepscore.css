@@ -97,6 +97,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  flex-wrap: nowrap;
 }
 
 .logo {
@@ -213,6 +214,19 @@ body {
   background: rgba(16, 185, 129, 0.12);
   border-color: rgba(16, 185, 129, 0.2);
   color: var(--accent);
+}
+
+.hide-xs {
+  display: inline;
+}
+
+@media (max-width: 400px) {
+  .logo-tagline, .hide-xs {
+    display: none !important;
+  }
+  .logo-title {
+    font-size: 17px !important;
+  }
 }
 
 .hide-mobile {
@@ -1167,13 +1181,15 @@ body {
 /* Small phones (320px+) */
 @media (max-width: 380px) {
   .header-content {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     gap: 8px;
+    width: 100%;
   }
 
   .header-pills {
-    width: 100%;
+    width: auto;
   }
 
 
@@ -1215,9 +1231,10 @@ body {
 /* Standard phones (381px - 600px) */
 @media (min-width: 381px) and (max-width: 600px) {
   .header-content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
   }
 
 
