@@ -353,7 +353,7 @@ body {
 }
 
 .trust-item svg {
-  color: var(--accent);
+  color: var(--success);
 }
 
 /* ──────────────────────────────────────────
