@@ -21,9 +21,15 @@ export default function Footer({ stats }) {
                     Not affiliated with NBME, USMLE, UWorld, or any official organization.
                 </p>
 
-                <a href="mailto:info@usmlepredictor.com" className="contact">
-                    Contact Us
-                </a>
+                <div className="footer-links">
+                   
+                    <a href="mailto:info@usmlepredictor.com" className="contact">
+                        Contact Us
+                    </a>
+                     <a href="#accuracy" className="contact">
+                        Accuracy Insights
+                    </a>
+                </div>
 
                 <p className="line4">
                     © {currentYear} USMLEPredictor. All rights reserved.
@@ -61,6 +67,13 @@ export default function Footer({ stats }) {
           font-size: 12px;
           color: #64748b;
           line-height: 1.4;
+        }
+
+        .footer-links {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+          margin: 4px 0;
         }
 
         .line3 {

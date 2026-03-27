@@ -125,7 +125,7 @@ export default function ScorePredictor({ onNavigate }) {
 
   useEffect(() => {
     trackEvent('page_view', { page: 'home' });
-    
+
     // Fetch dataset stats
     const fetchStats = async () => {
       try {
@@ -273,9 +273,9 @@ export default function ScorePredictor({ onNavigate }) {
           <>
             {/* Hero */}
             <section className="hero" aria-label="Score predictor introduction">
-               <div className="hero-badge">
+              <div className="hero-badge">
                 <Zap size={14} aria-hidden="true" /> Most Accurate Step 2 CK Predictor
-              </div> 
+              </div>
               <h2>
                 Predict Your <span className="highlight">USMLE Step 2 CK</span> Score
               </h2>
@@ -329,23 +329,23 @@ export default function ScorePredictor({ onNavigate }) {
 
               <div className="form-actions">
                 <div style={{ width: '100%', maxWidth: '360px' }}>
-              
-                    <button
-                      type="submit"
-                      className="btn-predict"
-                      disabled={loading || filledCount === 0}
-                    >
 
-                        {loading ? (
-                          <span className="spinner" />
-                        ) : (
-                          <>
-                            <Target size={20} aria-label="Target Icon" />
-                            Predict My Score
-                          </>
-                        )}
+                  <button
+                    type="submit"
+                    className="btn-predict"
+                    disabled={loading || filledCount === 0}
+                  >
 
-                    </button>
+                    {loading ? (
+                      <span className="spinner" />
+                    ) : (
+                      <>
+                        <Target size={20} aria-label="Target Icon" />
+                        Predict My Score
+                      </>
+                    )}
+
+                  </button>
 
                 </div>
                 <span className="input-count">

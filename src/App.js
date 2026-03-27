@@ -2,22 +2,25 @@ import React, { lazy, Suspense, useState, useEffect } from 'react';
 import ScorePredictor from './components/ScorePredictor';
 import Footer from './components/Footer';
 
+import AccuracyInsights from './components/AccuracyInsights';
 const AdminDashboard = lazy(() => import('./components/AdminDashboard'));
 
 function App() {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [route, setRoute] = useState(window.location.hash || '#home');
 
   useEffect(() => {
-    // Check if URL hash is #admin
-    const checkRoute = () => {
-      setIsAdmin(window.location.hash === '#admin');
+    const handleHashChange = () => {
+      setRoute(window.location.hash || '#home');
     };
-    checkRoute();
-    window.addEventListener('hashchange', checkRoute);
-    return () => window.removeEventListener('hashchange', checkRoute);
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  if (isAdmin) {
+  const navigateTo = (hash) => {
+    window.location.hash = hash;
+  };
+
+  if (route === '#admin') {
     return (
       <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', background: '#0b0f1a', color: '#64748b', fontFamily: 'system-ui' }}>Loading...</div>}>
         <AdminDashboard />
@@ -26,9 +29,18 @@ function App() {
     );
   }
 
+  if (route === '#accuracy') {
+    return (
+      <>
+        <AccuracyInsights onBack={() => navigateTo('#home')} />
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <>
-      <ScorePredictor />
+      <ScorePredictor onNavigate={navigateTo} />
       <Footer />
     </>
   );
