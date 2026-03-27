@@ -1614,7 +1614,7 @@ body {
 
 /* Medium phones & Small Tablets (381px - 600px) */
 @media (max-width: 600px) {
-  .stepscore-main { padding: 72px 12px 40px; }
+  .stepscore-main { padding: 25px 12px 30px; }
   .header-content { flex-direction: row; justify-content: space-between; align-items: center; gap: 10px; }
   .header-pills { gap: 6px; width: auto; }
   .stat-pill { padding: 4px 10px; font-size: 11px; }
