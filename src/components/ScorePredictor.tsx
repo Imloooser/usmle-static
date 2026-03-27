@@ -116,7 +116,9 @@ function SubmitScoreModal({ onClose, scores }: { onClose: () => void, scores: an
 export default function ScorePredictor() {
   const [scores, setScores] = useState<Record<string, any>>({});
   const [result, setResult] = useState<any>(null);
+  const [pendingResult, setPendingResult] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [stats, setStats] = useState<any>(null);
   const [showSubmitModal, setShowSubmitModal] = useState(false);
@@ -165,6 +167,7 @@ export default function ScorePredictor() {
       setError('Enter at least one practice score.');
       return;
     }
+    setShowLoading(true);
     setLoading(true);
     setError(null);
     trackEvent('prediction_started', { inputCount: filledCount });
@@ -174,7 +177,7 @@ export default function ScorePredictor() {
         if (v !== undefined && v !== '') (payload as any)[k] = parseFloat(v);
       });
       const res = await predictAPI.predict(payload);
-      setResult(res.data);
+      setPendingResult(res.data);
       trackEvent('prediction_made', {
         predicted: res.data.predictedScore,
         confidence: res.data.confidence,
@@ -183,8 +186,17 @@ export default function ScorePredictor() {
     } catch (err: any) {
       setError(err.response?.data?.error || 'Prediction failed. Please try again.');
       trackEvent('prediction_error');
+      setShowLoading(false);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleLoadingComplete = () => {
+    setShowLoading(false);
+    if (pendingResult) {
+      setResult(pendingResult);
+      setPendingResult(null);
     }
   };
 
@@ -245,7 +257,7 @@ export default function ScorePredictor() {
 
   return (
     <div className="stepscore-app">
-      {loading && <LoadingScreen />}
+      {showLoading && <LoadingScreen onComplete={handleLoadingComplete} dataReady={!!pendingResult} />}
       <header className="stepscore-header" role="banner">
         <div className="header-content">
           <div className="logo">
@@ -333,9 +345,9 @@ export default function ScorePredictor() {
                   <button
                     type="submit"
                     className="btn-predict"
-                    disabled={loading || filledCount === 0}
+                    disabled={loading || showLoading || filledCount === 0}
                   >
-                    {loading ? (
+                    {loading || showLoading ? (
                       <span className="spinner" />
                     ) : (
                       <>
