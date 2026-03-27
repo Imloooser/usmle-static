@@ -124,7 +124,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#0b0f1a] text-white antialiased`} onContextMenu={(e) => e.preventDefault()}>
+      <body className={`${inter.className} bg-[#0b0f1a] text-white antialiased`}>
 
         {/* 🔥 STRUCTURED DATA */}
         <Script
