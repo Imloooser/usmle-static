@@ -110,6 +110,8 @@ function SubmitScoreModal({ onClose, scores }) {
   );
 }
 
+import Loader from './Loader';
+
 export default function ScorePredictor({ onNavigate }) {
   const [scores, setScores] = useState({});
   const [result, setResult] = useState(null);
@@ -171,6 +173,7 @@ export default function ScorePredictor({ onNavigate }) {
       });
       const res = await predictAPI.predict(payload);
       setResult(res.data);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       trackEvent('prediction_made', {
         predicted: res.data.predictedScore,
         confidence: res.data.confidence,
@@ -242,6 +245,7 @@ export default function ScorePredictor({ onNavigate }) {
   return (
     <div className="stepscore-app">
       {/* Header */}
+      {loading && <Loader />}
       <header className="stepscore-header" role="banner">
         <div className="header-content">
           <div className="logo">

@@ -2,6 +2,7 @@ import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
 import { ArrowLeft, Target, TrendingUp, TrendingDown, Minus, Users, Lightbulb, AlertTriangle, CheckCircle, Info, Share2, Award } from 'lucide-react';
 import { trackEvent } from '../services/api';
+import { NumberTicker } from "./Number";
 
 function ScoreGauge({ score, low, high, percentile }) {
   const min = 180;
@@ -21,7 +22,7 @@ function ScoreGauge({ score, low, high, percentile }) {
     <div className="score-gauge">
       <div className="gauge-ring" style={{ '--ring-color': getColor(score), '--ring-pct': `${pct * 3.6}deg` }}>
         <div className="gauge-score" style={{ color: getColor(score) }}>
-          {score}
+          <NumberTicker value={score} />
         </div>
       </div>
       <div className="gauge-label">Predicted Score</div>
