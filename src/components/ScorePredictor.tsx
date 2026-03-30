@@ -265,7 +265,7 @@ export default function ScorePredictor() {
               <Target size={28} className="logo-icon" aria-hidden="true" />
             </div>
             <div className="logo-text-wrap hide-xs">
-              <h1 className="logo-title">USMLE Predictor</h1>
+              <div className="logo-title text-xl font-bold">USMLE Predictor</div>
               <p className="logo-tagline" style={{ fontSize: '11px', color: '#5A6980' }}>Step 2 CK Score Predictor</p>
             </div>
           </div>
@@ -293,9 +293,9 @@ export default function ScorePredictor() {
                   <Zap size={14} aria-hidden="true" className="text-[#818cf8]" /> <span className='text-[#818cf8]'>Most Accurate Step 2 CK Predictor</span>
                 </AnimatedShinyText>
               </div>
-              <h2>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6">
                 Predict Your <span className="highlight"> USMLE Step 2 CK</span> Score
-              </h2>
+              </h1>
               <p>
                 Enter your NBME, UWSA, UWorld, or Free 120 practice exam scores below. Our proprietary 3-method ensemble algorithm analyzes 5,039+ verified student score reports to provide the most accurate prediction of your Step 2 CK performance.
               </p>

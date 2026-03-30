@@ -3,6 +3,8 @@ import Script from 'next/script'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import DisableRightClick from '@/components/DisableRightClick'
+import SchemaMarkup from '@/components/SchemaMarkup'
+import { organizationSchema, websiteSchema } from '@/lib/schemas'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -26,6 +28,11 @@ export const metadata: Metadata = {
     'nbme score conversion',
     'predict my usmle score',
     'usmle score distribution',
+    'uwsa score converter',
+    'free 120 score predictor',
+    'step 2 ck passing score',
+    'usmle step 1 predictor',
+    'usmle step 3 predictor',
   ],
 
   authors: [{ name: 'USMLEPredictor' }],
@@ -43,15 +50,14 @@ export const metadata: Metadata = {
     },
   },
 
-  alternates: {
-    canonical: '/',
-  },
+  // canonical is set per-page — do NOT set a global canonical here
+  // (it would bleed to every route and override page-level canonicals)
 
   category: 'education',
 
   openGraph: {
     type: 'website',
-    url: '/',
+    url: 'https://usmlepredictor.com/',
     title: 'USMLE Score Predictor (Step 1, 2 CK, Step 3)',
     description:
       'Predict your USMLE score instantly using real student data and advanced algorithms.',
@@ -61,6 +67,7 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
+        alt: 'USMLE Step 2 CK Score Predictor tool by USMLEPredictor.com',
       },
     ],
   },
@@ -71,6 +78,7 @@ export const metadata: Metadata = {
     description:
       'Predict your USMLE Step 2 CK score using NBME, UWSA & Free 120.',
     images: ['/og-image.png'],
+    creator: '@usmlepredictor',
   },
 
   icons: {
@@ -81,42 +89,7 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
 }
 
-const jsonLd = [
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    name: "USMLE Score Predictor",
-    url: "https://usmlepredictor.com",
-    applicationCategory: "EducationalApplication",
-    operatingSystem: "Any",
-    description:
-      "Free USMLE Step 2 CK score predictor using NBME, UWSA and Free 120.",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "USMLEPredictor",
-    url: "https://usmlepredictor.com",
-    logo: "https://usmlepredictor.com/icon-180.png",
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://usmlepredictor.com",
-      },
-    ],
-  },
-]
+
 
 export default function RootLayout({
   children,
@@ -125,17 +98,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+
+      <head>
+        {/* ✅ Sitewide structured data: Organization + WebSite */}
+        <SchemaMarkup schema={[organizationSchema, websiteSchema]} />
+      </head>
       <body className={`${inter.className} bg-[#0b0f1a] text-white antialiased`}>
 
         <DisableRightClick />
 
-        {/* 🔥 STRUCTURED DATA */}
-        <Script
-          id="ld-json"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+
 
         {/* MAIN CONTENT */}
         <main>{children}</main>

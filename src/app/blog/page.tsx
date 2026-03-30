@@ -18,11 +18,14 @@ export const metadata: Metadata = {
     "free usmle score predictor",
     "usmle score distribution",
   ],
+  alternates: {
+    canonical: "https://usmlepredictor.com/blog",
+  },
   openGraph: {
     title: "USMLE Score Predictor (2026 Guide)",
     description:
       "Accurately predict your USMLE Step 2 CK score using real student data.",
-    url: "https://usmlepredictor.com/blog/usmle-score-predictor-guide",
+    url: "https://usmlepredictor.com/blog",
     siteName: "USMLEPredictor",
     type: "article",
   },
@@ -125,7 +128,7 @@ export default function BlogPage() {
               <li><strong>Velocity Analysis:</strong> Factoring in how much you improve between your first and last practice exams.</li>
             </ul>
 
-            <div className="blog-table-wrapper">
+            <div className="table-container">
               <table>
                 <thead>
                   <tr>

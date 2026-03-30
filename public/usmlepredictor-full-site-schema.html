@@ -1,0 +1,249 @@
+<!-- ============================================================ -->
+<!--  SITEWIDE SCHEMAS — Paste in <head> of EVERY page           -->
+<!-- ============================================================ -->
+
+<!-- ✅ SCHEMA 1: Organization — Brand entity (sitewide) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "USMLE Predictor",
+  "url": "https://usmlepredictor.com/",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://usmlepredictor.com/logo.png",
+    "width": 200,
+    "height": 60
+  },
+  "description": "Free USMLE score predictor and calculator tools for medical students. Built on 5,039 verified student score reports for Step 1, Step 2 CK, and Step 3 licensing exam prediction.",
+  "foundingDate": "2022",
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "audience": {
+    "@type": "EducationalAudience",
+    "educationalRole": "Medical Student"
+  },
+  "knowsAbout": [
+    "USMLE Score Prediction",
+    "NBME Practice Exam Correlation",
+    "UWSA Score Conversion",
+    "Medical Licensing Exam Preparation",
+    "Step 2 CK Score Estimation"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "url": "https://usmlepredictor.com/"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "USMLE Score Prediction Tools",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "USMLE Step 2 CK Score Predictor",
+          "url": "https://usmlepredictor.com/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "USMLE Step 1 Score Predictor",
+          "url": "https://usmlepredictor.com/usmle-step-1-score-predictor/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "USMLE Step 3 Score Predictor",
+          "url": "https://usmlepredictor.com/usmle-step-3-score-predictor/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "NBME Score Predictor",
+          "url": "https://usmlepredictor.com/nbme-score-predictor/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "UWSA Score Converter",
+          "url": "https://usmlepredictor.com/uwsa-score-predictor/"
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- ✅ SCHEMA 2: WebSite — Enables sitelinks & search box (sitewide) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "USMLE Predictor",
+  "url": "https://usmlepredictor.com/",
+  "description": "Free USMLE score predictor tools for Step 1, Step 2 CK, and Step 3. Built on 5,039 verified student score reports.",
+  "inLanguage": "en-US",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://usmlepredictor.com/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+
+<!-- ============================================================ -->
+<!--  HOMEPAGE — https://usmlepredictor.com/                     -->
+<!--  Paste BELOW the sitewide schemas, on homepage only         -->
+<!-- ============================================================ -->
+
+<!-- ✅ SCHEMA 3: WebApplication — Step 2 CK Score Predictor tool -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "USMLE Step 2 CK Score Predictor",
+  "url": "https://usmlepredictor.com/",
+  "description": "Free USMLE Step 2 CK score predictor built on 5,039 verified student outcomes. Enter your NBME, UWSA 1, UWSA 2, or Free 120 score to get your predicted Step 2 CK result instantly.",
+  "applicationCategory": "EducationApplication",
+  "applicationSubCategory": "Medical Exam Preparation",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "USMLE Step 2 CK score prediction from NBME scores",
+    "UWSA 1 and UWSA 2 score conversion",
+    "Free 120 score correlation",
+    "Shelf exam-based score estimation",
+    "3-method ensemble algorithm (KNN + Weighted Average + Per-Form Regression)",
+    "Instant results — no account required"
+  ],
+  "screenshot": "https://usmlepredictor.com/screenshot.png",
+  "audience": {
+    "@type": "EducationalAudience",
+    "educationalRole": "Medical Student"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "USMLE Predictor",
+    "url": "https://usmlepredictor.com/"
+  },
+  "datePublished": "2022-01-01",
+  "dateModified": "2026-03-01"
+}
+</script>
+
+<!-- ✅ SCHEMA 4: FAQPage — Homepage FAQs (rich result dropdowns) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate is the USMLE Step 2 CK score predictor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "USMLEPredictor.com achieves a Pearson correlation of r = 0.92 with NBME Form 14 inputs, with 80% of predictions within ±5-7 points of the actual USMLE Step 2 CK score. This is based on 5,039 verified student score reports collected from 2022 to 2026."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which practice exams can I use to predict my Step 2 CK score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can enter scores from NBME practice forms (Forms 9-32), UWSA 1, UWSA 2, and Free 120. Using multiple scores together increases prediction accuracy. NBME Form 14 and UWSA 2 are the strongest individual predictors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is USMLE Predictor free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. USMLEPredictor.com is completely free. No account, login, or subscription is required. Enter your practice exam scores and receive your predicted Step 2 CK score instantly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is USMLEPredictor different from the Reddit score predictor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "USMLEPredictor.com is built on 5,039 verified, document-confirmed score reports and uses a 3-method ensemble algorithm (K-Nearest Neighbors, Weighted Averages, and Per-Form Regression). The Reddit predictor relies on self-reported, unverified data and has not been updated since 2022."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is USMLEPredictor affiliated with NBME or the official USMLE program?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. USMLEPredictor.com is an independent tool built by medical educators and data scientists. It is not affiliated with, endorsed by, or officially connected to NBME or the USMLE program."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I predict Step 1 or Step 3 scores too?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Step 1 and Step 3 score predictors are currently in development and coming soon. The current tool focuses on USMLE Step 2 CK prediction."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- BreadcrumbList omitted on homepage — single-item breadcrumbs produce no rich result -->
+
+
+<!-- ============================================================ -->
+<!--  /accuracyinsights PAGE                                      -->
+<!--  https://www.usmlepredictor.com/accuracyinsights            -->
+<!-- ============================================================ -->
+
+<!-- ✅ SCHEMA 6: ScholarlyArticle — Research-backed accuracy data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "USMLE Step 2 CK Score Prediction: Accuracy, Methodology & Correlation Data",
+  "description": "Statistical accuracy analysis of USMLE Step 2 CK score predictors based on 5,039 verified student score reports. Includes Pearson correlation coefficients, precision ranges, and ensemble algorithm methodology.",
+  "url": "https://www.usmlepredictor.com/accuracyinsights",
+  "datePublished": "2022-01-01",
+  "dateModified": "2026-03-01",
+  "author": {
+    "@type": "Organization",
+    "name": "USMLE Predictor Research Team",
+    "url": "https://usmlepredictor.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "USMLE Predictor",
+    "url": "https://usmlepredictor.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://usmlepredictor.com/logo.png"
+    }
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "USMLE Step 2 CK Score Prediction Accuracy"
+  }
+  /* citation removed — populate with real references before adding back */
+}
+</script>
