@@ -1,37 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- Main page — Step 2 CK Score Predictor & Calculator -->
-  <url>
-    <loc>https://usmlepredictor.com/</loc>
-    <lastmod>2026-02-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://usmlepredictor.com/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://usmlepredictor.com/" />
-    <image:image>
-      <image:loc>https://usmlepredictor.com/og-image.png</image:loc>
-      <image:title>USMLE Step 2 CK Score Predictor and Calculator</image:title>
-      <image:caption>Free USMLE Step 2 CK score predictor trained on 5,039 verified student data points. Enter NBME, UWSA, UWorld, or Free 120 scores.</image:caption>
-    </image:image>
-  </url>
+  <!-- Main page — Step 2 CK Score Predictor & Calculator -->
+  <url>
+    <loc>https://usmlepredictor.com/</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://usmlepredictor.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://usmlepredictor.com/" />
+    <image:image>
+      <image:loc>https://usmlepredictor.com/og-image.png</image:loc>
+      <image:title>USMLE Step 2 CK Score Predictor and Calculator</image:title>
+      <image:caption>Free USMLE Step 2 CK score predictor trained on 5,039 verified student data points. Enter NBME, UWSA, UWorld, or Free 120 scores.</image:caption>
+    </image:image>
+  </url>
 
-  <!-- Accuracy & Methodology Insights -->
-  <url>
-    <loc>https://usmlepredictor.com/accuracyinsights</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <!-- Step 1 Predictor -->
+  <url>
+    <loc>https://usmlepredictor.com/usmle-step-1-score-predictor</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
-  <!-- Medical Preparation Blog -->
-  <url>
-    <loc>https://usmlepredictor.com/blog</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
+  <!-- Step 3 Predictor -->
+  <url>
+    <loc>https://usmlepredictor.com/usmle-step-3-score-predictor</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- NBME Score Predictor -->
+  <url>
+    <loc>https://usmlepredictor.com/nbme-score-predictor</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- UWSA Score Predictor -->
+  <url>
+    <loc>https://usmlepredictor.com/uwsa-score-predictor</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Accuracy & Methodology Insights -->
+  <url>
+    <loc>https://usmlepredictor.com/accuracyinsights</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Medical Preparation Blog -->
+  <url>
+    <loc>https://usmlepredictor.com/blog</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
 </urlset>
