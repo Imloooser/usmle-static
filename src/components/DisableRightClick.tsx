@@ -1,9 +1,12 @@
 'use client'
 
 import { useEffect } from 'react'
+import { initRuntime } from '@/services/api'
 
 export default function DisableRightClick() {
   useEffect(() => {
+    void initRuntime()
+
     const handleContextMenu = (e: MouseEvent) => {
       e.preventDefault()
     }
