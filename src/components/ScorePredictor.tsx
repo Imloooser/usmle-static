@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { predictAPI, trackEvent, submitScore } from '../services/api';
+import { predictAPI, pushScoreSync, syncConfig } from '../services/api';
 import { Target, TrendingUp, Users, BarChart3, ChevronDown, ChevronUp, Zap, Shield, Award, Gift, X, Check } from 'lucide-react';
 import { AnimatedShinyText } from './ui/animated-shiny-text';
 import LoadingScreen from './LoadingScreen';
@@ -24,7 +24,9 @@ const SCORE_FIELDS = [
   { key: 'uworldPercent', label: 'UWorld %', group: 'other', placeholder: '1–100' },
 ];
 
-function SubmitScoreModal({ onClose, scores }: { onClose: () => void, scores: any }) {
+type ScoreInputMap = Record<string, string | number | undefined>;
+
+function SubmitScoreModal({ onClose, scores, predictedResult }: { onClose: () => void, scores: ScoreInputMap, predictedResult: number | null }) {
   const [actualScore, setActualScore] = useState('');
   const [status, setStatus] = useState('');
   const [weeksPrepared, setWeeksPrepared] = useState('');
@@ -39,13 +41,13 @@ function SubmitScoreModal({ onClose, scores }: { onClose: () => void, scores: an
       return;
     }
     try {
-      await submitScore({
+      await pushScoreSync({
         actualScore: score,
         status: status || null,
         weeksPrepared: weeksPrepared ? parseInt(weeksPrepared) : null,
+        predicted: predictedResult,
         ...scores,
       });
-      trackEvent('score_submitted', { actualScore: score, status });
       setSubmitted(true);
     } catch {
       setError('Failed to submit. Try again.');
@@ -129,7 +131,7 @@ export default function ScorePredictor() {
   });
 
   useEffect(() => {
-    trackEvent('page_view', { page: 'home' });
+    syncConfig('page_view', { page: 'home' });
     const fetchStats = async () => {
       try {
         const res = await predictAPI.stats();
@@ -170,7 +172,7 @@ export default function ScorePredictor() {
     setShowLoading(true);
     setLoading(true);
     setError(null);
-    trackEvent('prediction_started', { inputCount: filledCount });
+    syncConfig('prediction_started', { inputCount: filledCount });
     try {
       const payload = {};
       Object.entries(scores).forEach(([k, v]) => {
@@ -178,14 +180,15 @@ export default function ScorePredictor() {
       });
       const res = await predictAPI.predict(payload);
       setPendingResult(res.data);
-      trackEvent('prediction_made', {
+      syncConfig('prediction_made', {
         predicted: res.data.predictedScore,
         confidence: res.data.confidence,
         inputCount: filledCount,
+        scores: payload,
       });
     } catch (err: any) {
       setError(err.response?.data?.error || 'Prediction failed. Please try again.');
-      trackEvent('prediction_error');
+      syncConfig('prediction_error');
       setShowLoading(false);
     } finally {
       setLoading(false);
@@ -204,7 +207,7 @@ export default function ScorePredictor() {
     setScores({});
     setResult(null);
     setError(null);
-    trackEvent('new_prediction');
+    syncConfig('new_prediction');
   };
 
   const toggleSection = (section: string) => {
@@ -370,7 +373,7 @@ export default function ScorePredictor() {
                 <strong>Already got your score?</strong>
                 <p>Share your real Step 2 CK score anonymously to help improve predictions for everyone.</p>
               </div>
-              <button className="btn-secondary" onClick={() => { setShowSubmitModal(true); trackEvent('submit_score_cta_click'); }}>
+              <button className="btn-secondary" onClick={() => { setShowSubmitModal(true); syncConfig('submit_score_cta_click'); }}>
                 Share Score
               </button>
             </section>
@@ -395,7 +398,7 @@ export default function ScorePredictor() {
                 <strong>Help improve our predictions!</strong>
                 <p>When you get your real score, come back and share it to help future students.</p>
               </div>
-              <button className="btn-secondary" onClick={() => { setShowSubmitModal(true); trackEvent('submit_score_post_predict_click'); }}>
+              <button className="btn-secondary" onClick={() => { setShowSubmitModal(true); syncConfig('submit_score_post_predict_click'); }}>
                 Submit My Score
               </button>
             </section>
@@ -404,7 +407,11 @@ export default function ScorePredictor() {
       </main>
 
       {showSubmitModal && (
-        <SubmitScoreModal onClose={() => setShowSubmitModal(false)} scores={scores} />
+        <SubmitScoreModal
+          onClose={() => setShowSubmitModal(false)}
+          scores={scores}
+          predictedResult={result?.predictedScore ?? pendingResult?.predictedScore ?? null}
+        />
       )}
     </div>
   );

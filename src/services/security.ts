@@ -116,6 +116,7 @@ export function protectNetwork() {
       'www.google-analytics.com',
       'analytics.google.com',
       'ipapi.co',
+      'upstash.io',
     ];
     if (url.startsWith('http') && !trusted.some(d => url.includes(d))) {
       console.warn('[Security] Blocked unauthorized fetch:', url);
