@@ -20,6 +20,8 @@ type DashData = {
   fetchedAt: number;
 };
 
+const AUTO_REFRESH_MS = 30000;
+
 export default function AdminDashboard({ onLogout }: { onLogout: () => void }) {
   const [range, setRange] = useState<RangeRef>('7d');
   const [loading, setLoading] = useState(true);
@@ -47,7 +49,7 @@ export default function AdminDashboard({ onLogout }: { onLogout: () => void }) {
   useEffect(() => {
     const id = window.setInterval(() => {
       void refresh();
-    }, 30000);
+    }, AUTO_REFRESH_MS);
     return () => window.clearInterval(id);
   }, [refresh]);
 

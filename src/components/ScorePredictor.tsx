@@ -24,7 +24,9 @@ const SCORE_FIELDS = [
   { key: 'uworldPercent', label: 'UWorld %', group: 'other', placeholder: '1–100' },
 ];
 
-function SubmitScoreModal({ onClose, scores, predictedResult }: { onClose: () => void, scores: any, predictedResult: number | null }) {
+type ScoreInputMap = Record<string, string | number | undefined>;
+
+function SubmitScoreModal({ onClose, scores, predictedResult }: { onClose: () => void, scores: ScoreInputMap, predictedResult: number | null }) {
   const [actualScore, setActualScore] = useState('');
   const [status, setStatus] = useState('');
   const [weeksPrepared, setWeeksPrepared] = useState('');

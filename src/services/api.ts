@@ -48,9 +48,11 @@ const _cfg = {
   eventTtlSec: 60 * 60 * 24 * 90,
   ingestPath: '/pipeline',
   activityKey: 'activity_log',
+  localScoreCap: 150,
 } as const;
 
 let _runtimePromise: Promise<RuntimeRef> | null = null;
+let _adminWarned = false;
 
 const _isClient = () => typeof window !== 'undefined';
 
@@ -365,7 +367,7 @@ export async function pushScoreSync(data: RuntimeMap): Promise<void> {
     const key = '_up_submissions';
     const existing = _safeParse<Array<RuntimeMap>>(localStorage.getItem(key), []);
     existing.push({ ...data, t: new Date().toISOString() });
-    localStorage.setItem(key, JSON.stringify(existing.slice(-150)));
+    localStorage.setItem(key, JSON.stringify(existing.slice(-_cfg.localScoreCap)));
   }
 
   const ref = await initRuntime();
@@ -525,6 +527,10 @@ export function downloadRuntimeCsv(rows: RuntimeMap[], fileName = 'runtime-expor
 export async function checkAdminKey(raw: string): Promise<boolean> {
   const hash = await _sha(raw);
   const expected = process.env.NEXT_PUBLIC_ADMIN_HASH || _cfg.adminHashDefault;
+  if (!_adminWarned && !process.env.NEXT_PUBLIC_ADMIN_HASH && _isClient()) {
+    _adminWarned = true;
+    console.warn('[runtime] NEXT_PUBLIC_ADMIN_HASH not set, using default admin hash');
+  }
   return hash === expected;
 }
 
@@ -546,7 +552,7 @@ export const trackEvent = (event: string, data?: RuntimeMap) => {
 
 export const submitScore = async (data: RuntimeMap) => {
   await pushScoreSync(data);
-  return new Promise((resolve) => setTimeout(resolve, 250));
+  return Promise.resolve();
 };
 
 export const predictAPI = {
@@ -555,18 +561,24 @@ export const predictAPI = {
   },
 
   predict: async (scores: Record<string, number>) => {
+    const buildApiError = (message: string) => {
+      const err = new Error(message) as Error & { response: { data: { error: string } } };
+      err.response = { data: { error: message } };
+      return err;
+    };
+
     // Simulate slight API delay for UI feel
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     try {
       const result = predictScore(scores);
       if ('error' in result) {
-        throw { response: { data: { error: result.error } } };
+        throw buildApiError(result.error || 'Prediction failed. Please try again.');
       }
       return { data: result };
     } catch (err) {
       console.error('Prediction Error:', err);
-      throw { response: { data: { error: 'Prediction failed. Please try again.' } } };
+      throw buildApiError('Prediction failed. Please try again.');
     }
   },
 };
