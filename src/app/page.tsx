@@ -1,7 +1,6 @@
 import React from 'react';
 import ScorePredictor from '@/components/ScorePredictor';
 import Footer from '@/components/Footer';
-import AdminRoute from '@/components/AdminRoute';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import { webApplicationSchema, faqSchema } from '@/lib/schemas';
 import type { Metadata } from 'next'
@@ -21,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <AdminRoute>
+    <>
       <ScorePredictor />
       
 <section className="methodology-section">
@@ -71,6 +70,6 @@ export default function Home() {
       <SchemaMarkup schema={[webApplicationSchema, faqSchema]} />
 
       {/* BreadcrumbList omitted on homepage — single-item breadcrumbs produce no rich result */}
-    </AdminRoute>
+    </>
   );
 }
