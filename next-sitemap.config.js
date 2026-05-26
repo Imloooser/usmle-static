@@ -2,7 +2,7 @@
 module.exports = {
 siteUrl: 'https://usmlepredictor.com',
 generateRobotsTxt: true,
-outDir: './build',
+outDir: './out',
 changefreq: 'weekly',
 priority: 0.7,
 sitemapSize: 7000,

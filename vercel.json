@@ -2,16 +2,13 @@
   "framework": null,
   "buildCommand": "next build",
   "outputDirectory": "out",
-  "rewrites": [
-    { "source": "/((?!_next|static|favicon.ico|robots.txt|sitemap.xml|manifest.json|og-image.png|icon-180.png).*)", "destination": "/index.html" }
-  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
     },
