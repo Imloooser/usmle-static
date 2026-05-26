@@ -144,6 +144,16 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
 
+        <Script
+          defer
+          src="https://cloud.umami.is/recorder.js"
+          data-website-id="7fc3b461-93e9-4d96-ab6f-e8ae0a6a9b2d"
+          data-sample-rate="0.15"
+          data-mask-level="moderate"
+          data-max-duration="1200000"
+          strategy="afterInteractive"
+        />
+
       </body>
     </html>
   )
