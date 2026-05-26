@@ -3,7 +3,18 @@
  * Ensemble algorithm powered by 5,000+ student data points.
  */
 
-import dataset from '../data/scoreDataset.json';
+// Dataset is dynamically imported on first prediction so it doesn't ship
+// with the homepage bundle. Loaded once, then reused.
+let dataset: any[] = [];
+let _datasetLoaded: Promise<void> | null = null;
+
+function loadDataset(): Promise<void> {
+  if (_datasetLoaded) return _datasetLoaded;
+  _datasetLoaded = import('../data/scoreDataset.json').then(mod => {
+    dataset = (mod as any).default ?? mod;
+  });
+  return _datasetLoaded;
+}
 
 interface ScoreInput {
   nbme9?: number;
@@ -219,7 +230,9 @@ function perFormPredict(input: ScoreInput) {
   return weightedSum / totalWeight;
 }
 
-export function predictScore(input: ScoreInput) {
+export async function predictScore(input: ScoreInput) {
+  await loadDataset();
+
   const scorePairs: any[] = [];
 
   Object.keys(WEIGHTS).forEach(key => {
@@ -447,7 +460,9 @@ function generateInsights(input: ScoreInput, predicted: number, similar: any[], 
   return insights;
 }
 
-export function getDatasetStats() {
+export async function getDatasetStats() {
+  await loadDataset();
+
   const scores = (dataset as any[]).map(s => s.actualScore);
   const avg = Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
   const min = Math.min(...scores);
