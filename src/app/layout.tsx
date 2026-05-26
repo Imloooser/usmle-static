@@ -148,7 +148,7 @@ export default function RootLayout({
           defer
           src="https://cloud.umami.is/recorder.js"
           data-website-id="7fc3b461-93e9-4d96-ab6f-e8ae0a6a9b2d"
-          data-sample-rate="0.15"
+          data-sample-rate="1"
           data-mask-level="moderate"
           data-max-duration="1200000"
           strategy="afterInteractive"
