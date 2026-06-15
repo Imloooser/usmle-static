@@ -5,6 +5,9 @@ import { predictAPI, trackEvent, submitScore } from '../services/api';
 import { Target, TrendingUp, Users, BarChart3, ChevronDown, ChevronUp, Zap, Shield, Award, Gift, X, Check } from 'lucide-react';
 import { AnimatedShinyText } from './ui/animated-shiny-text';
 import LoadingScreen from './LoadingScreen';
+import ExamSwitcher from './ExamSwitcher';
+import PredictorHero from './PredictorHero';
+import TrustBar from './TrustBar';
 
 const ScoreResults = lazy(() => import('./ScoreResults'));
 
@@ -257,78 +260,15 @@ export default function ScorePredictor() {
 
   return (
     <div className="stepscore-app">
-      {showLoading && <LoadingScreen onComplete={handleLoadingComplete} dataReady={!!pendingResult} />}
-      <header className="stepscore-header" role="banner">
-        <div className="header-content">
-          <div className="logo">
-            <div className="logo-icon-wrap">
-              <Target size={28} className="logo-icon" aria-hidden="true" />
-            </div>
-            <div className="logo-text-wrap hide-xs">
-              <div className="logo-title text-xl font-bold">USMLE Predictor</div>
-              <p className="logo-tagline" style={{ fontSize: '11px', color: '#5A6980' }}>Step 2 CK Score Predictor</p>
-            </div>
-          </div>
-          <div className="header-pills">
-            {stats && (
-              <span className="stat-pill" aria-label={`${stats.totalDataPoints?.toLocaleString()} data points in our dataset`}>
-                <Users size={14} aria-hidden="true" />
-                {stats.totalDataPoints?.toLocaleString()} data points
-              </span>
-            )}
-            <span className="stat-pill accent-pill">
-              <Shield size={14} aria-hidden="true" />
-              100% Free
-            </span>
-          </div>
-        </div>
-      </header>
-
+      {showLoading && <LoadingScreen onComplete={handleLoadingComplete} dataReady={!!pendingResult} examType="step2" />}
       <main className="stepscore-main" role="main">
         {!result ? (
           <>
-            <section className="hero" aria-label="Score predictor introduction">
-              <div className="hero-badge">
-                <AnimatedShinyText className="inline-flex gap-2 items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-                  <Zap size={14} aria-hidden="true" className="text-[#818cf8]" /> <span className='text-[#818cf8]'>Most Accurate Step 2 CK Predictor</span>
-                </AnimatedShinyText>
-              </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-6">
-                Predict Your <span className="highlight"> USMLE Step 2 CK</span> Score
-              </h1>
-              <p>
-                Enter your NBME, UWSA, UWorld, or Free 120 practice exam scores below. Our proprietary 3-method ensemble algorithm analyzes 5,039+ verified student score reports to provide the most accurate prediction of your Step 2 CK performance.
-              </p>
-              <div className="hero-features">
-                <div className="feature">
-                  <BarChart3 size={18} aria-label="Chart Icon" />
-                  <span>5,039+ verified data points</span>
-                </div>
-                <div className="feature">
-                  <Zap size={20} aria-hidden="true" />
-                  <span>Instant prediction with confidence interval</span>
-                </div>
-                <div className="feature">
-                  <Users size={20} aria-hidden="true" />
-                  <span>Compare with similar students</span>
-                </div>
-                <div className="feature">
-                  <Shield size={20} aria-hidden="true" />
-                  <span>No login required • 100% private</span>
-                </div>
-              </div>
-            </section>
+            <PredictorHero step="step2" />
 
-            <div className="trust-bar">
-              <div className="trust-item">
-                <Award size={16} />
-                <span>Used by {Math.floor((stats?.totalDataPoints || 5039) / 3)}+ students</span>
-              </div>
-              <div className="trust-item">
-                <TrendingUp size={16} />
-                <span>Avg overperformance: +{stats?.avgOverperformance || 6.5} pts</span>
-              </div>
-            </div>
+            <ExamSwitcher active="step2" />
+
+            <TrustBar step="step2" />
 
             <form className="score-form" onSubmit={handleSubmit}>
               <p className="form-helper-text">

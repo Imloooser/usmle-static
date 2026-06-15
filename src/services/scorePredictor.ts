@@ -345,12 +345,14 @@ function findSimilarStudents(input: ScoreInput) {
         status: student.status?.replace(/_/g, ' ') || 'Unknown',
         uworldPercent: student.uworldPercent,
         distance: Math.round(distance * 10) / 10,
-        source: 'Verified data point',
       };
     })
     .filter((s): s is NonNullable<typeof s> => s !== null && s.distance < 15)
     .sort((a, b) => a.distance - b.distance)
-    .slice(0, 8);
+    .slice(0, 8)
+    // Strip the internal KNN distance — the UI never uses it and it shouldn't
+    // hand a scraper a similarity signal.
+    .map(({ distance: _d, ...rest }) => rest);
 }
 
 function calculateTrend(nbmeScores: { label: string, score: number }[]) {

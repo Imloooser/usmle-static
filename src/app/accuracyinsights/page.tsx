@@ -2,11 +2,11 @@ import React from 'react';
 import Link from 'next/link';
 import { BarChart3, Shield, Target, HelpCircle, Activity } from 'lucide-react';
 import SchemaMarkup from '@/components/SchemaMarkup';
-import { scholarlyArticleSchema, accuracyBreadcrumbSchema } from '@/lib/schemas';
+import { scholarlyArticleSchema, accuracyBreadcrumbSchema, accuracyFaqSchema } from '@/lib/schemas';
 import { Metadata } from 'next';
 
 const ACCURACY_DATA = [
-  { test: 'NBME Form 14', accuracy: '±5-7 points', correlation: '0.92', notes: 'Currently the most predictive NBME form for Step 2 CK 2025/Soon.' },
+  { test: 'NBME Form 14', accuracy: '±5-7 points', correlation: '0.92', notes: 'Currently the most predictive NBME form for Step 2 CK 2025/2026.' },
   { test: 'UWSA 2', accuracy: '±6-8 points', correlation: '0.89', notes: 'Highly reliable but tends to overpredict by 3.2 points on average.' },
   { test: 'Free 120', accuracy: '±8-10 points', correlation: '0.85', notes: 'Best used as a final verification of testing stamina and logic.' },
   { test: 'NBME Form 13', accuracy: '±6-9 points', correlation: '0.88', notes: 'Strong predictor, slightly less precise than Form 14.' },
@@ -18,12 +18,25 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://usmlepredictor.com/accuracyinsights',
   },
+  openGraph: {
+    title: 'USMLE Step 2 CK Accuracy & Methodology — 5,039 Verified Reports',
+    description: 'How our Step 2 CK predictor achieves MAE ~4 points. Pearson correlations, ensemble algorithm, validation methodology.',
+    url: 'https://usmlepredictor.com/accuracyinsights',
+    type: 'article',
+    images: [{ url: '/og-accuracy-step-2.png', width: 1200, height: 630, alt: 'USMLE Step 2 CK Accuracy Insights' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'USMLE Step 2 CK Prediction Accuracy',
+    description: 'Statistical accuracy analysis based on 5,039 verified reports.',
+    images: ['/og-accuracy-step-2.png'],
+  },
 };
 
 export default function AccuracyInsights() {
   return (
     <div className="premium-page-container">
-      <SchemaMarkup schema={[scholarlyArticleSchema, accuracyBreadcrumbSchema]} />
+      <SchemaMarkup schema={[scholarlyArticleSchema, accuracyBreadcrumbSchema, accuracyFaqSchema]} />
 
       {/* HEADER */}
       <header className="premium-page-header">
@@ -417,7 +430,7 @@ export default function AccuracyInsights() {
                   This tool is not affiliated with NBME or the USMLE program. We are an independent tool built on independently collected data. We do not have access to official NBME datasets.
                 </li>
                 <li className="pl-2 relative before:content-[''] before:absolute before:left-[-1.25rem] before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full list-none">
-                  The model is currently trained on Step 2 CK data only. Step 1 and Step 3 predictors are in active development.
+                  This page details accuracy statistics for the Step 2 CK predictor. Step 1 pass/fail prediction and Step 3 score prediction tools are also live and available.
                 </li>
               </ul>
             </div>
@@ -456,18 +469,18 @@ export default function AccuracyInsights() {
 
         <div className="accuracy-text-block">
           <div className="p-6 rounded-xl">
-            <h2 className="text-xl font-bold text-white mb-4">Step 1 and Step 3 Predictors (Coming Soon)</h2>
+            <h2 className="text-xl font-bold text-white mb-4">Step 1 and Step 3 Predictors</h2>
 
             <p className="text-[#a0acc0] leading-relaxed mb-4">
-              We are actively collecting score reports and training models for:
+              Our live predictor tools and accuracy methodologies are also available for:
             </p>
 
             <ul className="accuracy-list mt-4 mb-6">
               <li className="pl-2 relative before:content-[''] before:absolute before:left-[-1.25rem] before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full list-none">
-                <span className="text-white font-medium">USMLE Step 1 Score Predictor:</span> Focusing on PASS/FAIL outcome prediction and NBME self-assessment correlation for Step 1 forms.
+                <span className="text-white font-medium"><Link href="/usmle-step-1-score-predictor" className="text-indigo-400 hover:underline">USMLE Step 1 Score Predictor</Link>:</span> Focusing on PASS/FAIL outcome prediction and NBME self-assessment correlation. Read the <Link href="/step-1-accuracy-insights" className="text-indigo-400 hover:underline">Step 1 Accuracy Insights</Link>.
               </li>
               <li className="pl-2 relative before:content-[''] before:absolute before:left-[-1.25rem] before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full list-none">
-                <span className="text-white font-medium">USMLE Step 3 Score Predictor:</span> Analyzing CCS (Clinical Case Simulation) performance patterns and specialty-specific scoring trends.
+                <span className="text-white font-medium"><Link href="/usmle-step-3-score-predictor" className="text-indigo-400 hover:underline">USMLE Step 3 Score Predictor</Link>:</span> Predicting 3-digit score and evaluating CCS performance patterns. Read the <Link href="/step-3-accuracy-insights" className="text-indigo-400 hover:underline">Step 3 Accuracy Insights</Link>.
               </li>
             </ul>
 

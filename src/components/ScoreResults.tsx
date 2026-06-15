@@ -135,7 +135,7 @@ function ScoreResults({ result, onReset }: { result: any, onReset: () => void })
     const text = `My predicted USMLE Step 2 CK score: ${predictedScore} (${lowEstimate}-${highEstimate})\nPredict yours free at USMLEPredictor.com`;
     trackEvent('share_clicked', { predicted: predictedScore });
     if (navigator.share) {
-      navigator.share({ title: 'USMLE Score Prediction', text, url: 'https://usmlepredictor.com' });
+      navigator.share({ title: 'USMLE Score Prediction', text, url: 'https://usmlepredictor.com' }).catch(() => {});
     } else {
       navigator.clipboard.writeText(text);
       alert('Copied to clipboard!');

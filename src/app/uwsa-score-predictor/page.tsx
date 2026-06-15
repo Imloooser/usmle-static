@@ -1,226 +1,149 @@
+/**
+ * INTEGRATION TEMPLATE — when ready, REPLACE the contents of
+ *   src/app/uwsa-score-predictor/page.tsx
+ * with this file (after first copying:
+ *   - drafts/uwsa-converter/uwsaConverter.ts   → src/services/uwsaConverter.ts
+ *   - drafts/uwsa-converter/UwsaConverter.tsx  → src/components/UwsaConverter.tsx
+ * )
+ */
+
 import React from 'react';
 import Link from 'next/link';
-import { Target, HelpCircle, Clock } from 'lucide-react';
+import { HelpCircle } from 'lucide-react';
 import { Metadata } from 'next';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import UwsaConverter from '@/components/UwsaConverter';
+import { medicalWebPageSchema } from '@/lib/schemas';
 
 export const metadata: Metadata = {
-  title: 'UWSA to USMLE Score Converter | USMLEPredictor.com',
-  description: 'Convert your UWorld Self-Assessment (UWSA 1 & UWSA 2) scores into a precise USMLE Step estimate. Our model corrects UWSA 2\'s 3.2 point average overprediction.',
+  title: 'UWSA Score Converter | Corrects Overprediction · Free',
+  description: 'Convert your UWSA 1 / 2 / 3 score into a bias-corrected predicted Step 2 CK score. Per-form correction, score-band ceiling adjustment, 80% interval. Free.',
   alternates: {
     canonical: 'https://usmlepredictor.com/uwsa-score-predictor',
   },
+  openGraph: {
+    title: 'UWSA to Step 2 CK Converter — Corrects Overprediction',
+    description: 'UWSA overpredicts. We correct it. Bias-corrected Step 2 CK estimate with 80% interval.',
+    url: 'https://usmlepredictor.com/uwsa-score-predictor',
+    type: 'website',
+    images: [{ url: '/og-uwsa.png', width: 1200, height: 630, alt: 'UWSA Score Converter' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'UWSA Score Converter (Free)',
+    description: 'Corrects UWSA over-prediction with per-form bias adjustment.',
+    images: ['/og-uwsa.png'],
+  },
 };
 
-export default function UWSAPredictor() {
+export default function UwsaPredictorPage() {
   const schema = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "UWSA Score Converter",
-    "url": "https://usmlepredictor.com/uwsa-score-predictor",
-    "applicationCategory": "EducationApplication",
-    "description": "Convert your UWorld Self-Assessment (UWSA) scores and correct for curve overprediction.",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'UWSA Score Converter',
+    url: 'https://usmlepredictor.com/uwsa-score-predictor',
+    applicationCategory: 'EducationApplication',
+    description: 'Converts UWSA 1/2/3 scores to bias-corrected predicted Step 2 CK with score-band asymmetry handling.',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   };
-
   const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
       {
         "@type": "Question",
-        "name": "Why did UWSA 1 give me a 265 but NBME Form 11 gave me a 245?",
+        "name": "Why does UWSA over-predict?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "UWSA 1 has a notoriously forgiving curve, particularly on the lower and middle end of the percentile spectrum. It tests different material differently than NBME frames, and our converter mathematically adjusts to correct this structural 'curve bump'."
+          "text": "UWSAs are calibrated on UWorld user populations who tend to score higher than the full Step 2 CK population. The form difficulty doesn't quite reach operational exam difficulty."
         }
       },
       {
         "@type": "Question",
-        "name": "Does UWSA 2 tend to overpredict or underpredict?",
+        "name": "Which UWSA is most accurate?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "While remarkably accurate, student data sets show that UWSA 2 historically overpredicts real USMLE Step 2 CK scores by an average of 3.2 points. Despite this, 74% of students score within 5 points of their UWSA 2 result."
+          "text": "UWSA 2, taken within 1-2 weeks of the real exam. UWSA 1 over-predicts more. UWSA 3 has limited published validity."
         }
       },
       {
         "@type": "Question",
-        "name": "Should I enter the 3-digit score or my raw percentage in converters?",
+        "name": "What is the ceiling effect?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The 3-digit UWSA score provides the most statistical utility for generating a unified conversion matrix, as the raw percentage changes across forms based on shifting percentiles."
+          "text": "Above UWSA 255, the prediction gap widens. Top scorers tend to lose 10-15 points relative to UWSA, even when other practice scores agree. We apply a progressive adjustment in this band."
         }
-      }
-    ]
+      },
+    ],
   };
-
   const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "USMLE Predictor",
-        "item": "https://usmlepredictor.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "UWSA Converter",
-        "item": "https://usmlepredictor.com/uwsa-score-predictor"
-      }
-    ]
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'USMLE Predictor', item: 'https://usmlepredictor.com/' },
+      { '@type': 'ListItem', position: 2, name: 'UWSA Converter', item: 'https://usmlepredictor.com/uwsa-score-predictor' },
+    ],
   };
+  const medicalSchema = medicalWebPageSchema({
+    url: 'https://usmlepredictor.com/uwsa-score-predictor',
+    name: 'UWSA Score Converter',
+    description: 'Bias-corrected UWSA-to-Step-2-CK converter with score-band asymmetry handling.',
+    lastReviewed: '2026-06-06',
+    about: 'UWorld Self-Assessment (UWSA) for Step 2 CK',
+    audience: 'medical students',
+  });
 
   return (
-    <div className="premium-page-container stepscore-app">
-      <SchemaMarkup schema={[schema, faqSchema, breadcrumbSchema]} />
+    <div className="premium-page-container methodology-section">
+      <SchemaMarkup schema={[schema, faqSchema, breadcrumbSchema, medicalSchema]} />
 
-      {/* HEADER */}
-      <header className="premium-page-header">
-        <div className="premium-header-content">
+      {/* CONVERTER — full-width on mobile */}
+      <UwsaConverter />
 
-          <div>
-            <div className="badge-premium mb-4">UWSA Converter • Overprediction Engine</div>
-
-            <h1 className="premium-page-title">
-              UWSA Score <span className=''> Converter </span>
-            </h1>
-
-            <p className="premium-page-subtitle hidden">
-              Convert your UWorld Self Assessment (UWSA 1 or UWSA 2) raw performance to calculate your accurately predicted real-world USMLE outcome.
-            </p>
-
-
-          </div>
-
-        </div>
-      </header>
-
-      {/* MAIN */}
+      {/* SEO content below */}
       <main className="premium-main-content">
-        
-        {/* 🚀 HERO TOOL */}
-        <section className="hero-section">
-          <div className="hero-card">
-
-            {/* Glow */}
-            <div className="hero-glow"></div>
-
-            <Clock className="hero-icon" size={52} />
-
-            <h2 className="hero-title">
-              UWorld Correction Engine
-            </h2>
-
-            <p className="hero-description">
-              Our UWSA conversion engine correctly adjusts the notorious UWSA 2 overprediction metric to align flawlessly with NBME bounds.
-            </p>
-
-            <div className="hero-cta">
-                    {/* 🔥 PRIMARY CTA */}
-            <div className="cta-container">
-                 <button className="hero-button" disabled>
-                Coming Soon 
-              </button>
-              <Link href="/" className="cta-primary-button">
-                Predict My Step 2 CK Score →
-              </Link>
-            </div>
-
-              <p className="hero-subtext">
-                Meanwhile → Enter your UWSA scores explicitly inside our 4-exam predictor on the homepage.
-              </p>
-            </div>
-
-          </div>
-        </section>
-
-        {/* 🔥 TRUST STRIP */}
-        <section className="premium-section text-center">
-          <p className="text-sm text-slate-400">
-            Form-Specific Custom Variables • Validated UWorld Scoring Metrics (2026)
-          </p>
-        </section>
-
-        {/* 📚 SEO CONTENT */}
         <section className="premium-section mt-16 leading-loose space-y-6">
           <h2 className="text-2xl font-bold text-white mb-4">
-            Understanding UWSA Step Overprediction Trends
+            UWSA Overprediction & How We Correct It
           </h2>
-
           <p className="text-[#a0acc0]">
-            UWorld assessments remain the most accurate stamina-checking tool available to modern medical students. While incredibly famous for robust explanations and highly applicable clinical vignettes, their internal proprietary scale significantly skews towards generating higher scores—a psychological strategy that this converter corrects mechanically.
+            UWorld&apos;s self-assessments (UWSA 1, 2, 3) are widely used as Step 2 CK predictors,
+            but they have a documented over-prediction bias. UWSA 2 — the most-cited of the three —
+            over-predicts actual Step 2 CK by ~3-5 points on average. UWSA 1 over-predicts more
+            (often 5-8 pts), and both forms exhibit a stronger ceiling effect above 255, where the
+            real-exam gap widens to 10-15 points.
           </p>
-
-<div className="insight-box">
-  <p className="insight-quote">
-    "74% of test-takers scored within 5 points of their UWSA 2 result."
-  </p>
-
-  <p className="insight-description">
-    However, our data indicates that UWSA 2 overpredicts Step 2 CK outcomes by an 
-    <strong> 3.2 point average</strong> without correction algorithms.
-  </p>
-</div>
-
           <p className="text-[#a0acc0]">
-            <strong>Overprediction Smoothing:</strong> UWSA 1, particularly on the lower percentile thresholds, boasts an absurdly forgiving assessment curve that often falsely reassures students scoring in the 220s. UWSA 2 is vastly more aligned with actual performance standards, yet simultaneously maintains that 3.2-point overarching inflation metric. Our converter algorithm trims this excess perfectly, dropping the score realistically so you never walk into test day unprepared.
+            <strong>Our correction model</strong> applies a base bias offset specific to each UWSA
+            form, plus a progressive ceiling adjustment for scores above 255. The output is a
+            bias-corrected point estimate with an 80% prediction interval anchored on the published
+            UWSA-to-Step-2-CK correlation (r ≈ 0.85-0.90 for UWSA 2).
           </p>
-
           <p className="text-[#a0acc0]">
-            <strong>Adapting to UWSA 3:</strong> Current student cohorts are navigating the newly launched UWSA 3. Early testing indicates UWSA 3 maintains the closest approximation to the current vagueness of modern Step testing compared to its predecessors. We continue parsing these thousands of data sets to provide immediate converter functionality soon.
+            <strong>What this tool doesn&apos;t do:</strong> we don&apos;t reverse-engineer
+            UWorld&apos;s proprietary scoring algorithm. We start from the 3-digit score UWSA already
+            reports and apply empirical post-hoc bias correction. We are not affiliated with UWorld.
           </p>
-
-          <Link href="/accuracyinsights" className="text-indigo-400 hover:underline">
-            👉 Explore correlation regressions per UWSA form on our insights page.
-          </Link>
         </section>
 
-        {/* ❓ FAQ */}
-        <section className="premium-section mt-16 pt-8">
-
-          <div className="flex items-center gap-3 mb-8">
+        <section className="premium-section pt-8">
+          <div className="flex items-center gap-3">
             <HelpCircle className="text-indigo-400" size={28} />
-            <h2 className="mb-0 text-xl font-bold">UWSA Predictor FAQs</h2>
+            <h2 className="mb-0 text-xl font-bold">UWSA Converter FAQs</h2>
           </div>
-
           <details className="premium-faq-item">
-            <summary className="premium-faq-question">
-              Does UWSA 2 tend to overpredict or underpredict?
-            </summary>
-            <div className="premium-faq-answer">
-              <p>
-                While remarkably accurate to the ultimate result trajectory, student data sets show that UWSA 2 historically overpredicts real USMLE Step 2 CK scores by an average of 3.2 points. Despite this slight inflation, 74% of students still securely score within 5 points of their UWSA 2 baseline result.
-              </p>
-            </div>
+            <summary className="premium-faq-question">Why does UWSA over-predict?</summary>
+            <div className="premium-faq-answer"><p>UWSAs are calibrated on UWorld user populations who tend to score higher than the full Step 2 CK population. The form difficulty doesn&apos;t quite reach operational exam difficulty.</p></div>
           </details>
-
           <details className="premium-faq-item">
-            <summary className="premium-faq-question">
-              Why did UWSA 1 give me a 265 but NBME Form 11 gave me a 245?
-            </summary>
-            <div className="premium-faq-answer">
-              <p>
-                UWSA 1 has a notoriously forgiving grading curve, particularly on the lower and middle end of the percentile spectrum. It tests different foundational material quite differently than strict NBME question frames, and our converter mathematically adjusts sequentially to correct this structural 'curve bump'.
-              </p>
-            </div>
+            <summary className="premium-faq-question">Which UWSA is most accurate?</summary>
+            <div className="premium-faq-answer"><p>UWSA 2, taken within 1-2 weeks of the real exam. UWSA 1 over-predicts more. UWSA 3 has limited published validity.</p></div>
           </details>
-
           <details className="premium-faq-item">
-            <summary className="premium-faq-question">
-              Should I enter the 3-digit score or my raw percentage in converters?
-            </summary>
-            <div className="premium-faq-answer">
-              <p>
-                The 3-digit UWSA score consistently provides the most statistical utility for generating our unified conversion matrix. Calculating via raw percentage is unreliable because it actively changes across multiple forms solely based on seasonal shifting percentiles.
-              </p>
-            </div>
+            <summary className="premium-faq-question">What is the ceiling effect?</summary>
+            <div className="premium-faq-answer"><p>Above UWSA 255, the prediction gap widens. Top scorers tend to lose 10-15 points relative to UWSA, even when other practice scores agree. We apply a progressive adjustment in this band.</p></div>
           </details>
-
         </section>
-
       </main>
     </div>
   );

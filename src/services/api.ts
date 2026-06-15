@@ -1,10 +1,8 @@
 /**
- * USMLEPredictor API Layer — CLIENT-SIDE ONLY
- * All prediction runs in the browser. No backend server needed.
- * Telemetry flows to Umami (custom events) and Microsoft Clarity (session recording).
+ * USMLEPredictor API Layer.
+ * Prediction runs on the server (/api/predict) so the model + dataset never reach
+ * the browser. Telemetry flows to Umami (custom events) and Microsoft Clarity.
  */
-
-import { predictScore, getDatasetStats } from './scorePredictor';
 
 type EventData = Record<string, string | number | boolean | null | undefined>;
 
@@ -41,11 +39,16 @@ export const predictAPI = {
   predict: async (scores: Record<string, number>) => {
     try {
       const start = performance.now();
-      const result = await predictScore(scores);
+      const res = await fetch('/api/predict/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ exam: 'step2', input: scores }),
+      });
+      const result = await res.json();
       const duration = Math.round(performance.now() - start);
 
-      if ((result as any).error) {
-        throw { response: { data: { error: (result as any).error } } };
+      if (!res.ok || (result as any)?.error) {
+        throw { response: { data: { error: (result as any)?.error ?? 'Prediction failed. Please try again.' } } };
       }
 
       const r = result as any;
@@ -68,7 +71,12 @@ export const predictAPI = {
   },
 
   stats: async () => {
-    return { data: await getDatasetStats() };
+    const res = await fetch('/api/predict/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ exam: 'step2', action: 'stats' }),
+    });
+    return { data: await res.json() };
   },
 };
 
