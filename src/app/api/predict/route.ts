@@ -12,18 +12,24 @@ import { predictStep3, loadDataset } from '@/services/step3Predictor';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-// Only our own site (and Vercel preview deploys) should call this. A browser
-// always sends Origin on a POST; scripts/curl scrapers usually don't, or send a
-// foreign one. Rejecting them here — before parsing the body or touching the
-// dataset — blocks casual scraping and keeps junk requests off the compute bill.
-const ALLOWED_HOSTS = ['usmlepredictor.com', 'www.usmlepredictor.com', 'localhost'];
+// Only our own site should call this. A browser always sends Origin on a POST;
+// scripts/curl scrapers usually don't, or send a foreign one. Rejecting them here —
+// before parsing the body or touching the dataset — blocks casual scraping and keeps
+// junk requests off the compute bill.
+// In PRODUCTION only the real domain is allowed. localhost + *.vercel.app are allowed
+// solely in dev/preview (where VERCEL_ENV !== 'production') so `next dev` and preview
+// deploys work — on the live site those origins are never legitimate callers.
+const IS_PROD = process.env.VERCEL_ENV === 'production';
+const ALLOWED_HOSTS = ['usmlepredictor.com', 'www.usmlepredictor.com'];
 
 function isAllowedOrigin(req: Request): boolean {
   const candidate = req.headers.get('origin') || req.headers.get('referer');
   if (!candidate) return false;
   try {
     const host = new URL(candidate).hostname;
-    return ALLOWED_HOSTS.includes(host) || host.endsWith('.vercel.app');
+    if (ALLOWED_HOSTS.includes(host)) return true;
+    if (!IS_PROD && (host === 'localhost' || host.endsWith('.vercel.app'))) return true;
+    return false;
   } catch {
     return false;
   }

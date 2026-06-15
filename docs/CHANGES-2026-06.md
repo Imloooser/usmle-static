@@ -151,20 +151,29 @@ plain CSS pill. Cleaned up the related rules in `src/app/globals.css`.
 
 ---
 
-## 7. Still open / good to know
+## 7. Follow-up hardening (after the security test)
 
-- **`src/services/security.ts`** (right-click / F12 blocker) now protects nothing
-  (the model isn't in the browser) and mildly annoys users. Safe to remove; left in
-  for now pending the owner's call.
-- **Allowed origins** are hardcoded in `src/app/api/predict/route.ts`
-  (`ALLOWED_HOSTS`). If you add a new domain, update that list.
+- **Removed the right-click blocker** — deleted `src/components/DisableRightClick.tsx`
+  (was rendered in `layout.tsx`) and the dead `src/services/security.ts`. It blocked
+  nothing now that the model is server-side and only annoyed real users.
+- **Locked the origin check to production.** `src/app/api/predict/route.ts` now allows
+  only `usmlepredictor.com` / `www` in production; `localhost` + `*.vercel.app` are
+  allowed only when `VERCEL_ENV !== 'production'` (dev/preview). Closes the
+  `Origin: http://localhost` / `*.vercel.app` bypass found in testing.
+- **Rate limiting is live** as a Vercel Firewall rule (30 req / 60s per IP on `/api/`,
+  → 429). Verified on the live site. This is a dashboard rule, not in the repo.
+
+## 8. Good to know
+
+- **Allowed origins** live in `src/app/api/predict/route.ts` (`ALLOWED_HOSTS`). If you
+  add a new production domain, add it there.
 - **Model behavior is still clonable** by querying the public endpoint — true of
-  every free predictor. The defenses raise the cost and make theft provable; they
-  don't make it impossible.
+  every free predictor. The defenses (origin lock + rate limit + honeypots) raise the
+  cost and make theft provable; they don't make it impossible.
 
 ---
 
-## 8. Pre-deploy verification
+## 9. Pre-deploy verification
 
 A 5-dimension adversarial deep check was run against a clean production build.
 Result after fixes: **GO**.
