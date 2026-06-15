@@ -2,7 +2,6 @@ import './globals.css'
 import Script from 'next/script'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import DisableRightClick from '@/components/DisableRightClick'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import { organizationSchema, websiteSchema, editorialTeamSchema } from '@/lib/schemas'
 import Footer from '@/components/Footer'
@@ -115,9 +114,6 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`${inter.className} bg-[#0b0f1a] text-white antialiased`} suppressHydrationWarning>
-
-        <DisableRightClick />
-
 
 
         {/* MAIN CONTENT */}
