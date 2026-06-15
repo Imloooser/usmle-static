@@ -1,8 +1,9 @@
 import React from 'react';
 import ScorePredictor from '@/components/ScorePredictor';
+import ExamSwitcher from '@/components/ExamSwitcher';
 import Footer from '@/components/Footer';
 import SchemaMarkup from '@/components/SchemaMarkup';
-import { webApplicationSchema, faqSchema } from '@/lib/schemas';
+import { webApplicationSchema, datasetSchema, medicalWebPageSchema } from '@/lib/schemas';
 import type { Metadata } from 'next'
 
 
@@ -19,8 +20,21 @@ export const metadata: Metadata = {
 }
 
 export default function Home() {
+  const medicalSchema = medicalWebPageSchema({
+    url: 'https://usmlepredictor.com/',
+    name: 'USMLE Step 2 CK Score Predictor',
+    description: 'Free USMLE Step 2 CK score predictor anchored on 5,039 verified student outcomes. Predicts your 3-digit Step 2 CK score from NBME, UWSA, Free 120, and UWorld practice scores.',
+    lastReviewed: '2026-06-06',
+    about: 'USMLE Step 2 Clinical Knowledge Examination',
+    audience: 'medical students',
+  });
+
   return (
     <>
+      {/* FAQPage schema intentionally NOT injected here: the homepage has no
+          visible FAQ section, and FAQ structured data without matching on-page
+          content is a Google structured-data policy violation. */}
+      <SchemaMarkup schema={[webApplicationSchema, datasetSchema, medicalSchema]} />
       <ScorePredictor />
       
 <section className="methodology-section">
@@ -63,11 +77,6 @@ export default function Home() {
 
   </div>
 </section>
-
-      <Footer stats={null} />
-
-      {/* ✅ Structured data: WebApplication + FAQPage */}
-      <SchemaMarkup schema={[webApplicationSchema, faqSchema]} />
 
       {/* BreadcrumbList omitted on homepage — single-item breadcrumbs produce no rich result */}
     </>

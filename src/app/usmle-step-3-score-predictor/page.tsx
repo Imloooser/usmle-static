@@ -3,12 +3,28 @@ import Link from 'next/link';
 import { ArrowLeft, Stethoscope, BriefcaseMedical, Shield, Activity, Target, HelpCircle } from 'lucide-react';
 import { Metadata } from 'next';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import Step3PredictorTool from '@/components/Step3PredictorTool';
+import ExamSwitcher from '@/components/ExamSwitcher';
+import { medicalWebPageSchema } from '@/lib/schemas';
 
 export const metadata: Metadata = {
   title: 'USMLE Step 3 Score Predictor | Free & Data-Backed',
-  description: 'Estimate your USMLE Step 3 outcome based on CCS Cases, UWorld pass rates, and previous Step 1/2 scores. Data-driven predictor models.',
+  description: 'Estimate your USMLE Step 3 score using Step 2 CK, UWorld, UWSA, NBME 6/7, and Free 137. Anchored on PMC8368809 (n=27,118) Step 2 CK to Step 3 correlation research.',
   alternates: {
     canonical: 'https://usmlepredictor.com/usmle-step-3-score-predictor',
+  },
+  openGraph: {
+    title: 'USMLE Step 3 Score Predictor — Free, Research-Anchored',
+    description: 'Free Step 3 predictor anchored on PMC8368809 (n=27,118) Step 2 CK correlation. MAE ~7.9 points, 74% within ±10.',
+    url: 'https://usmlepredictor.com/usmle-step-3-score-predictor',
+    type: 'website',
+    images: [{ url: '/og-step-3.png', width: 1200, height: 630, alt: 'USMLE Step 3 Score Predictor' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'USMLE Step 3 Score Predictor (Free)',
+    description: 'Research-anchored Step 3 score prediction tool.',
+    images: ['/og-step-3.png'],
   },
 };
 
@@ -26,29 +42,31 @@ export default function Step3Predictor() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    // Q&As are kept byte-identical to the visible <details> below so the
+    // structured data matches the rendered DOM (Google FAQ-policy compliance).
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How does my Step 2 CK score influence Step 3?",
+        "name": "Is Step 3 easier than Step 2 CK?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Step 2 CK performance acts as a highly reliable baseline. Residents scoring higher than 250 on Step 2 CK rarely encounter difficulty passing Step 3, provided they prepare adequately for the unique CCS platform constraints."
+          "text": "Yes, for most candidates. Step 3 focuses more on clinical decision-making rather than pure recall."
         }
       },
       {
         "@type": "Question",
-        "name": "Do residency programs care about my Step 3 score?",
+        "name": "What is a good Step 3 score?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For IMGs, passing Step 3 early is often a critical prerequisite for securing an H-1B visa. For US graduates, fellowships typically weigh letters and in-house performance much heavier than a Step 3 score, making a safe 'Pass' the primary goal."
+          "text": "Most residency programs only require a pass. Scores above 220 are generally considered safe."
         }
       },
       {
         "@type": "Question",
-        "name": "How much does CCS matter?",
+        "name": "When should I take Step 3?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Computer-based Case Simulations (CCS) account for approximately 25-30% of your total Step 3 score. Performance on platforms like CCSCases.com is a strong independent predictor of passing."
+          "text": "Ideally during PGY-1 or early PGY-2, especially if applying for H1B visa programs."
         }
       }
     ]
@@ -73,81 +91,24 @@ export default function Step3Predictor() {
     ]
   };
 
+  const medicalSchema = medicalWebPageSchema({
+    url: 'https://usmlepredictor.com/usmle-step-3-score-predictor',
+    name: 'USMLE Step 3 Score Predictor',
+    description: 'Free USMLE Step 3 score predictor anchored on PMC8368809 (n=27,118) Step 2 CK to Step 3 correlation research. Predicts 3-digit Step 3 score from Step 2 CK, UWorld, UWSA, NBME 6/7, and Free 137 inputs.',
+    lastReviewed: '2026-06-06',
+    about: 'USMLE Step 3 Examination',
+    audience: 'residents',
+  });
+
 return (
-  <div className="premium-page-container stepscore-app">
-    <SchemaMarkup schema={[schema, faqSchema, breadcrumbSchema]} />
+  <div className="premium-page-container methodology-section">
+    <SchemaMarkup schema={[schema, faqSchema, breadcrumbSchema, medicalSchema]} />
 
-    {/* HEADER */}
-    <header className="premium-page-header">
-      <div className="premium-header-content">
+    {/* PREDICTOR — full mobile width (no premium-main-content padding) */}
+    <Step3PredictorTool />
 
-        <div>
-          <div className="badge-premium mb-4">Step 3 Predictor • Data Engine v2</div>
-
-          <h1 className="premium-page-title">
-            USMLE <span className=''> Step 3 </span> Score Predictor
-            <br />
-            <span className="text-sm md:text-md text-indigo-400 font-medium">
-              Free • Accurate • Data-Driven (2026)
-            </span>
-          </h1>
-
-          <p className="premium-page-subtitle hidden">
-            Predict your USMLE Step 3 score using UWSA, CCS & Step 2 CK correlation.
-            Built using real resident performance data.
-          </p>
-
-
-        </div>
-
-      </div>
-    </header>
-
-    {/* MAIN */}
+    {/* MAIN — SEO content only */}
     <main className="premium-main-content">
-{/* 🚀 HERO TOOL */}
-<section className="hero-section">
-  <div className="hero-card">
-
-    {/* Glow */}
-    <div className="hero-glow"></div>
-
-    <Activity className="hero-icon" size={52} />
-
-    <h2 className="hero-title">
-      Step 3 Predictor Engine
-    </h2>
-
-    <p className="hero-description">
-      We’re finalizing predictive weights using UWSA 1, UWSA 2, and CCS performance data.
-      Early beta users are already seeing 
-      <span className="hero-highlight"> ±6 score accuracy</span>.
-    </p>
-
-    <div className="hero-cta">
-   
-
-          {/* 🔥 PRIMARY CTA */}
-<div className="cta-container">
-
-     <button className="hero-button" disabled>
-        Coming Soon 
-      </button>
-      
-  <Link href="/" className="cta-primary-button">
-    Predict My Step 2 CK Score →
-  </Link>
-
-  
-</div>
-
-      <p className="hero-subtext">
-        Meanwhile → Use our Step 2 CK predictor (most accurate baseline)
-      </p>
-    </div>
-
-  </div>
-</section>
 
       {/* 🔥 TRUST STRIP */}
       <section className="premium-section text-center">
@@ -184,8 +145,8 @@ return (
         </p>
 
         {/* INTERNAL LINK = SEO BOOST */}
-        <Link href="/step2-ck-predictor" className="text-indigo-400 hover:underline">
-          👉 Try Step 2 CK Predictor (Highest Accuracy Tool)
+        <Link href="/step-3-accuracy-insights" className="text-indigo-400 hover:underline">
+         👉 Read the full breakdown of our prediction methodology
         </Link>
       </section>
 

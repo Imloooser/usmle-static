@@ -3,12 +3,28 @@ import Link from 'next/link';
 import { Activity, HelpCircle } from 'lucide-react';
 import { Metadata } from 'next';
 import SchemaMarkup from '@/components/SchemaMarkup';
+import Step1PredictorTool from '@/components/Step1PredictorTool';
+import ExamSwitcher from '@/components/ExamSwitcher';
+import { medicalWebPageSchema } from '@/lib/schemas';
 
 export const metadata: Metadata = {
   title: 'USMLE Step 1 Score Predictor — PASS/FAIL Prediction Tool',
-  description: 'Calculate your probability of passing USMLE Step 1 using NBME forms and UWorld percentages. Data-backed pass/fail prediction model.',
+  description: 'Calculate your probability of passing USMLE Step 1 using NBME forms 29-33, Free 120, and UWorld percentages. Anchored on NBME\'s officially published pass-probability table (July 2024).',
   alternates: {
     canonical: 'https://usmlepredictor.com/usmle-step-1-score-predictor',
+  },
+  openGraph: {
+    title: 'USMLE Step 1 Pass/Fail Predictor — Free, NBME-Anchored',
+    description: 'Free Step 1 pass-probability predictor anchored on NBME\'s July 2024 published table. Calibrated on 100,000+ examinees.',
+    url: 'https://usmlepredictor.com/usmle-step-1-score-predictor',
+    type: 'website',
+    images: [{ url: '/og-step-1.png', width: 1200, height: 630, alt: 'USMLE Step 1 Pass/Fail Score Predictor' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'USMLE Step 1 Pass/Fail Predictor (Free)',
+    description: 'NBME-anchored pass-probability predictor for Step 1.',
+    images: ['/og-step-1.png'],
   },
 };
 
@@ -27,9 +43,18 @@ export default function Step1Predictor() {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
+      // Q&As kept byte-identical to the visible <details> below (FAQ-policy compliance).
       {
         "@type": "Question",
-        "name": "What is considered a 'safe' score on NBME practice exams for Step 1?",
+        "name": "Will you provide a 3-digit score equivalent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Because the actual exam has been PASS/FAIL since Jan 2022, providing a completely speculative 3-digit score yields false reassurance. Our tool focuses strictly on the margin of safety above the passing threshold."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is considered a \"safe\" score on NBME practice exams?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Generally, consistently scoring above 65-68% equated percent correct on multiple recent NBME forms (like Forms 30 and 31) confers a 95%+ probability of passing the real exam."
@@ -37,18 +62,10 @@ export default function Step1Predictor() {
       },
       {
         "@type": "Question",
-        "name": "Will you provide a 3-digit score equivalent for Step 1?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. Because the actual exam has been PASS/FAIL since January 2022, providing a completely speculative 3-digit score yields false reassurance. Our tool focuses strictly on the margin of safety above the passing threshold (equated to roughly 196)."
-        }
-      },
-      {
-        "@type": "Question",
         "name": "Does UWorld First Pass percentage matter for Step 1?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, while UWorld is primarily a learning tool rather than an assessment tool, completing UWorld with an average above 60% strongly correlates with Step 1 passing likelihood."
+          "text": "Yes, while UWorld is primarily a learning tool rather than an assessment tool, completing UWorld with an average above 60% historically correlates with a very high Step 1 passing likelihood."
         }
       }
     ]
@@ -73,74 +90,24 @@ export default function Step1Predictor() {
     ]
   };
 
+  const medicalSchema = medicalWebPageSchema({
+    url: 'https://usmlepredictor.com/usmle-step-1-score-predictor',
+    name: 'USMLE Step 1 Pass/Fail Predictor',
+    description: 'Free USMLE Step 1 pass-probability predictor anchored on NBME\'s officially published CBSSA pass-probability table (July 2024). Calibrated on the full Step 1 examinee population.',
+    lastReviewed: '2026-06-06',
+    about: 'USMLE Step 1 Examination',
+    audience: 'medical students',
+  });
+
   return (
-    <div className="premium-page-container stepscore-app">
-      <SchemaMarkup schema={[schema, faqSchema, breadcrumbSchema]} />
+    <div className="premium-page-container methodology-section">
+      <SchemaMarkup schema={[schema, faqSchema, breadcrumbSchema, medicalSchema]} />
 
-      {/* HEADER */}
-      <header className="premium-page-header">
-        <div className="premium-header-content">
+      {/* PREDICTOR — full mobile width (no premium-main-content padding) */}
+      <Step1PredictorTool />
 
-          <div>
-            <div className="badge-premium mb-4">Step 1 Predictor • PASS/FAIL (2026)</div>
-
-            <h1 className="premium-page-title">
-              USMLE <span className=''> Step 1 </span> Score Predictor
-              <br />
-              <span className="text-sm md:text-md text-indigo-400 font-medium">
-                — PASS/FAIL Prediction Tool
-              </span>
-            </h1>
-
-            <p className="premium-page-subtitle hidden">
-              Enter your NBME (Forms 25-31), UWorld First Pass %, and Free 120 scores to instantly calculate your statistical probability of passing the USMLE Step 1 exam.
-            </p>
-          </div>
-
-        </div>
-      </header>
-
-      {/* MAIN */}
-      <main className="premium-main-content">
-        
-        {/* 🚀 HERO TOOL */}
-        <section className="hero-section">
-          <div className="hero-card">
-
-            {/* Glow */}
-            <div className="hero-glow"></div>
-
-            <Activity className="hero-icon" size={52} />
-
-            <h2 className="hero-title">
-              Pass/Fail Probability Engine
-            </h2>
-
-            <p className="hero-description">
-              We’re finalizing the item-response theory correlation between the newest NBME forms (30 & 31) and the standardized Step 1 passing threshold (~196). 
-            </p>
-
-            <div className="hero-cta">
-           
-
-
-            {/* 🔥 PRIMARY CTA */}
-            <div className="cta-container">
-                 <button className="hero-button" disabled>
-                Coming Soon 
-              </button>
-              <Link href="/" className="cta-primary-button">
-                Predict My Step 2 CK Score →
-              </Link>
-            </div>
-
-              <p className="hero-subtext">
-                Meanwhile → Focus on hitting &gt;68% on NBME self-assessments
-              </p>
-            </div>
-
-          </div>
-        </section>
+      {/* MAIN — SEO content only (predictor renders above with its own width) */}
+      <main className="premium-main-content ">
 
         {/* 🔥 TRUST STRIP */}
         <section className="premium-section text-center">
@@ -150,7 +117,7 @@ export default function Step1Predictor() {
         </section>
 
         {/* 📚 SEO CONTENT */}
-        <section className="premium-section mt-16 leading-loose space-y-6">
+        <section className="premium-section mt-16 leading-loose space-y-6 ">
           <h2 className="text-2xl font-bold text-white mb-4">
             Step 1 NBME Correlation and Prediction Analytics
           </h2>
@@ -168,13 +135,13 @@ export default function Step1Predictor() {
           </p>
 
           {/* INTERNAL LINK = SEO BOOST */}
-          <Link href="/accuracyinsights" className="text-indigo-400 hover:underline">
+          <Link href="/step-1-accuracy-insights" className="text-indigo-400 hover:underline">
             👉 Read the full breakdown of our prediction methodology
           </Link>
         </section>
 
         {/* ❓ FAQ */}
-        <section className="premium-section pt-8 ">
+        <section className="premium-section pt-8">
 
           <div className="flex items-center gap-3">
             <HelpCircle className="text-indigo-400" size={28} />

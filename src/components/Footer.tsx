@@ -7,14 +7,14 @@ export default function Footer({ stats }: { stats?: any }) {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="text-center flex justify-center text-slate-400 border-white/5 pb-12 pt-8 ">
-      <div className="max-w-full mx-auto flex flex-col gap-[12px] ">
+    <footer className="text-center flex justify-center text-slate-400 border-white/5 pb-12 pt-8">
+      <div className="max-w-full mx-auto flex flex-col gap-[12px]">
 
         <p className="text-[11px] text-slate-300">
           <strong className="text-white font-semibold">
             USMLEPredictor.com
           </strong>{' '}
-          — Free USMLE Step 2 CK Score Predictor
+          — Free USMLE Score Predictor
         </p>
 
         <p className="text-[12px] text-slate-500 leading-[1.4]">
@@ -44,7 +44,7 @@ export default function Footer({ stats }: { stats?: any }) {
         </div>
 
         {/* SEO Internal Linking to prevent Orphan Pages */}
-        <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-4 px-4  pt-4">
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-4 px-4 pt-4 max-w-3xl mx-auto">
           <Link href="/usmle-step-1-score-predictor" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 1 Predictor</Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <Link href="/usmle-step-3-score-predictor" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 3 Predictor</Link>
@@ -52,6 +52,12 @@ export default function Footer({ stats }: { stats?: any }) {
           <Link href="/nbme-score-predictor" className="text-[12px] text-slate-400 hover:text-white transition-colors">NBME Predictor</Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <Link href="/uwsa-score-predictor" className="text-[12px] text-slate-400 hover:text-white transition-colors">UWSA Converter</Link>
+          <span className="text-slate-700 hidden sm:inline">•</span>
+          <Link href="/accuracyinsights" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 2 Accuracy</Link>
+          <span className="text-slate-700 hidden sm:inline">•</span>
+          <Link href="/step-1-accuracy-insights" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 1 Accuracy</Link>
+          <span className="text-slate-700 hidden sm:inline">•</span>
+          <Link href="/step-3-accuracy-insights" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 3 Accuracy</Link>
         </div>
 
         <p className="text-[10px] h-10 text-slate-600">

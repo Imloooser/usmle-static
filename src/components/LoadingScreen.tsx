@@ -16,9 +16,10 @@ const TOTAL_DURATION = LOADING_STEPS.reduce((sum, s) => sum + s.duration, 0);
 interface LoadingScreenProps {
   onComplete?: () => void;
   dataReady?: boolean;
+  examType?: 'step1' | 'step2' | 'step3';
 }
 
-export default function LoadingScreen({ onComplete, dataReady = false }: LoadingScreenProps) {
+export default function LoadingScreen({ onComplete, dataReady = false, examType = 'step2' }: LoadingScreenProps) {
   const [activeStep, setActiveStep] = useState(0);
   const [fading, setFading] = useState(false);
 
@@ -129,7 +130,9 @@ export default function LoadingScreen({ onComplete, dataReady = false }: Loading
         </div>
 
         <p className="loading-sub">
-          Analyzing {(5039).toLocaleString()}+ verified data points
+          {examType === 'step1' && 'Analyzing 100,000+ verified data points'}
+          {examType === 'step2' && `Analyzing ${(5039).toLocaleString()}+ verified data points`}
+          {examType === 'step3' && 'Analyzing n=27,118 verified data points'}
         </p>
       </div>
     </div>

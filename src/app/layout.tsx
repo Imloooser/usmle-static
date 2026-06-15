@@ -4,7 +4,8 @@ import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import DisableRightClick from '@/components/DisableRightClick'
 import SchemaMarkup from '@/components/SchemaMarkup'
-import { organizationSchema, websiteSchema } from '@/lib/schemas'
+import { organizationSchema, websiteSchema, editorialTeamSchema } from '@/lib/schemas'
+import Footer from '@/components/Footer'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -97,11 +98,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
 
       <head>
-        {/* ✅ Sitewide structured data: Organization + WebSite */}
-        <SchemaMarkup schema={[organizationSchema, websiteSchema]} />
+        {/* ✅ Sitewide structured data: Organization + WebSite + Editorial Team (E-E-A-T) */}
+        <SchemaMarkup schema={[organizationSchema, websiteSchema, editorialTeamSchema]} />
         {/* ✅ Microsoft Clarity */}
         <Script id="ms-clarity" strategy="afterInteractive">
           {`
@@ -113,7 +114,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${inter.className} bg-[#0b0f1a] text-white antialiased`}>
+      <body className={`${inter.className} bg-[#0b0f1a] text-white antialiased`} suppressHydrationWarning>
 
         <DisableRightClick />
 
@@ -121,7 +122,7 @@ export default function RootLayout({
 
         {/* MAIN CONTENT */}
         <main>{children}</main>
-
+         <Footer stats={null} />
         {/* 🔥 GOOGLE ANALYTICS */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-SMNQX2K4CW"
