@@ -12,12 +12,16 @@
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': 'https://usmlepredictor.com/#organization',
   name: 'USMLE Predictor',
   url: 'https://usmlepredictor.com/',
   logo: 'https://usmlepredictor.com/icon-512.png',
   description:
     'Free USMLE score predictor tools built on 5,039 verified student score reports.',
-  sameAs: [] as string[],
+  sameAs: [
+    'https://x.com/usmlepredictor',
+    'https://twitter.com/usmlepredictor',
+  ] as string[],
 } as const
 
 export const websiteSchema = {
@@ -66,7 +70,7 @@ export const webApplicationSchema = {
     url: 'https://usmlepredictor.com/',
   },
   datePublished: '2022-01-01',
-  dateModified: '2026-03-01',
+  dateModified: '2026-06-16',
 } as const
 
 export const faqSchema = {
@@ -118,7 +122,7 @@ export const faqSchema = {
       name: 'Can I predict Step 1 or Step 3 scores too?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes it is available now at https://usmlepredictor.com/usmle-step-1-score-predictor/ and https://usmlepredictor.com/usmle-step-3-score-predictor/.',
+        text: 'Yes. Both the Step 1 (Pass/Fail) predictor and the Step 3 score predictor are available now on USMLEPredictor.com.',
       },
     },
   ],
@@ -133,9 +137,9 @@ export const scholarlyArticleSchema = {
     'USMLE Step 2 CK Score Prediction: Accuracy, Methodology & Correlation Data',
   description:
     'Statistical accuracy analysis of USMLE Step 2 CK score predictors based on 5,039 verified student score reports. Includes Pearson correlation coefficients, precision ranges, and ensemble algorithm methodology.',
-  url: 'https://www.usmlepredictor.com/accuracyinsights',
+  url: 'https://usmlepredictor.com/accuracyinsights/',
   datePublished: '2022-01-01',
-  dateModified: '2026-03-01',
+  dateModified: '2026-06-16',
   author: {
     '@type': 'Organization',
     name: 'USMLE Predictor Research Team',
@@ -400,7 +404,7 @@ export const step1AccuracyScholarlyArticleSchema = {
     'USMLE Step 1 Pass/Fail Prediction: Accuracy, Methodology & NBME-Anchored Validation',
   description:
     'Statistical accuracy and validation methodology for USMLE Step 1 pass/fail prediction. Built around NBME\'s officially published CBSSA pass-probability table, cross-referenced with peer-reviewed research (IAMSE 2024) and FSMB cohort data.',
-  url: 'https://www.usmlepredictor.com/step-1-accuracy-insights',
+  url: 'https://usmlepredictor.com/step-1-accuracy-insights/',
   datePublished: '2026-06-06',
   dateModified: '2026-06-06',
   author: {
@@ -544,7 +548,7 @@ export const step3AccuracyScholarlyArticleSchema = {
     'USMLE Step 3 Score Prediction: Accuracy, Methodology & Research-Anchored Validation',
   description:
     'Statistical accuracy and validation methodology for USMLE Step 3 score prediction. Calibrated against peer-reviewed Step 2 CK → Step 3 correlation research (PMC8368809, n=27,118) and validated against published NBME 6/7 self-assessment data.',
-  url: 'https://www.usmlepredictor.com/step-3-accuracy-insights',
+  url: 'https://usmlepredictor.com/step-3-accuracy-insights/',
   datePublished: '2026-06-06',
   dateModified: '2026-06-06',
   author: {

@@ -2,6 +2,9 @@
 module.exports = {
   siteUrl: 'https://usmlepredictor.com',
   generateRobotsTxt: true,
+  // Single sitemap.xml (no index) — we have ~9 URLs, well under the 7000 limit, so an
+  // index that references itself is just a malformed-sitemap warning in Search Console.
+  generateIndexSitemap: false,
   // Not a static export anymore — emit sitemap.xml + robots.txt into public/ so
   // they're served as static assets by the Next app on Vercel.
   outDir: './public',
@@ -43,12 +46,19 @@ module.exports = {
   robotsTxtOptions: {
     additionalSitemaps: ['https://usmlepredictor.com/sitemap.xml'],
     policies: [
-      { userAgent: '*', allow: '/' },
-      // Allow major AI crawlers (modern SEO)
+      { userAgent: '*', allow: '/', disallow: '/api/' },
+      // Allow major AI search + training crawlers (modern SEO / GEO)
       { userAgent: 'GPTBot', allow: '/' },
+      { userAgent: 'OAI-SearchBot', allow: '/' },
+      { userAgent: 'ChatGPT-User', allow: '/' },
       { userAgent: 'PerplexityBot', allow: '/' },
       { userAgent: 'ClaudeBot', allow: '/' },
+      { userAgent: 'anthropic-ai', allow: '/' },
+      { userAgent: 'Claude-Web', allow: '/' },
       { userAgent: 'Google-Extended', allow: '/' },
+      { userAgent: 'Applebot-Extended', allow: '/' },
+      { userAgent: 'Amazonbot', allow: '/' },
+      { userAgent: 'CCBot', allow: '/' },
       { userAgent: 'Bingbot', allow: '/' },
     ],
   },

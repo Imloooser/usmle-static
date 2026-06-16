@@ -42,7 +42,7 @@ export default function BlogPage() {
               <Target size={20} className="text-white" />
             </div>
             <div className="logo-text-wrap hide-xs">
-              <h1 className="logo-title text-lg font-bold text-white mb-0 leading-tight">USMLE Predictor</h1>
+              <span className="logo-title text-lg font-bold text-white mb-0 leading-tight">USMLE Predictor</span>
               <p className="logo-tagline text-[10px] text-slate-500 font-medium uppercase tracking-wider">Strategy Hub</p>
             </div>
           </Link>
@@ -110,7 +110,7 @@ export default function BlogPage() {
             <div className="blog-quote-grid">
               <div className="blog-quote-card">
                 <div className="text-indigo-400 text-[10px] font-bold mb-3 tracking-widest uppercase">Rank #1</div>
-                <h3 style={{ marginTop: 0 }}>NBME Form 16</h3>
+                <h3 style={{ marginTop: 0 }}>NBME Form 14</h3>
                 <p style={{ fontSize: '14px', color: 'var(--text-secondary)', marginBottom: 0 }}>Mathematical correlation of r=0.92, making it the current primary benchmarker.</p>
               </div>
               <div className="blog-quote-card">
@@ -158,9 +158,9 @@ export default function BlogPage() {
             </div>
 
             <h2>Frequently Asked Questions</h2>
-            <h3>Is NBME 16 more accurate than UWSA 2?</h3>
+            <h3>Is NBME 14 more accurate than UWSA 2?</h3>
             <p>
-              Statistically, yes. NBME Form 16 shows a higher correlation coefficient (r) with actual USMLE scores in recent data pools. However, UWSA 2 is widely considered superior for testing your ability to handle 8-block fatigue.
+              Statistically, yes. NBME Form 14 shows a higher correlation coefficient (r = 0.92 vs 0.89) with actual USMLE scores in recent data pools. However, UWSA 2 is widely considered superior for testing your ability to handle 8-block fatigue.
             </p>
             <h3>Are these predictors 100% accurate?</h3>
             <p>
