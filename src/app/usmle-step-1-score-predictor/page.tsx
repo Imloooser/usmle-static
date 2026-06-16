@@ -9,7 +9,7 @@ import { medicalWebPageSchema } from '@/lib/schemas';
 
 export const metadata: Metadata = {
   title: 'USMLE Step 1 Score Predictor — PASS/FAIL Prediction Tool',
-  description: 'Calculate your probability of passing USMLE Step 1 using NBME forms 29-33, Free 120, and UWorld percentages. Anchored on NBME\'s officially published pass-probability table (July 2024).',
+  description: 'Calculate your USMLE Step 1 pass probability from NBME forms 29–33, Free 120, and UWorld %, anchored on NBME\'s official July 2024 pass-probability table.',
   alternates: {
     canonical: 'https://usmlepredictor.com/usmle-step-1-score-predictor',
   },

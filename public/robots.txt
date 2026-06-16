@@ -1,9 +1,18 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /api/
 
 # GPTBot
 User-agent: GPTBot
+Allow: /
+
+# OAI-SearchBot
+User-agent: OAI-SearchBot
+Allow: /
+
+# ChatGPT-User
+User-agent: ChatGPT-User
 Allow: /
 
 # PerplexityBot
@@ -14,8 +23,28 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+# anthropic-ai
+User-agent: anthropic-ai
+Allow: /
+
+# Claude-Web
+User-agent: Claude-Web
+Allow: /
+
 # Google-Extended
 User-agent: Google-Extended
+Allow: /
+
+# Applebot-Extended
+User-agent: Applebot-Extended
+Allow: /
+
+# Amazonbot
+User-agent: Amazonbot
+Allow: /
+
+# CCBot
+User-agent: CCBot
 Allow: /
 
 # Bingbot

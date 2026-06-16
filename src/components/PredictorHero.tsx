@@ -40,7 +40,7 @@ export default function PredictorHero({ step }: PredictorHeroProps) {
         </span>
       </h1>
       <p className="hero-sub">
-        Pick your exam below and enter your practice scores for an instant, research-anchored readiness estimate. Your inputs never leave your device.
+        Pick your exam below and enter your practice scores for an instant, research-anchored readiness estimate. Free — no account or signup required.
       </p>
     </section>
   );

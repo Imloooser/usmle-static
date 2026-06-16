@@ -12,7 +12,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'USMLE Step 1 Pass/Fail Accuracy Insights & Correlation Data',
   description:
-    'How our USMLE Step 1 pass-probability predictor is calibrated, validated, and benchmarked. Anchored on NBME\'s officially published CBSSA pass-probability table (July 2024) with cross-referenced peer-reviewed research (IAMSE 2024) and FSMB cohort data.',
+    'How our USMLE Step 1 pass-probability predictor is calibrated and validated — anchored on NBME\'s official July 2024 CBSSA table plus IAMSE 2024 research and FSMB cohort data.',
   alternates: {
     canonical: 'https://usmlepredictor.com/step-1-accuracy-insights',
   },

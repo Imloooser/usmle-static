@@ -123,7 +123,7 @@ return (
           Step 3 Score Prediction: How It Actually Works
         </h2>
 
-        <p className="text-[#a0acc0] hidden">
+        <p className="text-[#a0acc0]">
           The USMLE Step 3 exam is the final licensing step for physicians, and predicting your score requires
           analyzing multiple performance signals rather than relying on a single exam. Our Step 3 predictor combines
           Step 2 CK baseline scores, UWorld QBank performance, and CCS simulation accuracy to estimate your final score range.

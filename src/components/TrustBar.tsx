@@ -88,7 +88,7 @@ export default function TrustBar({ step }: TrustBarProps) {
 
       <span className="trust-privacy" aria-label="Privacy assurance">
         <ShieldCheck size={13} aria-hidden="true" />
-        <span>Scores never leave your device</span>
+        <span>Free — no account or signup</span>
       </span>
     </div>
   );
