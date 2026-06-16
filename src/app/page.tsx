@@ -155,7 +155,7 @@ export default function Home() {
           <div className="premium-faq-answer"><p>Yes. Both the <a href="/usmle-step-1-score-predictor/">Step 1 (Pass/Fail) predictor</a> and the <a href="/usmle-step-3-score-predictor/">Step 3 score predictor</a> are available now on USMLEPredictor.com.</p></div>
         </details>
 
-        <p style={{ color: '#64748b', fontSize: 13, marginTop: 24, textAlign: 'center' }}>Last updated: June 2026</p>
+        <p style={{ color: '#64748b', fontSize: 13, marginTop: 24, textAlign: 'center' }}>By <a href="/accuracyinsights/" style={{ color: '#94a3b8' }}>Tao Leo</a>, Founder &amp; Lead Researcher · Last updated June 2026</p>
       </section>
 
       {/* BreadcrumbList omitted on homepage — single-item breadcrumbs produce no rich result */}

@@ -3,7 +3,7 @@ import Script from 'next/script'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import SchemaMarkup from '@/components/SchemaMarkup'
-import { organizationSchema, websiteSchema, editorialTeamSchema } from '@/lib/schemas'
+import { organizationSchema, websiteSchema, editorialTeamSchema, personSchema } from '@/lib/schemas'
 import Footer from '@/components/Footer'
 
 const inter = Inter({
@@ -100,8 +100,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
 
       <head>
-        {/* ✅ Sitewide structured data: Organization + WebSite + Editorial Team (E-E-A-T) */}
-        <SchemaMarkup schema={[organizationSchema, websiteSchema, editorialTeamSchema]} />
+        {/* ✅ Sitewide structured data: Organization + WebSite + Editorial Team + Author (E-E-A-T) */}
+        <SchemaMarkup schema={[organizationSchema, websiteSchema, editorialTeamSchema, personSchema]} />
         {/* ✅ Microsoft Clarity */}
         <Script id="ms-clarity" strategy="afterInteractive">
           {`

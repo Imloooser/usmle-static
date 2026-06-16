@@ -141,9 +141,9 @@ export const scholarlyArticleSchema = {
   datePublished: '2022-01-01',
   dateModified: '2026-06-16',
   author: {
-    '@type': 'Organization',
-    name: 'USMLE Predictor Research Team',
-    url: 'https://usmlepredictor.com/',
+    '@type': 'Person',
+    '@id': 'https://usmlepredictor.com/#author-tao-leo',
+    name: 'Tao Leo',
   },
   publisher: {
     '@type': 'Organization',
@@ -408,9 +408,9 @@ export const step1AccuracyScholarlyArticleSchema = {
   datePublished: '2026-06-06',
   dateModified: '2026-06-06',
   author: {
-    '@type': 'Organization',
-    name: 'USMLE Predictor Research Team',
-    url: 'https://usmlepredictor.com/',
+    '@type': 'Person',
+    '@id': 'https://usmlepredictor.com/#author-tao-leo',
+    name: 'Tao Leo',
   },
   publisher: {
     '@type': 'Organization',
@@ -552,9 +552,9 @@ export const step3AccuracyScholarlyArticleSchema = {
   datePublished: '2026-06-06',
   dateModified: '2026-06-06',
   author: {
-    '@type': 'Organization',
-    name: 'USMLE Predictor Research Team',
-    url: 'https://usmlepredictor.com/',
+    '@type': 'Person',
+    '@id': 'https://usmlepredictor.com/#author-tao-leo',
+    name: 'Tao Leo',
   },
   publisher: {
     '@type': 'Organization',
@@ -717,6 +717,38 @@ export const editorialTeamSchema = {
     name: 'USMLE Predictor',
     url: 'https://usmlepredictor.com/',
   },
+  founder: {
+    '@type': 'Person',
+    '@id': 'https://usmlepredictor.com/#author-tao-leo',
+    name: 'Tao Leo',
+  },
+} as const
+
+// ─── E-E-A-T: Named author (Person) ─────────────────────────────────────────
+// Honest authorship signal (Google 2026 "Authors" guidance). No medical
+// credentials are claimed; medical accuracy is anchored to the cited published
+// sources (NBME, IAMSE, FSMB, PubMed), not to a personal license.
+export const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': 'https://usmlepredictor.com/#author-tao-leo',
+  name: 'Tao Leo',
+  jobTitle: 'Founder & Lead Researcher',
+  description:
+    'Founder and lead researcher at USMLE Predictor. Builds and validates the score-prediction models against 5,039 verified student outcomes and publicly published sources (NBME, IAMSE, FSMB, PubMed).',
+  worksFor: {
+    '@type': 'Organization',
+    '@id': 'https://usmlepredictor.com/#organization',
+    name: 'USMLE Predictor',
+  },
+  knowsAbout: [
+    'USMLE Step 1 Pass/Fail Prediction',
+    'USMLE Step 2 CK Score Prediction',
+    'USMLE Step 3 Score Prediction',
+    'Medical Education Statistical Methodology',
+    'Item Response Theory in Standardized Testing',
+  ],
+  url: 'https://usmlepredictor.com/accuracyinsights/',
 } as const
 
 // ─── Dataset schema for Google Dataset Search ───────────────────────────────
@@ -787,9 +819,9 @@ export function medicalWebPageSchema(opts: {
       name: 'USMLEPredictor Editorial Team',
     },
     author: {
-      '@type': 'Organization',
-      '@id': 'https://usmlepredictor.com/#editorial-team',
-      name: 'USMLEPredictor Editorial Team',
+      '@type': 'Person',
+      '@id': 'https://usmlepredictor.com/#author-tao-leo',
+      name: 'Tao Leo',
     },
     isPartOf: {
       '@type': 'WebSite',

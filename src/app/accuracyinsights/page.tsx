@@ -115,10 +115,12 @@ export default function AccuracyInsights() {
           <div className="">
             <div className="p-6 rounded-xl">
               <h4 className="text-lg font-bold text-white mb-4">Who Built This Tool</h4>
-              <p className="text-[#a0acc0]">USMLEPredictor.com was developed by a team of medical educators and data scientists with
-                direct experience in USMLE preparation and medical education research. The prediction algorithm
-                was designed to address a well-documented gap: existing score prediction methods (Reddit
-                spreadsheets, estimates) rely on self-reported, unverified data with no statistical rigor.
+              <p className="text-[#a0acc0]">USMLEPredictor.com is led by <strong className="text-white">Tao Leo</strong>, its founder and
+                lead researcher, who builds and validates the prediction models against 5,039 verified student
+                outcomes and publicly published sources (NBME, IAMSE, FSMB, PubMed), working alongside medical
+                educators and data scientists. The tool was created to address a well-documented gap: existing
+                score-prediction methods (crowdsourced spreadsheets, estimates) rely on self-reported,
+                unverified data with no statistical rigor.
               </p>
               <p className="text-[#a0acc0]">Our team includes individuals with backgrounds in:</p>
 
