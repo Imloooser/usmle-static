@@ -703,18 +703,24 @@ export default function Step1AccuracyInsights() {
         </section>
 
         {/* Disclaimer */}
-        <section className="premium-section text-center mt-16 pt-8 border-t border-white/5">
-          <Shield className="mx-auto text-slate-500 mb-4" size={24} />
-          <h3 className="text-lg font-bold text-white mb-2">Disclaimer</h3>
-          <p className="text-sm text-[#a0acc0] max-w-2xl mx-auto text-left">
-            USMLEPredictor.com is an independent educational tool. We are not affiliated with
-            the National Board of Medical Examiners (NBME), the Federation of State Medical
-            Boards (FSMB), the United States Medical Licensing Examination (USMLE), or any
-            Q-bank vendor. Pass probability is an estimate based on publicly-published NBME
-            calibration data; individual outcomes vary based on test-day performance, content
-            preparation depth, and other factors. Use this tool as one data point in your
-            preparation strategy alongside official NBME self-assessments.
-          </p>
+        <section className="premium-section mt-16 pt-10 border-t border-white/5">
+          <div className="max-w-3xl mx-auto rounded-2xl border border-white/10 bg-white/[0.025] p-6 md:p-7">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-slate-500/10 ring-1 ring-white/10 shrink-0">
+                <Shield className="text-slate-300" size={18} />
+              </span>
+              <h3 className="text-base font-bold text-white m-0">Disclaimer</h3>
+            </div>
+            <p className="text-sm leading-relaxed text-[#9aa6bd] m-0 text-left">
+              USMLEPredictor.com is an independent educational tool. We are not affiliated with
+              the National Board of Medical Examiners (NBME), the Federation of State Medical
+              Boards (FSMB), the United States Medical Licensing Examination (USMLE), or any
+              Q-bank vendor. Pass probability is an estimate based on publicly-published NBME
+              calibration data; individual outcomes vary based on test-day performance, content
+              preparation depth, and other factors. Use this tool as one data point in your
+              preparation strategy alongside official NBME self-assessments.
+            </p>
+          </div>
         </section>
       </main>
     </div>
