@@ -137,14 +137,14 @@ export default function RootLayout({
         {/* OPTIONAL: Umami */}
         <Script
           src="https://cloud.umami.is/script.js"
-          data-website-id="7fc3b461-93e9-4d96-ab6f-e8ae0a6a9b2d"
+          data-website-id="c2363c4b-9945-4c8d-83bd-214adfe6a8d1"
           strategy="afterInteractive"
         />
 
         <Script
           defer
           src="https://cloud.umami.is/recorder.js"
-          data-website-id="7fc3b461-93e9-4d96-ab6f-e8ae0a6a9b2d"
+          data-website-id="c2363c4b-9945-4c8d-83bd-214adfe6a8d1"
           data-sample-rate="1"
           data-mask-level="moderate"
           data-max-duration="1200000"
