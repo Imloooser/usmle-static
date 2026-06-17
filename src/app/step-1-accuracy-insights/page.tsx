@@ -702,8 +702,8 @@ export default function Step1AccuracyInsights() {
           </details>
         </section>
 
-        {/* Disclaimer */}
-        <section className="premium-section mt-16 pt-10 border-t border-white/5">
+        {/* Disclaimer (no premium-section: that wrapper forces p to 18px) */}
+        <section className="mt-16 pt-10 border-t border-white/5">
           <div className="max-w-3xl mx-auto rounded-2xl border border-white/10 bg-white/[0.025] p-6 md:p-7">
             <div className="flex items-center gap-3 mb-4">
               <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-slate-500/10 ring-1 ring-white/10 shrink-0">
