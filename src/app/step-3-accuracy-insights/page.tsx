@@ -752,7 +752,7 @@ export default function Step3AccuracyInsights() {
         <section className="premium-section text-center mt-16 pt-8 border-t border-white/5">
           <Shield className="mx-auto text-slate-500 mb-4" size={24} />
           <h3 className="text-lg font-bold text-white mb-2">Disclaimer</h3>
-          <p className="text-sm text-[#a0acc0] max-w-2xl mx-auto">
+          <p className="text-sm text-[#a0acc0] max-w-2xl mx-auto text-left">
             USMLEPredictor.com is an independent educational tool. We are not affiliated with
             the National Board of Medical Examiners (NBME), the Federation of State Medical
             Boards (FSMB), the United States Medical Licensing Examination (USMLE), UWorld, or
