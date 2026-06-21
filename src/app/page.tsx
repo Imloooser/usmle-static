@@ -69,6 +69,9 @@ export default function Home() {
       </ul>
 
       <div className="methodology-cta">
+        <a href="/methodology" className="methodology-link">
+          Read our methodology →
+        </a>
         <a href="/accuracyinsights" className="methodology-link">
           See full accuracy data →
         </a>
