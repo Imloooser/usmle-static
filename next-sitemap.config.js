@@ -26,6 +26,7 @@ module.exports = {
       '/nbme-score-predictor': 0.7,
       '/uwsa-score-predictor': 0.7,
       '/what-is-a-good-step-2-ck-score': 0.8,
+      '/methodology': 0.8,
       '/blog': 0.6,
     };
     return {
@@ -44,6 +45,7 @@ module.exports = {
     await config.transform(config, '/nbme-score-predictor'),
     await config.transform(config, '/uwsa-score-predictor'),
     await config.transform(config, '/what-is-a-good-step-2-ck-score'),
+    await config.transform(config, '/methodology'),
   ],
   robotsTxtOptions: {
     additionalSitemaps: ['https://usmlepredictor.com/sitemap.xml'],
