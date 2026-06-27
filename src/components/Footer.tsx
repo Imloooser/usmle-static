@@ -62,6 +62,8 @@ export default function Footer({ stats }: { stats?: any }) {
           <Link href="/what-is-a-good-step-2-ck-score" className="text-[12px] text-slate-400 hover:text-white transition-colors">Good Step 2 Score?</Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
           <Link href="/methodology" className="text-[12px] text-slate-400 hover:text-white transition-colors">Methodology</Link>
+          <span className="text-slate-700 hidden sm:inline">•</span>
+          <Link href="/blog" className="text-[12px] text-slate-400 hover:text-white transition-colors">Blog</Link>
         </div>
 
         <p className="text-[10px] h-10 text-slate-600">

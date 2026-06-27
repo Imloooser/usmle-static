@@ -28,6 +28,10 @@ module.exports = {
       '/what-is-a-good-step-2-ck-score': 0.8,
       '/methodology': 0.8,
       '/blog': 0.6,
+      '/blog/step-3-score-predictor-nbme-uwsa-correlation': 0.7,
+      '/blog/which-nbme-form-is-most-accurate': 0.7,
+      '/blog/how-to-calculate-step-1-pass-probability': 0.7,
+      '/blog/usmle-step-2-ck-score-prediction-guide': 0.6,
     };
     return {
       loc: path,
@@ -46,6 +50,11 @@ module.exports = {
     await config.transform(config, '/uwsa-score-predictor'),
     await config.transform(config, '/what-is-a-good-step-2-ck-score'),
     await config.transform(config, '/methodology'),
+    await config.transform(config, '/blog'),
+    await config.transform(config, '/blog/step-3-score-predictor-nbme-uwsa-correlation'),
+    await config.transform(config, '/blog/which-nbme-form-is-most-accurate'),
+    await config.transform(config, '/blog/how-to-calculate-step-1-pass-probability'),
+    await config.transform(config, '/blog/usmle-step-2-ck-score-prediction-guide'),
   ],
   robotsTxtOptions: {
     additionalSitemaps: ['https://usmlepredictor.com/sitemap.xml'],
