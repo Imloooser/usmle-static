@@ -81,8 +81,29 @@ export default function Step1AccuracyInsights() {
       {/* MAIN */}
       <main className="premium-main-content">
 
+        {/* Jump links — Clarity shows avg scroll depth of ~31% on this page, so surface the
+            deeper sections up top instead of relying on scrolling. */}
+        <nav aria-label="On this page" className="mt-10 flex flex-wrap justify-center gap-2">
+          {[
+            ['#methodology', 'Methodology'],
+            ['#predictors', 'Predictor Data'],
+            ['#form-notes', 'NBME Form Notes'],
+            ['#comparison', 'Comparison'],
+            ['#img', 'For IMGs'],
+            ['#tiers', 'Readiness Tiers'],
+          ].map(([href, label]) => (
+            <a
+              key={href}
+              href={href}
+              className="px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] text-[12px] font-medium text-slate-300 no-underline hover:border-indigo-500/40 hover:text-white transition-colors"
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+
         {/* 1. About the methodology */}
-        <section className="premium-section mt-16 leading-loose space-y-6">
+        <section id="methodology" className="premium-section mt-16 leading-loose space-y-6">
           <h2 className="text-2xl font-bold text-white mb-4">
             About This Methodology
           </h2>
@@ -200,7 +221,7 @@ export default function Step1AccuracyInsights() {
         </section>
 
         {/* 2. Practice Score Accuracy */}
-        <section className="premium-section mt-16">
+        <section id="predictors" className="premium-section mt-16">
           <h3 className="text-xl font-bold text-white mb-2">
             Practice Score Correlation with Step 1 Pass/Fail Outcome
           </h3>
@@ -296,7 +317,7 @@ export default function Step1AccuracyInsights() {
         </section>
 
         {/* 3. NBME form-specific notes */}
-        <section className="premium-section mt-16">
+        <section id="form-notes" className="premium-section mt-16">
           <h2 className="text-2xl font-bold text-white mb-4">
             NBME Form-Specific Notes
           </h2>
@@ -350,7 +371,7 @@ export default function Step1AccuracyInsights() {
         </section>
 
         {/* 4. Comparison table */}
-        <section className="premium-section mt-16">
+        <section id="comparison" className="premium-section mt-16">
           <h2 className="text-xl font-bold text-white mb-6">
             How Our Step 1 Predictor Compares
           </h2>
@@ -400,7 +421,7 @@ export default function Step1AccuracyInsights() {
         </section>
 
         {/* 5. IMG section */}
-        <section className="premium-section mt-16">
+        <section id="img" className="premium-section mt-16">
           <h2 className="text-2xl font-bold text-white mb-4">
             Step 1 for International Medical Graduates (IMGs)
           </h2>
@@ -439,7 +460,7 @@ export default function Step1AccuracyInsights() {
         </section>
 
         {/* 6. Tier system */}
-        <section className="premium-section mt-16">
+        <section id="tiers" className="premium-section mt-16">
           <h2 className="text-2xl font-bold text-white mb-4">
             Readiness Tier System
           </h2>

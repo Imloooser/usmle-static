@@ -94,7 +94,7 @@ export default function Step1Predictor() {
     url: 'https://usmlepredictor.com/usmle-step-1-score-predictor',
     name: 'USMLE Step 1 Pass/Fail Predictor',
     description: 'Free USMLE Step 1 pass-probability predictor anchored on NBME\'s officially published CBSSA pass-probability table (July 2024). Calibrated on the full Step 1 examinee population.',
-    lastReviewed: '2026-06-06',
+    lastReviewed: '2026-07-02',
     about: 'USMLE Step 1 Examination',
     audience: 'medical students',
   });
@@ -114,6 +114,23 @@ export default function Step1Predictor() {
           <p className="text-sm text-slate-400">
             Calibrated exclusively for the Pass/Fail era (Post-Jan 2022) • Accurate Probability Analytics
           </p>
+        </section>
+
+        {/* Quick answer — self-contained, liftable facts (AI search / featured snippets) */}
+        <section className="premium-section mt-10">
+          <div className="rounded-2xl border border-indigo-500/20 bg-indigo-500/[0.06] p-6">
+            <h2 className="text-lg font-bold text-white mb-2">Quick answer</h2>
+            <p className="text-[#a0acc0] leading-relaxed m-0">
+              This free Step 1 predictor converts your NBME (Forms 29–33), Free 120, and UWorld percentages
+              into a probability of passing, anchored on the NBME&apos;s officially published pass-probability
+              table (July 2024). USMLE Step 1 has been Pass/Fail since January 26, 2022 — there is no 3-digit
+              score — so readiness means a high pass probability (95%+) on a recent form with a flat or rising
+              trend.
+            </p>
+            <p className="text-xs text-slate-500 mt-3 mb-0">
+              Last updated: July 2026 · <a href="/methodology/" className="text-indigo-400 hover:underline">How we calculate this</a>
+            </p>
+          </div>
         </section>
 
         {/* 📚 SEO CONTENT */}

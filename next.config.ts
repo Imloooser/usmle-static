@@ -17,6 +17,9 @@ const nextConfig: NextConfig = {
       { source: '/blog/usmle-score-requirements-by-specialty', destination: '/blog', permanent: true },
       { source: '/blog/usmle-step-2-ck-study-schedule', destination: '/blog', permanent: true },
       { source: '/blog/step-2-score-for-competitive-residency', destination: '/blog', permanent: true },
+      // Mistyped inbound URL (missing 's') seen receiving real visitors in Clarity —
+      // likely a bad external/AI citation. Preserve those visits with a 301.
+      { source: '/step-1-accuracy-insight', destination: '/step-1-accuracy-insights', permanent: true },
     ];
   },
 };

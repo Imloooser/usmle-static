@@ -26,7 +26,7 @@ export default function Home() {
     url: 'https://usmlepredictor.com/',
     name: 'USMLE Step 2 CK Score Predictor',
     description: 'Free USMLE Step 2 CK score predictor anchored on 5,039 verified student outcomes. Predicts your 3-digit Step 2 CK score from NBME, UWSA, Free 120, and UWorld practice scores.',
-    lastReviewed: '2026-06-06',
+    lastReviewed: '2026-07-02',
     about: 'USMLE Step 2 Clinical Knowledge Examination',
     audience: 'medical students',
   });
@@ -59,12 +59,13 @@ export default function Home() {
 
         <li>
           <strong>NBME Form 14:</strong>
-          <span className="methodology-highlight"> r = 0.92 correlation</span>
+          {/* Real links: Clarity showed users clicking these indigo stats (dead clicks) */}
+          <a href="/accuracyinsights/" className="methodology-highlight no-underline hover:underline underline-offset-2"> r = 0.92 correlation</a>
         </li>
 
         <li>
           <strong>UWSA 2:</strong>
-          <span className="methodology-highlight"> r = 0.89 correlation</span>
+          <a href="/accuracyinsights/" className="methodology-highlight no-underline hover:underline underline-offset-2"> r = 0.89 correlation</a>
         </li>
       </ul>
 
@@ -158,7 +159,7 @@ export default function Home() {
           <div className="premium-faq-answer"><p>Yes. Both the <a href="/usmle-step-1-score-predictor/">Step 1 (Pass/Fail) predictor</a> and the <a href="/usmle-step-3-score-predictor/">Step 3 score predictor</a> are available now on USMLEPredictor.com.</p></div>
         </details>
 
-        <p style={{ color: '#64748b', fontSize: 13, marginTop: 24, textAlign: 'center' }}>Last updated: June 2026</p>
+        <p style={{ color: '#64748b', fontSize: 13, marginTop: 24, textAlign: 'center' }}>Last updated: July 2026</p>
       </section>
 
       {/* BreadcrumbList omitted on homepage — single-item breadcrumbs produce no rich result */}
