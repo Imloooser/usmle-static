@@ -95,7 +95,7 @@ export default function Step3Predictor() {
     url: 'https://usmlepredictor.com/usmle-step-3-score-predictor',
     name: 'USMLE Step 3 Score Predictor',
     description: 'Free USMLE Step 3 score predictor anchored on PMC8368809 (n=27,118) Step 2 CK to Step 3 correlation research. Predicts 3-digit Step 3 score from Step 2 CK, UWorld, UWSA, NBME 6/7, and Free 137 inputs.',
-    lastReviewed: '2026-06-06',
+    lastReviewed: '2026-07-02',
     about: 'USMLE Step 3 Examination',
     audience: 'residents',
   });
@@ -115,6 +115,23 @@ return (
         <p className="text-sm text-slate-400">
           Used by 10,000+ medical students • Built with NBME & UWorld correlation data
         </p>
+      </section>
+
+      {/* Quick answer — self-contained, liftable facts (AI search / featured snippets) */}
+      <section className="premium-section mt-10">
+        <div className="rounded-2xl border border-indigo-500/20 bg-indigo-500/[0.06] p-6">
+          <h2 className="text-lg font-bold text-white mb-2">Quick answer</h2>
+          <p className="text-[#a0acc0] leading-relaxed m-0">
+            The strongest single predictor of your USMLE Step 3 score is your Step 2 CK result
+            (r&nbsp;=&nbsp;0.68 across 27,118 examinees). This free Step 3 predictor blends Step 2 CK with
+            UWSA 1/2, UWorld %, and NBME Forms 6/7, then applies a CCS adjustment — case simulations count
+            for roughly 25% of the total score and no practice form grades them. The passing standard is 200;
+            the national mean is about 227.
+          </p>
+          <p className="text-xs text-slate-500 mt-3 mb-0">
+            Last updated: July 2026 · <a href="/methodology/" className="text-indigo-400 hover:underline">How we calculate this</a>
+          </p>
+        </div>
       </section>
 
       {/* 📚 SEO CONTENT */}

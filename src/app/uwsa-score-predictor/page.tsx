@@ -88,7 +88,7 @@ export default function UwsaPredictorPage() {
     url: 'https://usmlepredictor.com/uwsa-score-predictor',
     name: 'UWSA Score Converter',
     description: 'Bias-corrected UWSA-to-Step-2-CK converter with score-band asymmetry handling.',
-    lastReviewed: '2026-06-06',
+    lastReviewed: '2026-07-02',
     about: 'UWorld Self-Assessment (UWSA) for Step 2 CK',
     audience: 'medical students',
   });
@@ -102,6 +102,22 @@ export default function UwsaPredictorPage() {
 
       {/* SEO content below */}
       <main className="premium-main-content">
+        {/* Quick answer — self-contained, liftable facts (AI search / featured snippets) */}
+        <section className="premium-section mt-10">
+          <div className="rounded-2xl border border-indigo-500/20 bg-indigo-500/[0.06] p-6">
+            <h2 className="text-lg font-bold text-white mb-2">Quick answer</h2>
+            <p className="text-[#a0acc0] leading-relaxed m-0">
+              UWSA 2 correlates strongly with the real Step 2 CK score (r&nbsp;=&nbsp;0.89) but over-predicts
+              by about 3–5 points on average; UWSA 1 over-predicts slightly more. This converter applies a
+              bias correction derived from 5,039 verified student outcomes instead of taking the raw score at
+              face value.
+            </p>
+            <p className="text-xs text-slate-500 mt-3 mb-0">
+              Last updated: July 2026 · <a href="/methodology/" className="text-indigo-400 hover:underline">How we calculate this</a>
+            </p>
+          </div>
+        </section>
+
         <section className="premium-section mt-16 leading-loose space-y-6">
           <h2 className="text-2xl font-bold text-white mb-4">
             UWSA Overprediction & How We Correct It
