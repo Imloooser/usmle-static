@@ -3,8 +3,8 @@ import type { BlogPostMeta } from './types';
 
 export const meta: BlogPostMeta = {
   slug: 'step-3-score-predictor-nbme-uwsa-correlation',
-  title: 'USMLE Step 3 Score Predictor: NBME, UWSA & CCS',
-  h1: 'USMLE Step 3 Score Predictor: NBME Conversion, UWSA Correlation & the CCS Factor',
+  title: 'NBME 6 & 7 to Step 3 Conversion: UWSA Correlation & CCS',
+  h1: 'NBME 6 & 7 to Step 3: Score Conversion, UWSA Correlation & the CCS Factor',
   description:
     'How to convert NBME Form 6 & 7 and UWorld Step 3 self-assessment scores into a Step 3 estimate — and why CCS cases swing the result more than residents expect.',
   excerpt:
