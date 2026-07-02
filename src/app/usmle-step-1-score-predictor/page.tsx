@@ -8,13 +8,13 @@ import ExamSwitcher from '@/components/ExamSwitcher';
 import { medicalWebPageSchema } from '@/lib/schemas';
 
 export const metadata: Metadata = {
-  title: 'USMLE Step 1 Score Predictor — PASS/FAIL Prediction Tool',
-  description: 'Calculate your USMLE Step 1 pass probability from NBME forms 29–33, Free 120, and UWorld %, anchored on NBME\'s official July 2024 pass-probability table.',
+  title: 'USMLE Step 1 Pass Probability Calculator — Free, NBME-Anchored',
+  description: 'Check your USMLE Step 1 pass probability from NBME forms 29–33, Free 120, and UWorld %. Anchored on NBME\'s official July 2024 pass-probability table — see what NBME score predicts a pass.',
   alternates: {
     canonical: 'https://usmlepredictor.com/usmle-step-1-score-predictor',
   },
   openGraph: {
-    title: 'USMLE Step 1 Pass/Fail Predictor — Free, NBME-Anchored',
+    title: 'USMLE Step 1 Pass Probability Calculator — Free, NBME-Anchored',
     description: 'Free Step 1 pass-probability predictor anchored on NBME\'s July 2024 published table. Calibrated on 100,000+ examinees.',
     url: 'https://usmlepredictor.com/usmle-step-1-score-predictor',
     type: 'website',
@@ -32,10 +32,17 @@ export default function Step1Predictor() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "USMLE Step 1 Score Predictor — PASS/FAIL Prediction Tool",
+    "name": "USMLE Step 1 Pass Probability Calculator",
     "url": "https://usmlepredictor.com/usmle-step-1-score-predictor",
     "applicationCategory": "EducationApplication",
-    "description": "Calculate your statistical probability of passing USMLE Step 1.",
+    "description": "Calculate your statistical probability of passing USMLE Step 1 from NBME forms 29–33, Free 120, and UWorld %.",
+    "isAccessibleForFree": true,
+    "featureList": [
+      "Pass probability from NBME CBSSA Forms 29–33 (NBME July 2024 table)",
+      "Free 120 and UWorld % as corroborating signals",
+      "Recency weighting — recent forms count more",
+      "Pass/Fail-era calibration (post-January 2022)"
+    ],
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   };
 
@@ -66,6 +73,14 @@ export default function Step1Predictor() {
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes, while UWorld is primarily a learning tool rather than an assessment tool, completing UWorld with an average above 60% historically correlates with a very high Step 1 passing likelihood."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What NBME score guarantees a pass on Step 1?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No practice score guarantees a pass. But NBME's published pass-probability data shows that consistently scoring above 65–68% equated percent correct on recent forms (29–33) corresponds to a 95%+ probability of passing. Enter your exact form and score into the calculator above to get your personalized probability."
         }
       }
     ]
@@ -194,6 +209,17 @@ export default function Step1Predictor() {
             <div className="premium-faq-answer">
               <p>
                 Yes, while UWorld is primarily a learning tool rather than an assessment tool, completing UWorld with an average above 60% historically correlates with a very high Step 1 passing likelihood.
+              </p>
+            </div>
+          </details>
+
+          <details className="premium-faq-item">
+            <summary className="premium-faq-question">
+              What NBME score guarantees a pass on Step 1?
+            </summary>
+            <div className="premium-faq-answer">
+              <p>
+                No practice score guarantees a pass. But NBME&apos;s published pass-probability data shows that consistently scoring above 65–68% equated percent correct on recent forms (29–33) corresponds to a 95%+ probability of passing. Enter your exact form and score into the calculator above to get your personalized probability.
               </p>
             </div>
           </details>

@@ -35,7 +35,16 @@ export default function Step3Predictor() {
     "name": "USMLE Step 3 Score Predictor",
     "url": "https://usmlepredictor.com/usmle-step-3-score-predictor",
     "applicationCategory": "EducationApplication",
-    "description": "Calculate your USMLE Step 3 Score accurately using UWorld, CCS Cases, and historic parameters.",
+    "description": "Calculate your USMLE Step 3 score from Step 2 CK, UWorld %, UWSA 1/2, NBME Forms 6/7, Free 137, and CCS practice performance.",
+    "isAccessibleForFree": true,
+    "featureList": [
+      "Step 2 CK anchor — the strongest Step 3 predictor (r = 0.68, n = 27,118)",
+      "CCS case-simulation adjustment (CCS is ~25% of the total Step 3 score)",
+      "UWSA 1/2 recalibration for known under-prediction",
+      "NBME Forms 6/7 percent-correct conversion",
+      "Free 137 and UWorld % corroborating signals",
+      "Pass probability + 3-digit estimate with range"
+    ],
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   };
 
@@ -157,13 +166,46 @@ return (
         </p>
 
         <p className="text-[#a0acc0]">
-          <strong>CCS Simulation Impact:</strong> CCS contributes up to 30% of your score. Strong CCS performance
+          <strong>CCS Simulation Impact:</strong> CCS contributes about 25% of your score. Strong CCS performance
           significantly boosts your final predicted range.
         </p>
 
         {/* INTERNAL LINK = SEO BOOST */}
         <Link href="/step-3-accuracy-insights" className="text-indigo-400 hover:underline">
          👉 Read the full breakdown of our prediction methodology
+        </Link>
+      </section>
+
+      {/* 🩺 CCS — the Step 3-specific component competitors gloss over */}
+      <section className="premium-section mt-16 leading-loose space-y-6">
+        <h2 className="text-2xl font-bold text-white mb-4">
+          How CCS Cases Affect Your Predicted Step 3 Score
+        </h2>
+
+        <p className="text-[#a0acc0]">
+          Computer-based Case Simulations (CCS) are what make Step 3 different from every other USMLE exam —
+          interactive patient-management cases on Day 2 that count for roughly <strong>25% of your total score</strong>.
+          No NBME form or UWSA grades them, which is why a multiple-choice-only prediction is incomplete.
+        </p>
+
+        <p className="text-[#a0acc0]">
+          <strong>How our model handles CCS:</strong> you enter either your average percent-correct on CCS
+          practice cases (UWorld CCS or ccscases.com) or a simple self-rating. The model then applies a
+          calibrated adjustment on top of your multiple-choice estimate: strong CCS performance adds roughly
+          <strong> +6 points</strong>, while self-rated &ldquo;struggled&rdquo; performance subtracts about{' '}
+          <strong>−12 points</strong> — enough to pull an otherwise-passing MCQ score below the 200 passing line.
+        </p>
+
+        <p className="text-[#a0acc0]">
+          <strong>Why CCS is an adjustment, not a matching input:</strong> in holdout testing, self-reported CCS
+          percentages were too noisy to improve neighbor matching, so the model deliberately applies CCS as a
+          post-hoc modifier instead of letting it distort the core prediction. That is also our honest advice for
+          test day: aim for <strong>~70%+ on high-yield CCS practice cases</strong> so CCS builds your buffer
+          rather than eroding it.
+        </p>
+
+        <Link href="/blog/step-3-score-predictor-nbme-uwsa-correlation/" className="text-indigo-400 hover:underline">
+          👉 Full analysis: NBME 6/7 conversion, UWSA correlation &amp; the CCS factor
         </Link>
       </section>
 

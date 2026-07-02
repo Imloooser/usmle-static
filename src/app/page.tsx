@@ -78,6 +78,11 @@ export default function Home() {
         </a>
       </div>
 
+      <p style={{ marginTop: 16, fontSize: 14, color: '#94a3b8' }}>
+        Preparing for Step 1? Check your readiness with our{' '}
+        <a href="/usmle-step-1-score-predictor/" className="methodology-link">Step 1 Pass Probability Calculator</a>.
+      </p>
+
     </div>
 
   </div>

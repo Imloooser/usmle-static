@@ -36,7 +36,13 @@ export default function PredictorHero({ step }: PredictorHeroProps) {
 
       <h1 className="hero-h1 text-4xl sm:text-5xl md:text-6xl font-extrabold text-white">
         <span className="hero-h1-line">
-          Predict Your <span className="highlight">USMLE {STEP_LABEL[step]}</span> Score
+          {step === 'step1' ? (
+            // Step 1 is Pass/Fail since 2022 — "pass probability" is the modern
+            // search intent; "predict your score" is the outdated one.
+            <>Check Your <span className="highlight">USMLE Step 1</span> Pass Probability</>
+          ) : (
+            <>Predict Your <span className="highlight">USMLE {STEP_LABEL[step]}</span> Score</>
+          )}
         </span>
       </h1>
       <p className="hero-sub">
