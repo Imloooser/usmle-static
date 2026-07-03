@@ -13,13 +13,15 @@ const nextConfig: NextConfig = {
       // (existed on the old site, has crawl history) with a 301 instead of 404.
       { source: '/usmle-step-2-ck-score-predictor', destination: '/', permanent: true },
       // Blog posts removed in the rebuild → send to the blog hub (preserve equity, clear 404s).
-      { source: '/blog/step-2-score-for-internal-medicine-residency', destination: '/blog', permanent: true },
-      { source: '/blog/usmle-score-requirements-by-specialty', destination: '/blog', permanent: true },
-      { source: '/blog/usmle-step-2-ck-study-schedule', destination: '/blog', permanent: true },
-      { source: '/blog/step-2-score-for-competitive-residency', destination: '/blog', permanent: true },
+      // Destinations carry the trailing slash so we don't chain through an extra
+      // trailingSlash normalization hop (Google flags 3-hop chains).
+      { source: '/blog/step-2-score-for-internal-medicine-residency', destination: '/blog/', permanent: true },
+      { source: '/blog/usmle-score-requirements-by-specialty', destination: '/blog/', permanent: true },
+      { source: '/blog/usmle-step-2-ck-study-schedule', destination: '/blog/', permanent: true },
+      { source: '/blog/step-2-score-for-competitive-residency', destination: '/blog/', permanent: true },
       // Mistyped inbound URL (missing 's') seen receiving real visitors in Clarity —
       // likely a bad external/AI citation. Preserve those visits with a 301.
-      { source: '/step-1-accuracy-insight', destination: '/step-1-accuracy-insights', permanent: true },
+      { source: '/step-1-accuracy-insight', destination: '/step-1-accuracy-insights/', permanent: true },
     ];
   },
 };
