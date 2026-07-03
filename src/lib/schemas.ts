@@ -29,11 +29,8 @@ export const websiteSchema = {
   '@type': 'WebSite',
   name: 'USMLE Predictor',
   url: 'https://usmlepredictor.com/',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: 'https://usmlepredictor.com/?q={search_term_string}',
-    'query-input': 'required name=search_term_string',
-  },
+  // NOTE: no SearchAction/potentialAction — the site has no on-site search, and
+  // declaring one made Google crawl phantom /?q={search_term_string} URLs.
 } as const
 
 // ─── Homepage ─────────────────────────────────────────────────────────────────
