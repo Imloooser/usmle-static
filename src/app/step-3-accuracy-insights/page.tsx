@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   description:
     'How our USMLE Step 3 score predictor is calibrated, validated, and benchmarked. Anchored on peer-reviewed Step 2 CK → Step 3 correlation research (PMC8368809, n=27,118) with cross-referenced NBME 6/7 and FSMB cohort data.',
   alternates: {
-    canonical: 'https://usmlepredictor.com/step-3-accuracy-insights',
+    canonical: 'https://usmlepredictor.com/step-3-accuracy-insights/',
   },
   openGraph: {
     title: 'USMLE Step 3 Score Prediction Accuracy & Validation Methodology',
     description:
       'Research-anchored Step 3 prediction methodology — validated against PMC8368809 (n=27,118) and published NBME 6/7 self-assessment data.',
-    url: 'https://usmlepredictor.com/step-3-accuracy-insights',
+    url: 'https://usmlepredictor.com/step-3-accuracy-insights/',
     type: 'article',
     images: [{ url: '/og-accuracy-step-3.png', width: 1200, height: 630, alt: 'USMLE Step 3 Accuracy Insights' }],
   },

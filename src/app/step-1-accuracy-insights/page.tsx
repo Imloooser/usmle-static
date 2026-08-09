@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   description:
     'How our USMLE Step 1 pass-probability predictor is calibrated and validated — anchored on NBME\'s official July 2024 CBSSA table plus IAMSE 2024 research and FSMB cohort data.',
   alternates: {
-    canonical: 'https://usmlepredictor.com/step-1-accuracy-insights',
+    canonical: 'https://usmlepredictor.com/step-1-accuracy-insights/',
   },
   openGraph: {
     title: 'USMLE Step 1 Pass/Fail Accuracy & Validation Methodology',
     description:
       'NBME-anchored, peer-reviewed Step 1 pass-probability prediction methodology. Validated against the full Step 1 examinee population.',
-    url: 'https://usmlepredictor.com/step-1-accuracy-insights',
+    url: 'https://usmlepredictor.com/step-1-accuracy-insights/',
     type: 'article',
     images: [{ url: '/og-accuracy-step-1.png', width: 1200, height: 630, alt: 'USMLE Step 1 Accuracy Insights' }],
   },
