@@ -127,7 +127,7 @@ return (
       </section>
 
       {/* Quick answer — self-contained, liftable facts (AI search / featured snippets) */}
-      <section className="premium-section mt-10">
+      <section className="mt-10 mb-6">
         <div className="rounded-2xl border border-indigo-500/20 bg-indigo-500/[0.06] p-6">
           <h2 className="text-lg font-bold text-white mb-2">Quick answer</h2>
           <p className="text-[#a0acc0] leading-relaxed m-0">
