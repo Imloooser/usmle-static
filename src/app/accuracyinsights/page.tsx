@@ -16,12 +16,12 @@ export const metadata: Metadata = {
   title: 'USMLE Step 2 CK Accuracy Insights & Correlation Data',
   description: 'Statistical accuracy analysis of USMLE Step 2 CK score predictors based on 5,039 verified student score reports. Pearson correlations, precision ranges, and ensemble methodology.',
   alternates: {
-    canonical: 'https://usmlepredictor.com/accuracyinsights',
+    canonical: 'https://usmlepredictor.com/accuracyinsights/',
   },
   openGraph: {
     title: 'USMLE Step 2 CK Accuracy & Methodology — 5,039 Verified Reports',
     description: 'How our Step 2 CK predictor achieves MAE ~4 points. Pearson correlations, ensemble algorithm, validation methodology.',
-    url: 'https://usmlepredictor.com/accuracyinsights',
+    url: 'https://usmlepredictor.com/accuracyinsights/',
     type: 'article',
     images: [{ url: '/og-accuracy-step-2.png', width: 1200, height: 630, alt: 'USMLE Step 2 CK Accuracy Insights' }],
   },

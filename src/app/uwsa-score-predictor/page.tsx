@@ -19,12 +19,12 @@ export const metadata: Metadata = {
   title: 'UWSA Score Converter | Corrects Overprediction · Free',
   description: 'Convert your UWSA 1 / 2 / 3 score into a bias-corrected predicted Step 2 CK score. Per-form correction, score-band ceiling adjustment, 80% interval. Free.',
   alternates: {
-    canonical: 'https://usmlepredictor.com/uwsa-score-predictor',
+    canonical: 'https://usmlepredictor.com/uwsa-score-predictor/',
   },
   openGraph: {
     title: 'UWSA to Step 2 CK Converter — Corrects Overprediction',
     description: 'UWSA overpredicts. We correct it. Bias-corrected Step 2 CK estimate with 80% interval.',
-    url: 'https://usmlepredictor.com/uwsa-score-predictor',
+    url: 'https://usmlepredictor.com/uwsa-score-predictor/',
     type: 'website',
     images: [{ url: '/og-uwsa.png', width: 1200, height: 630, alt: 'UWSA Score Converter' }],
   },
@@ -41,7 +41,7 @@ export default function UwsaPredictorPage() {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'UWSA Score Converter',
-    url: 'https://usmlepredictor.com/uwsa-score-predictor',
+    url: 'https://usmlepredictor.com/uwsa-score-predictor/',
     applicationCategory: 'EducationApplication',
     description: 'Converts UWSA 1/2/3 scores to bias-corrected predicted Step 2 CK with score-band asymmetry handling.',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
@@ -81,11 +81,11 @@ export default function UwsaPredictorPage() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'USMLE Predictor', item: 'https://usmlepredictor.com/' },
-      { '@type': 'ListItem', position: 2, name: 'UWSA Converter', item: 'https://usmlepredictor.com/uwsa-score-predictor' },
+      { '@type': 'ListItem', position: 2, name: 'UWSA Converter', item: 'https://usmlepredictor.com/uwsa-score-predictor/' },
     ],
   };
   const medicalSchema = medicalWebPageSchema({
-    url: 'https://usmlepredictor.com/uwsa-score-predictor',
+    url: 'https://usmlepredictor.com/uwsa-score-predictor/',
     name: 'UWSA Score Converter',
     description: 'Bias-corrected UWSA-to-Step-2-CK converter with score-band asymmetry handling.',
     lastReviewed: '2026-07-02',

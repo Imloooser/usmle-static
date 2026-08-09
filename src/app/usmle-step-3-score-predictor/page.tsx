@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   title: 'USMLE Step 3 Score Predictor | Free & Data-Backed',
   description: 'Estimate your USMLE Step 3 score using Step 2 CK, UWorld, UWSA, NBME 6/7, and Free 137. Anchored on PMC8368809 (n=27,118) Step 2 CK to Step 3 correlation research.',
   alternates: {
-    canonical: 'https://usmlepredictor.com/usmle-step-3-score-predictor',
+    canonical: 'https://usmlepredictor.com/usmle-step-3-score-predictor/',
   },
   openGraph: {
     title: 'USMLE Step 3 Score Predictor — Free, Research-Anchored',
     description: 'Free Step 3 predictor anchored on PMC8368809 (n=27,118) Step 2 CK correlation. MAE ~7.9 points, 74% within ±10.',
-    url: 'https://usmlepredictor.com/usmle-step-3-score-predictor',
+    url: 'https://usmlepredictor.com/usmle-step-3-score-predictor/',
     type: 'website',
     images: [{ url: '/og-step-3.png', width: 1200, height: 630, alt: 'USMLE Step 3 Score Predictor' }],
   },
@@ -33,7 +33,7 @@ export default function Step3Predictor() {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "USMLE Step 3 Score Predictor",
-    "url": "https://usmlepredictor.com/usmle-step-3-score-predictor",
+    "url": "https://usmlepredictor.com/usmle-step-3-score-predictor/",
     "applicationCategory": "EducationApplication",
     "description": "Calculate your USMLE Step 3 score from Step 2 CK, UWorld %, UWSA 1/2, NBME Forms 6/7, Free 137, and CCS practice performance.",
     "isAccessibleForFree": true,
@@ -95,13 +95,13 @@ export default function Step3Predictor() {
         "@type": "ListItem",
         "position": 2,
         "name": "Step 3 Predictor",
-        "item": "https://usmlepredictor.com/usmle-step-3-score-predictor"
+        "item": "https://usmlepredictor.com/usmle-step-3-score-predictor/"
       }
     ]
   };
 
   const medicalSchema = medicalWebPageSchema({
-    url: 'https://usmlepredictor.com/usmle-step-3-score-predictor',
+    url: 'https://usmlepredictor.com/usmle-step-3-score-predictor/',
     name: 'USMLE Step 3 Score Predictor',
     description: 'Free USMLE Step 3 score predictor anchored on PMC8368809 (n=27,118) Step 2 CK to Step 3 correlation research. Predicts 3-digit Step 3 score from Step 2 CK, UWorld, UWSA, NBME 6/7, and Free 137 inputs.',
     lastReviewed: '2026-07-02',
@@ -143,35 +143,47 @@ return (
         </div>
       </section>
 
-      {/* 📚 SEO CONTENT */}
-      <section className="premium-section mt-16 leading-loose space-y-6">
+      {/* 📚 SEO CONTENT — deep, H3-structured */}
+      <section className="premium-section mt-16 leading-loose space-y-4">
         <h2 className="text-2xl font-bold text-white mb-4">
           Step 3 Score Prediction: How It Actually Works
         </h2>
-
         <p className="text-[#a0acc0]">
-          The USMLE Step 3 exam is the final licensing step for physicians, and predicting your score requires
-          analyzing multiple performance signals rather than relying on a single exam. Our Step 3 predictor combines
-          Step 2 CK baseline scores, UWorld QBank performance, and CCS simulation accuracy to estimate your final score range.
+          Step 3 is the only USMLE that still returns a 3-digit score, and predicting it well means combining several
+          signals rather than reading a single practice test. The model blends your Step 2 CK score, UWorld and UWSA
+          performance, NBME Forms 6/7, and a CCS adjustment into one estimate with a pass probability.
         </p>
 
+        <h3 className="text-xl font-bold text-white mt-8 mb-3">Step 2 CK: the strongest anchor (r = 0.68)</h3>
         <p className="text-[#a0acc0]">
-          <strong>Step 2 CK as Baseline:</strong> Your Step 2 CK score is the strongest predictor of Step 3 success.
-          Most candidates scoring above 245 demonstrate extremely high pass probability on Step 3.
+          Your Step 2 CK score is the single best predictor of Step 3 — it correlates at roughly r = 0.68 across 27,118
+          examinees (PMC8368809) and carries the most weight in the model. Most candidates in the mid-240s and above show
+          a very high Step 3 pass probability. Because everyone taking Step 3 has already taken Step 2 CK, it is the one
+          input we always anchor on.
         </p>
 
+        <h3 className="text-xl font-bold text-white mt-8 mb-3">UWorld and UWSA — with a calibration correction</h3>
         <p className="text-[#a0acc0]">
-          <strong>UWorld Performance:</strong> First-pass percentages and subject-level strengths (especially biostatistics)
-          are weighted into our prediction model.
+          UWorld cumulative percentage and the UWSAs refine the estimate. The key adjustment: <strong>UWSA tends to
+          under-predict real Step 3 by about 10 points</strong>, so the model recalibrates it rather than taking the raw
+          number at face value. UWSA 2 (late-prep) is weighted more heavily than the noisier, often-early UWSA 1.
         </p>
 
+        <h3 className="text-xl font-bold text-white mt-8 mb-3">NBME Forms 6/7 and Free 137</h3>
         <p className="text-[#a0acc0]">
-          <strong>CCS Simulation Impact:</strong> CCS contributes about 25% of your score. Strong CCS performance
-          significantly boosts your final predicted range.
+          The official NBME CCSSA Forms 6 and 7 are read as a percent-correct signal anchored to the passing standard —
+          roughly <strong>55% correct ≈ 200</strong> (passing), with each point above adding about 0.8. They are a
+          secondary confirmation input alongside the official Free 137.
+        </p>
+
+        <h3 className="text-xl font-bold text-white mt-8 mb-3">CCS: the wildcard no MCQ score captures</h3>
+        <p className="text-[#a0acc0]">
+          Computer-based Case Simulations are about 25% of your total and are graded separately from every
+          multiple-choice form — so the model applies them as an adjustment (detailed below) rather than a core input.
         </p>
 
         {/* INTERNAL LINK = SEO BOOST */}
-        <Link href="/step-3-accuracy-insights" className="text-indigo-400 hover:underline">
+        <Link href="/step-3-accuracy-insights/" className="text-indigo-400 hover:underline">
          👉 Read the full breakdown of our prediction methodology
         </Link>
       </section>
@@ -207,6 +219,51 @@ return (
         <Link href="/blog/step-3-score-predictor-nbme-uwsa-correlation/" className="text-indigo-400 hover:underline">
           👉 Full analysis: NBME 6/7 conversion, UWSA correlation &amp; the CCS factor
         </Link>
+      </section>
+
+      {/* 📈 What's a good Step 3 score */}
+      <section className="premium-section mt-16 leading-loose space-y-4">
+        <h2 className="text-2xl font-bold text-white mb-4">What Is a Good Step 3 Score?</h2>
+        <h3 className="text-xl font-bold text-white mt-6 mb-3">Passing standard and national mean</h3>
+        <p className="text-[#a0acc0]">
+          The Step 3 passing standard is <strong>200</strong> (raised from 198 on January 1, 2024), and the national
+          mean is about <strong>227</strong> with a standard deviation near 15. For most residents a comfortable pass is
+          the goal — the majority of programs never see or ask about the exact number.
+        </p>
+        <h3 className="text-xl font-bold text-white mt-6 mb-3">Percentiles and score bands</h3>
+        <p className="text-[#a0acc0]">
+          Roughly, ~220 is a solid pass, ~230 sits near the mean, and 240+ places you toward the top of the
+          distribution; below 200 is a fail. Because the exam spans two days and includes CCS, treat any single estimate
+          as a range rather than a precise number.
+        </p>
+        <h3 className="text-xl font-bold text-white mt-6 mb-3">Does the Step 3 score matter for fellowship?</h3>
+        <p className="text-[#a0acc0]">
+          For most applicants, no — a pass is what matters. A minority of competitive fellowships (some Cardiology or GI
+          programs, for example) may glance at a strong Step 3 as a supporting data point, but it rarely outweighs your
+          Step 2 CK and residency performance.
+        </p>
+      </section>
+
+      {/* ⏱ When to take + timeline */}
+      <section className="premium-section mt-16 leading-loose space-y-4">
+        <h2 className="text-2xl font-bold text-white mb-4">When to Take Step 3 and How to Prepare</h2>
+        <h3 className="text-xl font-bold text-white mt-6 mb-3">PGY-1 vs PGY-2 timing</h3>
+        <p className="text-[#a0acc0]">
+          Most US graduates sit Step 3 during PGY-1 or early PGY-2, frequently to clear visa or credentialing
+          requirements. Taking it while Step 2 CK knowledge is still fresh generally makes preparation lighter.
+        </p>
+        <h3 className="text-xl font-bold text-white mt-6 mb-3">A workable dedicated plan</h3>
+        <p className="text-[#a0acc0]">
+          The exam runs across two days — Foundations of Independent Practice (FIP), which leans on biostatistics and
+          drug mechanisms, and Advanced Clinical Medicine (ACM) plus CCS. A practical sequence: take UWSA 1 about three
+          weeks out to surface Day-1 gaps, sit NBME Form 7 roughly one week out to fix your margin, and spend the final
+          48 hours on high-yield CCS cases to protect your buffer.
+        </p>
+        <h3 className="text-xl font-bold text-white mt-6 mb-3">The single biggest mistake</h3>
+        <p className="text-[#a0acc0]">
+          Ignoring CCS. Residents comfortable with multiple-choice questions routinely under-prepare for the case
+          simulations and lose the margin their MCQ score earned them. Aim for ~70%+ on CCS practice before test day.
+        </p>
       </section>
 
       {/* ❓ FAQ */}

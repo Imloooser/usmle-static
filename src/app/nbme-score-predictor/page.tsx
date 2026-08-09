@@ -22,12 +22,12 @@ export const metadata: Metadata = {
   title: 'NBME Score Predictor | Convert NBME to USMLE Step 2 CK',
   description: 'Convert your raw NBME self-assessment score into a predicted USMLE Step 2 CK 3-digit score. Per-form bias correction, 80% prediction interval, days-to-exam decay. Free, no login.',
   alternates: {
-    canonical: 'https://usmlepredictor.com/nbme-score-predictor',
+    canonical: 'https://usmlepredictor.com/nbme-score-predictor/',
   },
   openGraph: {
     title: 'NBME Score Predictor & Converter — Free',
     description: 'Convert NBME forms 9-16 to a calibrated Step 2 CK estimate with honest 80% interval.',
-    url: 'https://usmlepredictor.com/nbme-score-predictor',
+    url: 'https://usmlepredictor.com/nbme-score-predictor/',
     type: 'website',
     images: [{ url: '/og-nbme.png', width: 1200, height: 630, alt: 'NBME Score Predictor' }],
   },
@@ -44,7 +44,7 @@ export default function NbmePredictorPage() {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'NBME Score Predictor & Converter',
-    url: 'https://usmlepredictor.com/nbme-score-predictor',
+    url: 'https://usmlepredictor.com/nbme-score-predictor/',
     applicationCategory: 'EducationApplication',
     description: 'Converts NBME self-assessment scores to a predicted USMLE Step 2 CK score with per-form bias correction.',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
@@ -84,11 +84,11 @@ export default function NbmePredictorPage() {
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'USMLE Predictor', item: 'https://usmlepredictor.com/' },
-      { '@type': 'ListItem', position: 2, name: 'NBME Predictor', item: 'https://usmlepredictor.com/nbme-score-predictor' },
+      { '@type': 'ListItem', position: 2, name: 'NBME Predictor', item: 'https://usmlepredictor.com/nbme-score-predictor/' },
     ],
   };
   const medicalSchema = medicalWebPageSchema({
-    url: 'https://usmlepredictor.com/nbme-score-predictor',
+    url: 'https://usmlepredictor.com/nbme-score-predictor/',
     name: 'NBME Score Predictor',
     description: 'NBME-to-Step-2-CK converter with per-form bias correction.',
     lastReviewed: '2026-07-02',

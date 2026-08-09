@@ -171,7 +171,7 @@ export const accuracyBreadcrumbSchema = {
       '@type': 'ListItem',
       position: 2,
       name: 'Accuracy Insights',
-      item: 'https://usmlepredictor.com/accuracyinsights',
+      item: 'https://usmlepredictor.com/accuracyinsights/',
     },
   ],
 } as const
@@ -182,7 +182,7 @@ export const step1ScorePredictorSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: 'USMLE Step 1 Score Predictor',
-  url: 'https://usmlepredictor.com/usmle-step-1-score-predictor',
+  url: 'https://usmlepredictor.com/usmle-step-1-score-predictor/',
   description:
     'Free USMLE Step 1 pass/fail predictor built on verified student NBME and Free 120 performance data.',
   applicationCategory: 'EducationApplication',
@@ -233,7 +233,7 @@ export const step1BreadcrumbSchema = {
       '@type': 'ListItem',
       position: 2,
       name: 'Step 1 Predictor',
-      item: 'https://usmlepredictor.com/usmle-step-1-score-predictor',
+      item: 'https://usmlepredictor.com/usmle-step-1-score-predictor/',
     },
   ],
 } as const
@@ -244,7 +244,7 @@ export const step3ScorePredictorSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: 'USMLE Step 3 Score Predictor',
-  url: 'https://usmlepredictor.com/usmle-step-3-score-predictor',
+  url: 'https://usmlepredictor.com/usmle-step-3-score-predictor/',
   description:
     'Step 3 score predictor based on thousands of verified data points from residents and medical students.',
   applicationCategory: 'EducationApplication',
@@ -287,7 +287,7 @@ export const step3BreadcrumbSchema = {
       '@type': 'ListItem',
       position: 2,
       name: 'Step 3 Predictor',
-      item: 'https://usmlepredictor.com/usmle-step-3-score-predictor',
+      item: 'https://usmlepredictor.com/usmle-step-3-score-predictor/',
     },
   ],
 } as const
@@ -298,7 +298,7 @@ export const nbmePredictorSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: 'NBME Score Predictor & Form Converter',
-  url: 'https://usmlepredictor.com/nbme-score-predictor',
+  url: 'https://usmlepredictor.com/nbme-score-predictor/',
   description:
     'Convert raw NBME percentage scores from Forms 9-32 into predicted USMLE 3-digit scores.',
   applicationCategory: 'EducationApplication',
@@ -336,7 +336,7 @@ export const nbmeBreadcrumbSchema = {
       '@type': 'ListItem',
       position: 2,
       name: 'NBME Predictor',
-      item: 'https://usmlepredictor.com/nbme-score-predictor',
+      item: 'https://usmlepredictor.com/nbme-score-predictor/',
     },
   ],
 } as const
@@ -347,7 +347,7 @@ export const uwsaConverterSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: 'UWSA Score Converter',
-  url: 'https://usmlepredictor.com/uwsa-score-predictor',
+  url: 'https://usmlepredictor.com/uwsa-score-predictor/',
   description:
     'Convert UWSA 1, 2, and 3 scores with precision. Includes automatic offset correction for known overprediction bias.',
   applicationCategory: 'EducationApplication',
@@ -385,7 +385,7 @@ export const uwsaBreadcrumbSchema = {
       '@type': 'ListItem',
       position: 2,
       name: 'UWSA Converter',
-      item: 'https://usmlepredictor.com/uwsa-score-predictor',
+      item: 'https://usmlepredictor.com/uwsa-score-predictor/',
     },
   ],
 } as const
@@ -455,13 +455,13 @@ export const step1AccuracyBreadcrumbSchema = {
       '@type': 'ListItem',
       position: 2,
       name: 'Step 1 Predictor',
-      item: 'https://usmlepredictor.com/usmle-step-1-score-predictor',
+      item: 'https://usmlepredictor.com/usmle-step-1-score-predictor/',
     },
     {
       '@type': 'ListItem',
       position: 3,
       name: 'Accuracy Insights',
-      item: 'https://usmlepredictor.com/step-1-accuracy-insights',
+      item: 'https://usmlepredictor.com/step-1-accuracy-insights/',
     },
   ],
 } as const
@@ -599,13 +599,13 @@ export const step3AccuracyBreadcrumbSchema = {
       '@type': 'ListItem',
       position: 2,
       name: 'Step 3 Predictor',
-      item: 'https://usmlepredictor.com/usmle-step-3-score-predictor',
+      item: 'https://usmlepredictor.com/usmle-step-3-score-predictor/',
     },
     {
       '@type': 'ListItem',
       position: 3,
       name: 'Accuracy Insights',
-      item: 'https://usmlepredictor.com/step-3-accuracy-insights',
+      item: 'https://usmlepredictor.com/step-3-accuracy-insights/',
     },
   ],
 } as const
@@ -726,7 +726,7 @@ export const datasetSchema = {
   description:
     'Verified dataset of 5,039 USMLE Step 2 CK practice exam scores (NBME forms 9-16, UWSA 1-3, Free 120, UWorld percent) paired with actual Step 2 CK outcomes (3-digit scores). Collected between January 2022 and March 2026 from verified student submissions. All personal identifiers removed.',
   url: 'https://usmlepredictor.com/',
-  sameAs: 'https://usmlepredictor.com/accuracyinsights',
+  sameAs: 'https://usmlepredictor.com/accuracyinsights/',
   temporalCoverage: '2022-01/2026-03',
   spatialCoverage: { '@type': 'Place', name: 'United States' },
   keywords: [
