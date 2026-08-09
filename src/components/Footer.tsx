@@ -36,7 +36,7 @@ export default function Footer({ stats }: { stats?: any }) {
           </a>
 
           {/* <Link
-            href="/accuracyinsights"
+            href="/accuracyinsights/"
             className="text-[13px] text-indigo-500 underline hover:text-indigo-400 transition-colors"
           >
             Accuracy Insights
@@ -45,25 +45,25 @@ export default function Footer({ stats }: { stats?: any }) {
 
         {/* SEO Internal Linking to prevent Orphan Pages */}
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mt-4 px-4 pt-4 max-w-3xl mx-auto">
-          <Link href="/usmle-step-1-score-predictor" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 1 Predictor</Link>
+          <Link href="/usmle-step-1-score-predictor/" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 1 Predictor</Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
-          <Link href="/usmle-step-3-score-predictor" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 3 Predictor</Link>
+          <Link href="/usmle-step-3-score-predictor/" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 3 Predictor</Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
-          <Link href="/nbme-score-predictor" className="text-[12px] text-slate-400 hover:text-white transition-colors">NBME Predictor</Link>
+          <Link href="/nbme-score-predictor/" className="text-[12px] text-slate-400 hover:text-white transition-colors">NBME Predictor</Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
-          <Link href="/uwsa-score-predictor" className="text-[12px] text-slate-400 hover:text-white transition-colors">UWSA Converter</Link>
+          <Link href="/uwsa-score-predictor/" className="text-[12px] text-slate-400 hover:text-white transition-colors">UWSA Converter</Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
-          <Link href="/accuracyinsights" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 2 Accuracy</Link>
+          <Link href="/accuracyinsights/" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 2 Accuracy</Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
-          <Link href="/step-1-accuracy-insights" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 1 Accuracy</Link>
+          <Link href="/step-1-accuracy-insights/" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 1 Accuracy</Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
-          <Link href="/step-3-accuracy-insights" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 3 Accuracy</Link>
+          <Link href="/step-3-accuracy-insights/" className="text-[12px] text-slate-400 hover:text-white transition-colors">Step 3 Accuracy</Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
-          <Link href="/what-is-a-good-step-2-ck-score" className="text-[12px] text-slate-400 hover:text-white transition-colors">Good Step 2 Score?</Link>
+          <Link href="/what-is-a-good-step-2-ck-score/" className="text-[12px] text-slate-400 hover:text-white transition-colors">Good Step 2 Score?</Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
-          <Link href="/methodology" className="text-[12px] text-slate-400 hover:text-white transition-colors">Methodology</Link>
+          <Link href="/methodology/" className="text-[12px] text-slate-400 hover:text-white transition-colors">Methodology</Link>
           <span className="text-slate-700 hidden sm:inline">•</span>
-          <Link href="/blog" className="text-[12px] text-slate-400 hover:text-white transition-colors">Blog</Link>
+          <Link href="/blog/" className="text-[12px] text-slate-400 hover:text-white transition-colors">Blog</Link>
         </div>
 
         <p className="text-[10px] h-10 text-slate-600">

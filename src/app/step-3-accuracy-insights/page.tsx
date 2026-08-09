@@ -71,7 +71,7 @@ export default function Step3AccuracyInsights() {
             </p>
 
             <div className="cta-container">
-              <Link href="/usmle-step-3-score-predictor" className="cta-primary-button">
+              <Link href="/usmle-step-3-score-predictor/" className="cta-primary-button">
                 Use The Step 3 Predictor →
               </Link>
             </div>
