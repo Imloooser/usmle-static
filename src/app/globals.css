@@ -4818,3 +4818,62 @@ th {
   color: #d7def0;
   white-space: nowrap;
 }
+
+/* ── Quick-answer card (tool pages) ─────────────────────────────────────────
+   Dedicated component style — deliberately NOT built from utilities and NOT
+   inside .premium-section, so the .premium-section h2/p element rules (which
+   outrank single-class utilities) can never fight it again. */
+.quick-answer {
+  margin: 2.5rem 0 1.75rem;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid rgba(99, 102, 241, 0.22);
+  border-radius: 1rem;
+  background:
+    linear-gradient(180deg, rgba(99, 102, 241, 0.10), rgba(99, 102, 241, 0.04)),
+    rgba(255, 255, 255, 0.01);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.quick-answer h2 {
+  margin: 0 0 0.85rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary-light);
+}
+
+.quick-answer p {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: #b7c1d4;
+}
+
+.quick-answer .qa-meta {
+  margin-top: 1.1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(99, 102, 241, 0.15);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+
+.quick-answer .qa-meta a {
+  color: var(--primary-light);
+  text-decoration: none;
+}
+
+.quick-answer .qa-meta a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .quick-answer {
+    margin: 2rem 0 1.25rem;
+    padding: 1.2rem 1.25rem;
+  }
+  .quick-answer p {
+    font-size: 0.975rem;
+  }
+}

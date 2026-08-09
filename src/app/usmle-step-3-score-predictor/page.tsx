@@ -127,20 +127,18 @@ return (
       </section>
 
       {/* Quick answer — self-contained, liftable facts (AI search / featured snippets) */}
-      <section className="mt-10 mb-6">
-        <div className="rounded-2xl border border-indigo-500/20 bg-indigo-500/[0.06] p-6">
-          <h2 className="text-lg font-bold text-white mb-2">Quick answer</h2>
-          <p className="text-[#a0acc0] leading-relaxed m-0">
-            The strongest single predictor of your USMLE Step 3 score is your Step 2 CK result
-            (r&nbsp;=&nbsp;0.68 across 27,118 examinees). This free Step 3 predictor blends Step 2 CK with
-            UWSA 1/2, UWorld %, and NBME Forms 6/7, then applies a CCS adjustment — case simulations count
-            for roughly 25% of the total score and no practice form grades them. The passing standard is 200;
-            the national mean is about 227.
-          </p>
-          <p className="text-xs text-slate-500 mt-3 mb-0">
-            Last updated: July 2026 · <a href="/methodology/" className="text-indigo-400 hover:underline">How we calculate this</a>
-          </p>
-        </div>
+      <section className="quick-answer">
+        <h2>Quick answer</h2>
+        <p>
+          The strongest single predictor of your USMLE Step 3 score is your Step 2 CK result
+          (r&nbsp;=&nbsp;0.68 across 27,118 examinees). This free Step 3 predictor blends Step 2 CK with
+          UWSA 1/2, UWorld %, and NBME Forms 6/7, then applies a CCS adjustment — case simulations count
+          for roughly 25% of the total score and no practice form grades them. The passing standard is 200;
+          the national mean is about 227.
+        </p>
+        <p className="qa-meta">
+          Last updated: July 2026 · <a href="/methodology/">How we calculate this</a>
+        </p>
       </section>
 
       {/* 📚 SEO CONTENT — deep, H3-structured */}

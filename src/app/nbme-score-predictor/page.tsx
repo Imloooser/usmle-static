@@ -106,19 +106,17 @@ export default function NbmePredictorPage() {
       {/* SEO content below */}
       <main className="premium-main-content">
         {/* Quick answer — self-contained, liftable facts (AI search / featured snippets) */}
-        <section className="mt-10 mb-6">
-          <div className="rounded-2xl border border-indigo-500/20 bg-indigo-500/[0.06] p-6">
-            <h2 className="text-lg font-bold text-white mb-2">Quick answer</h2>
-            <p className="text-[#a0acc0] leading-relaxed m-0">
-              NBME Form 14 is currently the most predictive self-assessment for Step 2 CK: it correlates at
-              r&nbsp;=&nbsp;0.92 with the real exam, with 80% of predictions landing within ±5–7 points
-              (n&nbsp;=&nbsp;5,039 verified outcomes). Forms 14–16 are calibrated to the current item bank;
-              older forms (9–13) typically under-predict, so treat them as a floor rather than a target.
-            </p>
-            <p className="text-xs text-slate-500 mt-3 mb-0">
-              Last updated: July 2026 · <a href="/methodology/" className="text-indigo-400 hover:underline">How we calculate this</a>
-            </p>
-          </div>
+        <section className="quick-answer">
+          <h2>Quick answer</h2>
+          <p>
+            NBME Form 14 is currently the most predictive self-assessment for Step 2 CK: it correlates at
+            r&nbsp;=&nbsp;0.92 with the real exam, with 80% of predictions landing within ±5–7 points
+            (n&nbsp;=&nbsp;5,039 verified outcomes). Forms 14–16 are calibrated to the current item bank;
+            older forms (9–13) typically under-predict, so treat them as a floor rather than a target.
+          </p>
+          <p className="qa-meta">
+            Last updated: July 2026 · <a href="/methodology/">How we calculate this</a>
+          </p>
         </section>
 
         <section className="premium-section mt-16 leading-loose space-y-6">
