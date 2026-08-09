@@ -70,7 +70,7 @@ export default function Step1AccuracyInsights() {
             </p>
 
             <div className="cta-container">
-              <Link href="/usmle-step-1-score-predictor" className="cta-primary-button">
+              <Link href="/usmle-step-1-score-predictor/" className="cta-primary-button">
                 Use The Step 1 Predictor →
               </Link>
             </div>

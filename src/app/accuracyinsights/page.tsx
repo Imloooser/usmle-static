@@ -477,10 +477,10 @@ export default function AccuracyInsights() {
 
             <ul className="accuracy-list mt-4 mb-6">
               <li className="pl-2 relative before:content-[''] before:absolute before:left-[-1.25rem] before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full list-none">
-                <span className="text-white font-medium"><Link href="/usmle-step-1-score-predictor" className="text-indigo-400 hover:underline">USMLE Step 1 Score Predictor</Link>:</span> Focusing on PASS/FAIL outcome prediction and NBME self-assessment correlation. Read the <Link href="/step-1-accuracy-insights" className="text-indigo-400 hover:underline">Step 1 Accuracy Insights</Link>.
+                <span className="text-white font-medium"><Link href="/usmle-step-1-score-predictor/" className="text-indigo-400 hover:underline">USMLE Step 1 Score Predictor</Link>:</span> Focusing on PASS/FAIL outcome prediction and NBME self-assessment correlation. Read the <Link href="/step-1-accuracy-insights/" className="text-indigo-400 hover:underline">Step 1 Accuracy Insights</Link>.
               </li>
               <li className="pl-2 relative before:content-[''] before:absolute before:left-[-1.25rem] before:top-2 before:w-2 before:h-2 before:bg-indigo-400 before:rounded-full list-none">
-                <span className="text-white font-medium"><Link href="/usmle-step-3-score-predictor" className="text-indigo-400 hover:underline">USMLE Step 3 Score Predictor</Link>:</span> Predicting 3-digit score and evaluating CCS performance patterns. Read the <Link href="/step-3-accuracy-insights" className="text-indigo-400 hover:underline">Step 3 Accuracy Insights</Link>.
+                <span className="text-white font-medium"><Link href="/usmle-step-3-score-predictor/" className="text-indigo-400 hover:underline">USMLE Step 3 Score Predictor</Link>:</span> Predicting 3-digit score and evaluating CCS performance patterns. Read the <Link href="/step-3-accuracy-insights/" className="text-indigo-400 hover:underline">Step 3 Accuracy Insights</Link>.
               </li>
             </ul>
 

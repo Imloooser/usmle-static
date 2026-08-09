@@ -263,7 +263,7 @@ export default function Step3PredictorTool() {
           </p>
 
           <p style={{ marginTop: 8 }}>
-            For details on model calibration, read our <Link href="/step-3-accuracy-insights" style={{ color: '#818cf8', textDecoration: 'underline' }}>Step 3 Accuracy Insights & Methodology</Link>.
+            For details on model calibration, read our <Link href="/step-3-accuracy-insights/" style={{ color: '#818cf8', textDecoration: 'underline' }}>Step 3 Accuracy Insights & Methodology</Link>.
           </p>
         </section>
       </main>

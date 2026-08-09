@@ -255,7 +255,7 @@ export default function Step1PredictorTool() {
             <strong>How it works:</strong> Step 1 has been Pass/Fail since January 2022. This tool uses NBME&apos;s officially published <a href="https://www.nbme.org/sites/default/files/2024-10/CBSSA_CBSE_Guidance.pdf" target="_blank" rel="noopener noreferrer" style={{ color: '#818cf8' }}>July 2024 pass-probability table</a> as the primary anchor — calibrated on the full Step 1 examinee population (100,000+ test-takers/year). Free 120 and UWorld serve as corroborators. Not affiliated with NBME or USMLE.
           </p>
           <p style={{ marginTop: 8 }}>
-            For details on model calibration, read our <Link href="/step-1-accuracy-insights" style={{ color: '#818cf8', textDecoration: 'underline' }}>Step 1 Accuracy Insights & Methodology</Link>.
+            For details on model calibration, read our <Link href="/step-1-accuracy-insights/" style={{ color: '#818cf8', textDecoration: 'underline' }}>Step 1 Accuracy Insights & Methodology</Link>.
           </p>
         </section>
       </main>
