@@ -3,6 +3,8 @@ import Step1PassProbBody, { meta as step1PassProbMeta } from './how-to-calculate
 import NbmeAccuracyBody, { meta as nbmeAccuracyMeta } from './which-nbme-form-is-most-accurate';
 import Step2GuideBody, { meta as step2GuideMeta } from './usmle-step-2-ck-score-prediction-guide';
 import Step3PredictorBody, { meta as step3PredictorMeta } from './step-3-score-predictor-nbme-uwsa-correlation';
+import Step3PassingBody, { meta as step3PassingMeta } from './usmle-step-3-passing-score';
+import CcsStep3Body, { meta as ccsStep3Meta } from './ccs-cases-usmle-step-3';
 
 /**
  * Blog post registry. To publish a new post:
@@ -11,6 +13,8 @@ import Step3PredictorBody, { meta as step3PredictorMeta } from './step-3-score-p
  *   3. Add `/blog/<slug>` to next-sitemap.config.js (priorities + additionalPaths).
  */
 export const POSTS: BlogPost[] = [
+  { meta: step3PassingMeta, Body: Step3PassingBody },
+  { meta: ccsStep3Meta, Body: CcsStep3Body },
   { meta: step3PredictorMeta, Body: Step3PredictorBody },
   { meta: step1PassProbMeta, Body: Step1PassProbBody },
   { meta: nbmeAccuracyMeta, Body: NbmeAccuracyBody },
