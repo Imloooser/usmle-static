@@ -119,7 +119,7 @@ export default function Step3AccuracyInsights() {
                 PMC8368809
               </a>{' '}
               analyzed n=27,118 students and demonstrated a correlation coefficient of
-              approximately <strong className="text-white">r ≈ 0.70</strong> between Step 2 CK
+              approximately <strong className="text-white">r ≈ 0.68</strong> between Step 2 CK
               and Step 3 — the strongest single-source predictor available. This is
               substantially higher than any individual practice-exam correlation and reflects
               the shared clinical-knowledge content domain of the two exams.
@@ -158,7 +158,7 @@ export default function Step3AccuracyInsights() {
                 >
                   PMC8368809 — Step 2 CK and Step 3 Performance (n=27,118)
                 </a>{' '}
-                — primary correlation anchor (r ≈ 0.70).
+                — primary correlation anchor (r ≈ 0.68).
               </li>
               <li>
                 <a
@@ -200,7 +200,7 @@ export default function Step3AccuracyInsights() {
             <h4 className="text-lg font-bold text-white mb-4">Why This Approach Is Defensible</h4>
             <p className="text-[#a0acc0]">
               Many free Step 3 tools rely on UWSA self-assessment scores alone, which are
-              widely reported to underpredict actual Step 3 scores by 15–20 points. The
+              widely reported to underpredict actual Step 3 scores by roughly 10 points. The
               fundamental issue is that UWSA does not include CCS, which contributes
               approximately 25–30% of the operational Step 3 score. By anchoring on Step 2 CK
               (which has the strongest peer-reviewed correlation with Step 3), our predictor
@@ -232,7 +232,7 @@ export default function Step3AccuracyInsights() {
             <div className="premium-card">
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-xl font-bold text-white">Step 2 CK Score</h3>
-                <span className="badge-premium bg-blue-500/20 text-blue-300 border-blue-500/30 font-bold">r ≈ 0.70</span>
+                <span className="badge-premium bg-blue-500/20 text-blue-300 border-blue-500/30 font-bold">r ≈ 0.68</span>
               </div>
               <div className="flex items-center gap-2 mb-3 mt-4 text-[#a0acc0] font-mono p-2 rounded">
                 <BarChart3 size={16} className="text-indigo-400" />
@@ -269,12 +269,12 @@ export default function Step3AccuracyInsights() {
               </div>
               <div className="flex items-center gap-2 mb-3 mt-4 text-[#a0acc0] font-mono p-2 rounded">
                 <BarChart3 size={16} className="text-amber-400" />
-                <span>Underpredicts by <strong className="text-amber-400">+14 points avg</strong></span>
+                <span>Underpredicts by <strong className="text-amber-400">+11 points avg</strong></span>
               </div>
               <p className="text-[#a0acc0] m-0 text-sm leading-relaxed">
                 <strong>Notes:</strong> UWSA self-assessments are widely reported to underpredict
-                Step 3 by 15–20 points because they exclude CCS performance (~25% of the
-                operational score). Our predictor applies a +14-point corrective offset to UWSA
+                Step 3 by roughly 10 points on average, partly because they exclude CCS performance (~25% of the
+                operational score). Our predictor applies a +11-point corrective offset to UWSA
                 inputs to account for this systematic bias.
               </p>
             </div>
@@ -383,7 +383,7 @@ export default function Step3AccuracyInsights() {
                 <tr>
                   <td className="p-4 text-white font-medium">UWorld Self-Assessment alone</td>
                   <td className="p-4 text-[#a0acc0]">Single Qbank vendor</td>
-                  <td className="p-4 text-[#a0acc0]">±15–20 points (underpredicts)</td>
+                  <td className="p-4 text-[#a0acc0]">~10 points (underpredicts)</td>
                   <td className="p-4 text-[#a0acc0]">No</td>
                 </tr>
                 <tr>
@@ -411,7 +411,7 @@ export default function Step3AccuracyInsights() {
             <p className="text-[#a0acc0]">
               Step 3 examinees fall into three broad cohorts: PGY-1 or PGY-2 US residents,
               pre-residency US IMG candidates, and ECFMG-certified IMGs taking Step 3 abroad.
-              The Step 2 CK → Step 3 correlation (r ≈ 0.70) holds across all three cohorts.
+              The Step 2 CK → Step 3 correlation (r ≈ 0.68) holds across all three cohorts.
             </p>
 
             <h4 className="text-lg font-bold text-white mb-4 mt-6">PGY-1 / PGY-2 Residents</h4>
@@ -505,7 +505,7 @@ export default function Step3AccuracyInsights() {
               the operational Step 3 score, yet no widely available self-assessment quantifies
               CCS readiness on a comparable scale. This is the single largest source of
               prediction uncertainty in Step 3, and the root cause of UWSA&apos;s
-              well-documented 15–20 point underprediction.
+              well-documented ~10-point underprediction.
             </p>
             <p className="text-[#a0acc0]">
               Our predictor treats CCS as a <strong className="text-white">tier modifier</strong>:
@@ -635,7 +635,7 @@ export default function Step3AccuracyInsights() {
             </summary>
             <div className="premium-faq-answer">
               <p>
-                PMC8368809 demonstrated r ≈ 0.70 correlation between Step 2 CK and Step 3 across
+                PMC8368809 demonstrated r ≈ 0.68 correlation between Step 2 CK and Step 3 across
                 27,118 examinees — the strongest single-source predictor. Both exams test
                 clinical knowledge in similar format. Most residents score within ±5 points of
                 their Step 2 CK on Step 3, with a small positive offset reflecting accumulated
@@ -650,9 +650,9 @@ export default function Step3AccuracyInsights() {
             </summary>
             <div className="premium-faq-answer">
               <p>
-                Yes, by approximately 15–20 points. UWSA does not include Computer-based Case
+                Yes, by roughly 10 points on average. UWSA does not include Computer-based Case
                 Simulations (CCS), which contribute ~25–30% of the actual Step 3 score. Our
-                predictor applies a +14-point corrective offset to UWSA inputs to account for
+                predictor applies a +11-point corrective offset to UWSA inputs to account for
                 this systematic underprediction.
               </p>
             </div>
@@ -695,7 +695,7 @@ export default function Step3AccuracyInsights() {
               <p>
                 Yes. ECFMG-certified IMGs may take Step 3 before residency in most US states,
                 and it is increasingly recommended for competitive specialty applicants. The
-                Step 2 CK → Step 3 correlation (r ≈ 0.70) holds for pre-residency examinees;
+                Step 2 CK → Step 3 correlation (r ≈ 0.68) holds for pre-residency examinees;
                 however, without the PGY-1 clinical boost, expected Step 3 score may run 2–5
                 points below Step 2 CK rather than above.
               </p>

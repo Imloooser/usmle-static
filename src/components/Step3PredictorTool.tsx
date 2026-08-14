@@ -259,7 +259,7 @@ export default function Step3PredictorTool() {
 
         <section className="disclaimer" aria-label="Disclaimer">
           <p>
-            <strong>How it works:</strong> Anchored on <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8368809/" target="_blank" rel="noopener noreferrer" style={{ color: '#818cf8' }}>PMC8368809</a> (n=27,118) Step 2 CK → Step 3 correlation (r ≈ 0.70). UWSA inputs corrected for known 15–20 point underprediction (CCS exclusion). Validated holdout MAE 8.9 points, sitting at the theoretical r=0.68 variance ceiling. Not affiliated with NBME, USMLE, FSMB, or UWorld.
+            <strong>How it works:</strong> Anchored on <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8368809/" target="_blank" rel="noopener noreferrer" style={{ color: '#818cf8' }}>PMC8368809</a> (n=27,118) Step 2 CK → Step 3 correlation (r ≈ 0.68). UWSA inputs corrected for a known ~10-point underprediction (+11 offset; CCS exclusion). Validated holdout MAE 8.9 points, sitting at the theoretical r=0.68 variance ceiling. Not affiliated with NBME, USMLE, FSMB, or UWorld.
           </p>
 
           <p style={{ marginTop: 8 }}>
