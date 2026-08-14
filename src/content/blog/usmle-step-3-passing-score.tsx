@@ -10,8 +10,8 @@ export const meta: BlogPostMeta = {
   excerpt:
     'Step 3 passing is 200 (since January 2024) — but that sits at roughly the 4th percentile, so it is a misleading target. Percentiles, pass rates, and the retake rules most students get wrong.',
   category: 'Step 3 Guide',
-  date: '2026-08-14',
-  dateModified: '2026-08-14',
+  date: '2026-08-05',
+  dateModified: '2026-08-05',
   author: 'Robert Zane, MD',
   authorRole: 'Founder & Lead Researcher',
   authorBio:

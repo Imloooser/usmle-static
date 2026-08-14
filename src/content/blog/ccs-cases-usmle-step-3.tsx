@@ -10,8 +10,8 @@ export const meta: BlogPostMeta = {
   excerpt:
     'Step 3 Day 2 still includes 13–14 case simulations — the “reduced to 9” claim is a misreading of USMLE’s own change table. The real format, the scoring rules quoted verbatim, and why CCS tests something your QBank score cannot predict.',
   category: 'Step 3 Guide',
-  date: '2026-08-14',
-  dateModified: '2026-08-14',
+  date: '2026-08-05',
+  dateModified: '2026-08-05',
   author: 'Robert Zane, MD',
   authorRole: 'Founder & Lead Researcher',
   authorBio:

@@ -143,6 +143,115 @@ export default function NbmePredictorPage() {
           </p>
         </section>
 
+        {/* What NBME actually reports — CBSSA vs CCSSA */}
+        <section className="premium-section mt-16 leading-loose space-y-6">
+          <h2 className="text-2xl font-bold text-white mb-4">
+            What NBME Actually Reports — and Why Step 1 Is Different
+          </h2>
+          <p className="text-[#a0acc0]">
+            This is the single most misunderstood thing about &ldquo;NBME score conversion.&rdquo; The two
+            self-assessment products report fundamentally different things, and only one of them needs
+            converting at all.
+          </p>
+
+          <div className="blog-table-wrapper" style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '15px', color: '#cbd5e1' }}>
+              <thead>
+                <tr style={{ textAlign: 'left', color: '#94a3b8', borderBottom: '1px solid rgba(148,163,184,0.2)' }}>
+                  <th scope="col" style={{ padding: '12px 16px' }}></th>
+                  <th scope="col" style={{ padding: '12px 16px' }}>CBSSA (Step 1)</th>
+                  <th scope="col" style={{ padding: '12px 16px' }}>CCSSA (Step 2 CK)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ borderBottom: '1px solid rgba(148,163,184,0.08)' }}>
+                  <td style={{ padding: '12px 16px' }}><strong style={{ color: '#fff' }}>What you get</strong></td>
+                  <td style={{ padding: '12px 16px' }}>Equated percent correct (e.g. 73%)</td>
+                  <td style={{ padding: '12px 16px' }}>A 3-digit score (e.g. 201)</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid rgba(148,163,184,0.08)' }}>
+                  <td style={{ padding: '12px 16px' }}><strong style={{ color: '#fff' }}>Scale</strong></td>
+                  <td style={{ padding: '12px 16px' }}>0–100</td>
+                  <td style={{ padding: '12px 16px' }}>1–300 — same as the real exam</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid rgba(148,163,184,0.08)' }}>
+                  <td style={{ padding: '12px 16px' }}><strong style={{ color: '#fff' }}>Probability of passing</strong></td>
+                  <td style={{ padding: '12px 16px' }}>Yes</td>
+                  <td style={{ padding: '12px 16px' }}>Yes</td>
+                </tr>
+                <tr>
+                  <td style={{ padding: '12px 16px' }}><strong style={{ color: '#fff' }}>Conversion needed?</strong></td>
+                  <td style={{ padding: '12px 16px' }}>Not possible — there is no 3-digit Step 1 score any more</td>
+                  <td style={{ padding: '12px 16px' }}>Not to a different scale — but per-form bias correction still helps</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-[#a0acc0]">
+            <strong>Why Step 1 has no 3-digit conversion.</strong> Step 1 became Pass/Fail on 26 January 2022.
+            There is no 3-digit Step 1 score to predict any more, so NBME stopped providing one. Any site that
+            converts your CBSSA percentage into a &ldquo;predicted Step 1 score&rdquo; is producing a number that
+            appears on no score report. Use our{' '}
+            <Link href="/usmle-step-1-score-predictor/" className="text-indigo-400 hover:underline">
+              Step 1 pass probability calculator
+            </Link>{' '}
+            instead — it reports the thing that actually exists.
+          </p>
+          <p className="text-[#a0acc0]">
+            <strong>And for Step 2 CK</strong>, your CCSSA already reports on the 1–300 scale. What it does{' '}
+            <em>not</em> do is correct for the fact that individual forms run high or low against the real exam —
+            which is exactly what the converter above applies.
+          </p>
+        </section>
+
+        {/* The one official conversion NBME does publish */}
+        <section className="premium-section mt-16 leading-loose space-y-6">
+          <h2 className="text-2xl font-bold text-white mb-4">
+            The One Official Table NBME Does Publish
+          </h2>
+          <p className="text-[#a0acc0]">
+            For Step 2 CK, NBME publishes a genuine score-to-probability table — and almost nobody uses it. Enter
+            your CCSSA total score and read your probability of passing Step 2 CK if you test within about a week.
+            Approximate values from NBME&rsquo;s published pass-probability data:
+          </p>
+
+          <div className="blog-table-wrapper" style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '15px', color: '#cbd5e1' }}>
+              <thead>
+                <tr style={{ textAlign: 'left', color: '#94a3b8', borderBottom: '1px solid rgba(148,163,184,0.2)' }}>
+                  <th scope="col" style={{ padding: '12px 16px' }}>CCSSA score</th>
+                  <th scope="col" style={{ padding: '12px 16px' }}>Probability of passing</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ borderBottom: '1px solid rgba(148,163,184,0.08)' }}><td style={{ padding: '12px 16px' }}><strong style={{ color: '#fff' }}>≥ 239</strong></td><td style={{ padding: '12px 16px' }}>99%</td></tr>
+                <tr style={{ borderBottom: '1px solid rgba(148,163,184,0.08)' }}><td style={{ padding: '12px 16px' }}><strong style={{ color: '#fff' }}>230–232</strong></td><td style={{ padding: '12px 16px' }}>97%</td></tr>
+                <tr style={{ borderBottom: '1px solid rgba(148,163,184,0.08)' }}><td style={{ padding: '12px 16px' }}><strong style={{ color: '#fff' }}>225–226</strong></td><td style={{ padding: '12px 16px' }}>95%</td></tr>
+                <tr style={{ borderBottom: '1px solid rgba(148,163,184,0.08)' }}><td style={{ padding: '12px 16px' }}><strong style={{ color: '#fff' }}>218 (the passing score)</strong></td><td style={{ padding: '12px 16px' }}><strong style={{ color: '#fff' }}>~91%</strong></td></tr>
+                <tr style={{ borderBottom: '1px solid rgba(148,163,184,0.08)' }}><td style={{ padding: '12px 16px' }}><strong style={{ color: '#fff' }}>212</strong></td><td style={{ padding: '12px 16px' }}>85%</td></tr>
+                <tr style={{ borderBottom: '1px solid rgba(148,163,184,0.08)' }}><td style={{ padding: '12px 16px' }}><strong style={{ color: '#fff' }}>206</strong></td><td style={{ padding: '12px 16px' }}>76%</td></tr>
+                <tr style={{ borderBottom: '1px solid rgba(148,163,184,0.08)' }}><td style={{ padding: '12px 16px' }}><strong style={{ color: '#fff' }}>194</strong></td><td style={{ padding: '12px 16px' }}>50%</td></tr>
+                <tr><td style={{ padding: '12px 16px' }}><strong style={{ color: '#fff' }}>≤ 161</strong></td><td style={{ padding: '12px 16px' }}>1%</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p className="text-[#a0acc0]">
+            The insight most students miss: <strong className="text-white">a CCSSA score equal to the passing
+            score gives you roughly a 91% chance of passing, not 100%</strong>. Matching the threshold on a
+            practice test is not the same as clearing it, because the real exam carries measurement error. If you
+            are sitting at the line on practice, you are not safe — you are a coin-flip away from the wrong side
+            of a 9% tail.
+          </p>
+          <p className="text-[#a0acc0]">
+            One date check worth doing: the Step 2 CK passing standard rose from 214 to{' '}
+            <strong className="text-white">218 on 1 July 2025</strong>. Any pass-probability table published
+            before that date is anchored to the old standard and will read optimistically. Ours is calibrated to
+            218.
+          </p>
+        </section>
+
         <section className="premium-section pt-8">
           <div className="flex items-center gap-3">
             <HelpCircle className="text-indigo-400" size={28} />

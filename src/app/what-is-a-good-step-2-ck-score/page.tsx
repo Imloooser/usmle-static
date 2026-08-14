@@ -32,11 +32,18 @@ const SPECIALTY_SCORES = [
   { tier: 'Highly competitive', specialties: 'Dermatology, Orthopedics, Neurosurgery, ENT, Plastic Surgery', range: '255–262' },
 ];
 
+// USMLE publishes percentiles in 5-point increments only, so these are the
+// published anchor points rather than interpolated quartile scores.
 const PERCENTILES = [
-  { score: '≥ 265', pct: '~90th', label: 'Exceptional — top-tier for any specialty' },
-  { score: '260', pct: '~75th', label: 'Very competitive, incl. surgical subspecialties' },
-  { score: '250', pct: '~50th (median)', label: 'Solid — at or above the matched-applicant mean' },
-  { score: '240', pct: '~30th', label: 'Below median — fine for less competitive specialties' },
+  { score: '270', pct: '94th', label: 'Top of the distribution' },
+  { score: '265', pct: '85th', label: 'Competitive-specialty range' },
+  { score: '260', pct: '74th', label: 'Very competitive, incl. surgical subspecialties' },
+  { score: '255', pct: '60th', label: 'Above the national mean' },
+  { score: '250', pct: '47th', label: '≈ the national mean' },
+  { score: '245', pct: '34th', label: 'Below median — workable for less competitive specialties' },
+  { score: '240', pct: '24th', label: 'Below median' },
+  { score: '230', pct: '10th', label: 'Well below median' },
+  { score: '220', pct: '4th', label: 'Just above passing' },
   { score: '218', pct: '—', label: 'Minimum passing score (July 2025)' },
 ];
 
@@ -154,8 +161,8 @@ export default function GoodStep2Score() {
         <section className="premium-section mt-12">
           <h2 className="text-2xl font-bold text-white mb-4">Step 2 CK Score Percentiles</h2>
           <p className="text-[#a0acc0] mb-6 leading-relaxed">
-            The Step 2 CK score distribution centers on a mean of ~250 with a standard deviation of ~15. Here is
-            roughly where each score lands:
+            The Step 2 CK score distribution centers on a mean of ~250 with a standard deviation of ~15. The
+            norm group is first-time takers from LCME-accredited medical schools. Here is where each score lands:
           </p>
           <div style={{ overflowX: 'auto' }} className="rounded-2xl border border-white/10 bg-white/[0.02]">
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '15px', color: '#cbd5e1' }}>
@@ -177,6 +184,46 @@ export default function GoodStep2Score() {
               </tbody>
             </table>
           </div>
+
+          <h3 className="text-xl font-bold text-white mt-10 mb-3">
+            Read this before you quote a percentile
+          </h3>
+          <p className="text-[#a0acc0] leading-relaxed">
+            USMLE publishes percentiles in <strong className="text-white">5-point increments only</strong>. That
+            means there is no published score for &ldquo;the 75th percentile&rdquo; — the table jumps from 260
+            (74th) straight to 265 (85th). Any site handing you an exact score for the 25th, 50th, 75th or 90th
+            percentile has interpolated it. The honest brackets are:
+          </p>
+          <ul className="accuracy-list">
+            <li><strong>25th percentile:</strong> between 240 and 245</li>
+            <li><strong>50th percentile (median):</strong> between 250 and 255</li>
+            <li><strong>75th percentile:</strong> between 260 and 265</li>
+            <li><strong>90th percentile:</strong> between 265 and 270</li>
+          </ul>
+          <p className="text-[#a0acc0] leading-relaxed">
+            One more thing that gets misrepresented constantly: USMLE publishes{' '}
+            <strong className="text-white">one</strong> norm table, and it covers LCME-accredited first-time
+            takers only. There is no official percentile table for examinees from non-US/Canadian medical
+            schools — if you are an IMG and a site shows you &ldquo;IMG percentiles,&rdquo; those numbers did not
+            come from USMLE.
+          </p>
+
+          <h3 className="text-xl font-bold text-white mt-10 mb-3">
+            The measurement error nobody talks about
+          </h3>
+          <p className="text-[#a0acc0] leading-relaxed">
+            Two numbers matter more than most students realise. The{' '}
+            <strong className="text-white">standard error of measurement</strong> is roughly 6 points: if you sat
+            the same exam twice under identical conditions, your score would be expected to move by about that
+            much. The <strong className="text-white">standard error of difference</strong> — the figure to use
+            when comparing two scores — is roughly 8 points.
+          </p>
+          <p className="text-[#a0acc0] leading-relaxed">
+            Practically: a <strong className="text-white">252 and a 247 are not meaningfully different scores</strong>.
+            A 265 and a 240 are. This is also why every prediction on this site is reported as a range rather
+            than a single number — see our{' '}
+            <Link href="/methodology/" className="text-indigo-400 hover:underline">methodology</Link>.
+          </p>
         </section>
 
         {/* Why it matters */}
