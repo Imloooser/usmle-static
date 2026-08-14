@@ -267,7 +267,7 @@ export const step3FaqSchema = {
       name: 'How does CCS performance affect Step 3 prediction?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Computer-based Case Simulations (CCS) account for approximately 25-30% of your Step 3 score. Our predictor uses simulated performance metrics to adjust your 3-digit score estimate.',
+        text: 'Computer-based Case Simulations (CCS) are a substantial, separately-scored component of Step 3 — USMLE publishes no exact percentage, stating only that CCS contributes no more than its proportional share of testing time. Our predictor uses simulated performance metrics to adjust your 3-digit score estimate.',
       },
     },
   ],
@@ -636,7 +636,7 @@ export const step3AccuracyFaqSchema = {
       name: "Does UWSA underpredict Step 3?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Yes, by roughly 10 points on average. UWSA does not include Computer-based Case Simulations (CCS), which contribute ~25–30% of the actual Step 3 score. Our predictor applies a +11-point corrective offset to UWSA inputs to account for this systematic underprediction.",
+        text: "Yes, by roughly 10 points on average. UWSA does not include Computer-based Case Simulations (CCS), a substantial separately-scored component of the actual Step 3 score. Our predictor applies a +11-point corrective offset to UWSA inputs to account for this systematic underprediction.",
       },
     },
     {
@@ -644,7 +644,7 @@ export const step3AccuracyFaqSchema = {
       name: "What changed with the March 2026 Step 3 format update?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "On March 10, 2026, the USMLE reduced CCS cases from 13 to 9 and increased outpatient content to approximately 35%. Our predictor is calibrated against outcome data spanning both formats. Calibration uncertainty for the new format will tighten as more post-March-2026 outcome data becomes available.",
+        text: "On March 10, 2026, the USMLE restructured the Step 3 multiple-choice blocks (Day 1: 12 blocks of 18-20 items; Day 2: 9 MCQ blocks of 20 items). The CCS case count did not change — USMLE still specifies 13 to 14 case simulations. Our predictor is calibrated against outcome data spanning both formats. Calibration uncertainty for the new format will tighten as more post-March-2026 outcome data becomes available.",
       },
     },
     {

@@ -320,7 +320,7 @@ function regressionPredict(input: Step3Input): number | null {
 }
 
 // === CCS modifier ===
-// CCS is ~25% of the Step 3 score. We now have numeric CCS average-correct %
+// CCS is a substantial separately-scored component (USMLE publishes no exact %). We now have numeric CCS average-correct %
 // for ~300 real students, so prefer the numeric signal; fall back to the
 // categorical self-rating when only that is given.
 const CCS_BASELINE_PCT = 73;   // typical CCS avg-correct in the data
@@ -332,12 +332,12 @@ function ccsModifier(input: Step3Input): { delta: number; reason: string | null 
     // final score once the MCQ inputs are accounted for). Only flag extreme
     // weakness as a qualitative warning.
     const reason = input.ccsPercent < 55
-      ? `CCS ${input.ccsPercent}% is well below average — CCS is ~25% of the score, so weak CCS adds downside risk.`
+      ? `CCS ${input.ccsPercent}% is well below average — CCS is separately scored and substantial, so weak CCS adds downside risk.`
       : null;
     return { delta: 0, reason };
   }
   switch (input.ccsRating) {
-    case 'struggled': return { delta: -12, reason: 'CCS self-rated as "struggled" → −12 pt adjustment (CCS is ~25% of the total Step 3 score)' };
+    case 'struggled': return { delta: -12, reason: 'CCS self-rated as "struggled" → −12 pt adjustment (CCS is separately scored and substantial)' };
     case 'ok':        return { delta: -3,  reason: null };
     case 'good':      return { delta: 2,   reason: null };
     case 'great':     return { delta: 6,   reason: 'CCS self-rated as "great" → +6 pt adjustment' };
@@ -581,14 +581,14 @@ function buildStep3Insights(
     out.push({ type: 'info', text: `Step 2 CK not entered — it's the strongest published Step 3 anchor (r=0.68 over n=27,118). Adding it tightens the CI by ~3–5 points.` });
   }
   if (input.ccsRating === 'struggled') {
-    out.push({ type: 'warning', text: `CCS self-rated "struggled" — CCS is ~25% of the total Step 3 score, so this is a material downside. Prediction shifted −12 pts to reflect.` });
+    out.push({ type: 'warning', text: `CCS self-rated "struggled" — CCS is separately scored and a substantial part of the exam, so this is a material downside. Prediction shifted −12 pts to reflect.` });
   } else if (input.ccsRating === 'great') {
     out.push({ type: 'positive', text: `Strong CCS performance adds +6 pts. CCS rewards consistent clinical decision-making more than raw memorization.` });
   } else if (!input.ccsRating && typeof input.ccsPercent !== 'number') {
     out.push({ type: 'info', text: `CCS not rated. Strong CCS can lift a borderline MCQ score; weak CCS can sink it. Rate it before re-running for sharper estimates.` });
   }
   if (input.formatVersion === 'new') {
-    out.push({ type: 'info', text: `New format (post-March 2026, 9-CCS, more outpatient questions). Our reference set already includes new-format cohort weighting.` });
+    out.push({ type: 'info', text: `New block format (post-March 10, 2026: shorter MCQ blocks). Our reference set already includes new-format cohort weighting.` });
   }
   if (input.uwsa1 && input.uwsa2 && Math.abs(input.uwsa2 - input.uwsa1) >= 8) {
     out.push({ type: 'info', text: `UWSA 1 → UWSA 2 shifted ${input.uwsa2 - input.uwsa1 >= 0 ? '+' : ''}${input.uwsa2 - input.uwsa1} pts. UWSA 2 (late prep) tends to be more predictive than UWSA 1.` });

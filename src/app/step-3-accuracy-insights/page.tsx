@@ -90,10 +90,12 @@ export default function Step3AccuracyInsights() {
 
           <p className="text-[#a0acc0]">
             USMLE Step 3 is a two-day examination combining multiple-choice clinical knowledge
-            (~70% of the score) with Computer-based Case Simulations (CCS, ~25–30% of the
-            score). The passing score is <strong className="text-white">200</strong> (raised
-            from 198 effective January 1, 2024). On March 10, 2026, the USMLE reduced CCS
-            cases from 13 to 9 and increased outpatient content to approximately 35%.
+            with Computer-based Case Simulations (CCS). The passing score is{' '}
+            <strong className="text-white">200</strong> (raised from 198 effective January 1,
+            2024). On March 10, 2026, the USMLE restructured the multiple-choice blocks — Day 1
+            moved to 12 blocks of 18–20 items and Day 2 to 9 MCQ blocks of 20 items. The number
+            of CCS case simulations was <strong className="text-white">not</strong> reduced:
+            USMLE still specifies 13 to 14 case simulations.
           </p>
 
           <p className="text-[#a0acc0]">
@@ -201,8 +203,8 @@ export default function Step3AccuracyInsights() {
             <p className="text-[#a0acc0]">
               Many free Step 3 tools rely on UWSA self-assessment scores alone, which are
               widely reported to underpredict actual Step 3 scores by roughly 10 points. The
-              fundamental issue is that UWSA does not include CCS, which contributes
-              approximately 25–30% of the operational Step 3 score. By anchoring on Step 2 CK
+              fundamental issue is that UWSA does not include CCS, a substantial separately-scored
+              component of the operational Step 3 score. By anchoring on Step 2 CK
               (which has the strongest peer-reviewed correlation with Step 3), our predictor
               avoids the systematic UWSA underprediction bias.
             </p>
@@ -327,12 +329,13 @@ export default function Step3AccuracyInsights() {
             </p>
             <ul className="accuracy-list">
               <li>
-                <strong>CCS cases reduced from 13 to 9</strong> — fewer cases, but the CCS
-                section retains approximately the same scoring weight (~25–30%).
+                <strong>MCQ blocks restructured</strong> — Day 1: 6 blocks of 38–39 items → 12
+                blocks of 18–20 items. Day 2: 6 blocks of 30 items → 9 blocks of 20 items.
               </li>
               <li>
-                <strong>Outpatient content increased to ~35%</strong> (from ~30%) — reflecting
-                modern clinical practice patterns.
+                <strong>CCS case count unchanged</strong> — USMLE still specifies 13 to 14 case
+                simulations (10 or 20 minutes each). The popular &ldquo;13 → 9 cases&rdquo; claim
+                mistakes the new Day 2 MCQ block count for the case count.
               </li>
               <li>
                 <strong>New CCS software interface</strong> — same scoring logic, updated UI.
@@ -501,8 +504,11 @@ export default function Step3AccuracyInsights() {
 
           <div className="p-6 rounded-xl">
             <p className="text-[#a0acc0]">
-              CCS contributes approximately <strong className="text-white">25–30%</strong> of
-              the operational Step 3 score, yet no widely available self-assessment quantifies
+              USMLE does not publish an exact CCS weighting. The Bulletin states only that CCS
+              contributes no more than the proportional share of testing time allotted to it —
+              which places it in the region of a quarter of the exam. Widely-quoted figures of
+              25–30% are community estimates, not official. Either way it is a substantial share
+              of the operational Step 3 score, yet no widely available self-assessment quantifies
               CCS readiness on a comparable scale. This is the single largest source of
               prediction uncertainty in Step 3, and the root cause of UWSA&apos;s
               well-documented ~10-point underprediction.
@@ -651,7 +657,7 @@ export default function Step3AccuracyInsights() {
             <div className="premium-faq-answer">
               <p>
                 Yes, by roughly 10 points on average. UWSA does not include Computer-based Case
-                Simulations (CCS), which contribute ~25–30% of the actual Step 3 score. Our
+                Simulations (CCS), a substantial separately-scored component of the actual Step 3 score. Our
                 predictor applies a +11-point corrective offset to UWSA inputs to account for
                 this systematic underprediction.
               </p>
@@ -664,10 +670,14 @@ export default function Step3AccuracyInsights() {
             </summary>
             <div className="premium-faq-answer">
               <p>
-                On March 10, 2026, the USMLE reduced CCS cases from 13 to 9 and increased
-                outpatient content to approximately 35%. Our predictor is calibrated against
-                outcome data spanning both formats. Calibration uncertainty for the new format
-                will tighten as more post-March-2026 outcome data becomes available.
+                On March 10, 2026, the USMLE restructured the multiple-choice blocks: Day 1 went
+                from 6 blocks of 38–39 items to 12 blocks of 18–20 items, and Day 2 from 6 blocks
+                of 30 items to 9 blocks of 20 items. The CCS case count did not change — USMLE
+                still specifies 13 to 14 case simulations, each allotted a maximum of 10 or 20
+                minutes. A widely repeated claim that cases dropped to 9 confuses the new Day 2
+                MCQ block count (6 → 9) with the case count; USMLE&apos;s own change table lists
+                case simulations as &ldquo;no change.&rdquo; Our predictor is calibrated against
+                outcome data spanning both block formats.
               </p>
             </div>
           </details>
