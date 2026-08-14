@@ -155,8 +155,8 @@ export default function Step3PredictorTool() {
                 <div className="field">
                   <label htmlFor="formatVersion">Exam format</label>
                   <select id="formatVersion" value={formatVersion} onChange={e => setFormatVersion(e.target.value)}>
-                    <option value="new">New (post-March 2026, 9-CCS)</option>
-                    <option value="legacy">Legacy (13-CCS)</option>
+                    <option value="new">New (post-March 10, 2026 block format)</option>
+                    <option value="legacy">Legacy (pre-March 2026)</option>
                   </select>
                 </div>
               </>

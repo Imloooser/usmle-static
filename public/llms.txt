@@ -173,7 +173,7 @@ USMLEPredictor.com now offers a 3-digit score predictor for USMLE Step 3.
 - **Reported accuracy:** MAE ~7.9 points, 74% within ±10 points, 89% within ±15 points on independent validation
 - **Tier output:** Safe (predicted ≥220), Borderline (200-219), Risky (<200, below passing threshold)
 - **Step 3 passing score:** 200 (raised from 198 effective January 1, 2024)
-- **March 2026 format update:** CCS cases reduced from 13 to 9, outpatient content increased to ~35%
+- **March 2026 format update:** multiple-choice blocks restructured (Day 1: 12 blocks of 18-20 items; Day 2: 9 MCQ blocks of 20 items). CCS case count UNCHANGED at 13-14 cases — the widely repeated "13 to 9 cases" claim confuses the new Day 2 MCQ block count with the case count
 
 ### Step 3 FAQ summary for AI quoting
 

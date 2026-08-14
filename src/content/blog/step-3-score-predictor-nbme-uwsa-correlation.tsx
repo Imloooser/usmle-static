@@ -31,7 +31,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'How much do CCS cases affect your Step 3 score?',
       answer:
-        'CCS cases are a substantial, separately-scored component of Step 3 (about 25% of the total). Strong CCS performance can lift a borderline multiple-choice result to a comfortable pass, while weak CCS performance can pull an otherwise-passing MCQ score below the line.',
+        'CCS cases are a substantial, separately-scored component of Step 3 — USMLE publishes no exact percentage, only that CCS contributes no more than its proportional share of testing time. Strong CCS performance can lift a borderline multiple-choice result to a comfortable pass, while weak CCS performance can pull an otherwise-passing MCQ score below the line.',
     },
   ],
 };
@@ -162,7 +162,7 @@ export default function Body() {
       <h2>The CCS factor: the real score swing</h2>
       <p>
         The most common mistake residents make is ignoring the <strong>Computer-based Case Simulations</strong>.
-        Because CCS is scored as a substantial, separate component (about <strong>25% of the total</strong>), it
+        Because CCS is scored as a substantial, separate component, it
         behaves like a wild card on Day 2.
       </p>
       <p>

@@ -39,7 +39,7 @@ export default function Step3Predictor() {
     "isAccessibleForFree": true,
     "featureList": [
       "Step 2 CK anchor — the strongest Step 3 predictor (r = 0.68, n = 27,118)",
-      "CCS case-simulation adjustment (CCS is ~25% of the total Step 3 score)",
+      "CCS case-simulation adjustment (a substantial, separately-scored component)",
       "UWSA 1/2 recalibration for known under-prediction",
       "NBME Forms 6/7 percent-correct conversion",
       "Free 137 and UWorld % corroborating signals",
@@ -132,8 +132,8 @@ return (
         <p>
           The strongest single predictor of your USMLE Step 3 score is your Step 2 CK result
           (r&nbsp;=&nbsp;0.68 across 27,118 examinees). This free Step 3 predictor blends Step 2 CK with
-          UWSA 1/2, UWorld %, and NBME Forms 6/7, then applies a CCS adjustment — case simulations count
-          for roughly 25% of the total score and no practice form grades them. The passing standard is 200;
+          UWSA 1/2, UWorld %, and NBME Forms 6/7, then applies a CCS adjustment — case simulations are scored separately
+          as a separately-scored component that no practice form grades. The passing standard is 200;
           the national mean is about 227.
         </p>
         <p className="qa-meta">
@@ -176,7 +176,7 @@ return (
 
         <h3 className="text-xl font-bold text-white mt-8 mb-3">CCS: the wildcard no MCQ score captures</h3>
         <p className="text-[#a0acc0]">
-          Computer-based Case Simulations are about 25% of your total and are graded separately from every
+          Computer-based Case Simulations are a substantial, separately-scored part of Step 3 and are graded separately from every
           multiple-choice form — so the model applies them as an adjustment (detailed below) rather than a core input.
         </p>
 
@@ -194,7 +194,7 @@ return (
 
         <p className="text-[#a0acc0]">
           Computer-based Case Simulations (CCS) are what make Step 3 different from every other USMLE exam —
-          interactive patient-management cases on Day 2 that count for roughly <strong>25% of your total score</strong>.
+          interactive patient-management cases on Day 2, scored separately from the multiple-choice sections.
           No NBME form or UWSA grades them, which is why a multiple-choice-only prediction is incomplete.
         </p>
 
