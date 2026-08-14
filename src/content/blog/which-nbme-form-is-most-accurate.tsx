@@ -26,7 +26,7 @@ export const meta: BlogPostMeta = {
     {
       question: 'Is NBME Form 14 more accurate than UWSA 2?',
       answer:
-        'Statistically, yes — Form 14 correlates slightly higher (r = 0.92 vs 0.89). The bigger difference is bias: UWSA 2 tends to overpredict the real score by about 3 points on average, while NBME forms track closer to the true value. UWSA 2 is still excellent for testing 8-block stamina.',
+        'Statistically, yes — Form 14 correlates slightly higher (r = 0.92 vs 0.89). The bigger difference is bias: UWSA 2 tends to overpredict the real score by about 3 points on average, while NBME forms track closer to the true value. UWSA 2 is still excellent for testing full-day stamina.',
     },
     {
       question: 'How many practice forms should I take before Step 2 CK?',
@@ -135,7 +135,7 @@ export default function Body() {
       <h2>UWSA 2: accurate, but it leans high</h2>
       <p>
         UWSA 2 is the most-loved assessment in the community for good reason — it is brutal, long, and a superb
-        test of whether you can hold focus across eight blocks. Its correlation (r = 0.89) is excellent. The
+        test of whether you can hold focus across a full exam day. Its correlation (r = 0.89) is excellent. The
         catch is <strong>bias</strong>: in our data, UWSA 2 reads about three points <em>above</em> the real
         score on average. A 258 on UWSA 2 more often becomes a ~255 on test day than a 258.
       </p>

@@ -37,7 +37,7 @@ const PERCENTILES = [
   { score: '260', pct: '~75th', label: 'Very competitive, incl. surgical subspecialties' },
   { score: '250', pct: '~50th (median)', label: 'Solid — at or above the matched-applicant mean' },
   { score: '240', pct: '~30th', label: 'Below median — fine for less competitive specialties' },
-  { score: '214', pct: '—', label: 'Minimum passing score' },
+  { score: '218', pct: '—', label: 'Minimum passing score (July 2025)' },
 ];
 
 const FAQS = [
@@ -51,7 +51,7 @@ const FAQS = [
   },
   {
     q: 'What is the Step 2 CK passing score?',
-    a: 'The minimum passing score for USMLE Step 2 CK is 214. The USMLE periodically reviews the passing standard, so confirm the current threshold on usmle.org. Most matched applicants score far above the passing line.',
+    a: 'The minimum passing score for USMLE Step 2 CK is 218, effective for exams taken on or after July 1, 2025 (raised from 214). The USMLE periodically reviews the passing standard, so confirm the current threshold on usmle.org. Most matched applicants score far above the passing line.',
   },
   {
     q: 'Does Step 2 CK matter more now that Step 1 is Pass/Fail?',
@@ -108,7 +108,7 @@ export default function GoodStep2Score() {
             <p className="text-base text-[#a0acc0] max-w-2xl mt-4 leading-relaxed">
               A good Step 2 CK score is <strong className="text-white">around 250</strong> — the mean for U.S. MD
               seniors who matched in 2026. Scores above <strong className="text-white">260</strong> (≈75th percentile)
-              are very competitive, and the minimum passing score is <strong className="text-white">214</strong>.
+              are very competitive, and the minimum passing score is <strong className="text-white">218</strong> (effective July 1, 2025; raised from 214).
               What counts as &ldquo;good,&rdquo; though, depends heavily on your <strong className="text-white">target specialty</strong>.
             </p>
             <div className="cta-container mt-6">

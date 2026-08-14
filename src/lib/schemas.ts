@@ -628,7 +628,7 @@ export const step3AccuracyFaqSchema = {
       name: "Why is Step 2 CK the strongest Step 3 predictor?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "PMC8368809 demonstrated r ≈ 0.70 correlation between Step 2 CK and Step 3 across 27,118 examinees — the strongest single-source predictor. Both exams test clinical knowledge in similar format. Most residents score within ±5 points of their Step 2 CK on Step 3, with a small positive offset reflecting accumulated clinical experience.",
+        text: "PMC8368809 demonstrated r ≈ 0.68 correlation between Step 2 CK and Step 3 across 27,118 examinees — the strongest single-source predictor. Both exams test clinical knowledge in similar format. Most residents score within ±5 points of their Step 2 CK on Step 3, with a small positive offset reflecting accumulated clinical experience.",
       },
     },
     {
@@ -636,7 +636,7 @@ export const step3AccuracyFaqSchema = {
       name: "Does UWSA underpredict Step 3?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Yes, by approximately 15–20 points. UWSA does not include Computer-based Case Simulations (CCS), which contribute ~25–30% of the actual Step 3 score. Our predictor applies a +14-point corrective offset to UWSA inputs to account for this systematic underprediction.",
+        text: "Yes, by roughly 10 points on average. UWSA does not include Computer-based Case Simulations (CCS), which contribute ~25–30% of the actual Step 3 score. Our predictor applies a +11-point corrective offset to UWSA inputs to account for this systematic underprediction.",
       },
     },
     {
@@ -660,7 +660,7 @@ export const step3AccuracyFaqSchema = {
       name: "Can I take Step 3 before residency as an IMG?",
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Yes. ECFMG-certified IMGs may take Step 3 before residency in most US states, and it is increasingly recommended for competitive specialty applicants. The Step 2 CK → Step 3 correlation (r ≈ 0.70) holds for pre-residency examinees; however, without the PGY-1 clinical boost, expected Step 3 score may run 2–5 points below Step 2 CK rather than above.",
+        text: "Yes. ECFMG-certified IMGs may take Step 3 before residency in most US states, and it is increasingly recommended for competitive specialty applicants. The Step 2 CK → Step 3 correlation (r ≈ 0.68) holds for pre-residency examinees; however, without the PGY-1 clinical boost, expected Step 3 score may run 2–5 points below Step 2 CK rather than above.",
       },
     },
     {
