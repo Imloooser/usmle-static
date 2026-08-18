@@ -6,11 +6,11 @@ import SchemaMarkup from '@/components/SchemaMarkup';
 import { medicalWebPageSchema } from '@/lib/schemas';
 
 export const metadata: Metadata = {
-  title: 'USMLE Score Prediction Methodology — The Science Behind the Forecast',
-  description: 'How USMLEPredictor forecasts your USMLE Step 1, 2 CK & 3 scores: a 3-method statistical ensemble trained on 5,039 verified outcomes, per-form normalization, outlier filtering, and r = 0.92 validation.',
+  title: 'USMLE Score Prediction Methodology (2026)',
+  description: 'How we forecast USMLE Step 1, 2 CK and 3 scores: a 3-method ensemble trained on 5,039 verified outcomes, with r = 0.92 validation.',
   alternates: { canonical: 'https://usmlepredictor.com/methodology/' },
   openGraph: {
-    title: 'USMLE Score Prediction Methodology — The Science Behind the Forecast',
+    title: 'USMLE Score Prediction Methodology (2026)',
     description: 'The statistical framework behind our Step 1/2/3 predictions: ensemble modeling, normalization, outlier detection, and r = 0.92 validation on 5,039 verified outcomes.',
     url: 'https://usmlepredictor.com/methodology/',
     type: 'article',

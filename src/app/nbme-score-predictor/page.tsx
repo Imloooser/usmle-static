@@ -20,7 +20,7 @@ import { medicalWebPageSchema } from '@/lib/schemas';
 
 export const metadata: Metadata = {
   title: 'NBME Score Predictor | Convert NBME to USMLE Step 2 CK',
-  description: 'Convert your raw NBME self-assessment score into a predicted USMLE Step 2 CK 3-digit score. Per-form bias correction, 80% prediction interval, days-to-exam decay. Free, no login.',
+  description: 'Convert your NBME self-assessment into a predicted Step 2 CK score. Per-form bias correction, 80% prediction interval, days-to-exam decay. Free.',
   alternates: {
     canonical: 'https://usmlepredictor.com/nbme-score-predictor/',
   },
@@ -141,6 +141,30 @@ export default function NbmePredictorPage() {
             study and exam-day adrenaline. We apply the Tackett 2021 decay model (PMC8368818) as a
             soft adjustment when you tell us how far out you are.
           </p>
+
+          <div className="mt-8 pt-6 border-t border-white/[0.06]">
+            <p className="text-sm font-semibold text-white mb-3">Related reading</p>
+            <ul className="accuracy-list">
+              <li>
+                <Link href="/blog/which-nbme-form-is-most-accurate/" className="text-indigo-400 hover:underline">
+                  Which NBME form is most accurate?
+                </Link>{' '}
+                — Forms 13/14, UWSA 2 and the Free 120 ranked by correlation and bias, from 5,039 verified outcomes.
+              </li>
+              <li>
+                <Link href="/blog/usmle-step-2-ck-score-prediction-guide/" className="text-indigo-400 hover:underline">
+                  USMLE Step 2 CK score prediction guide
+                </Link>{' '}
+                — how to turn several practice scores into one honest prediction range.
+              </li>
+              <li>
+                <Link href="/blog/how-to-calculate-step-1-pass-probability/" className="text-indigo-400 hover:underline">
+                  Calculating a Step 1 pass probability from CBSSA
+                </Link>{' '}
+                — what to do with an equated percent correct when there is no 3-digit score.
+              </li>
+            </ul>
+          </div>
         </section>
 
         {/* What NBME actually reports — CBSSA vs CCSSA */}

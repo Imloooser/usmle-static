@@ -8,7 +8,7 @@ import { getAllPosts } from '@/content/blog/posts';
 export const metadata: Metadata = {
   title: 'USMLE Score Prediction Blog — Data, Guides & Analysis',
   description:
-    'Data-driven articles on USMLE Step 1, Step 2 CK & Step 3 score prediction — NBME form accuracy, UWSA correlations, and how to read your practice scores. Built on 5,039 verified outcomes.',
+    'Data-driven USMLE Step 1, Step 2 CK and Step 3 articles — NBME form accuracy, UWSA correlations and how to read your practice scores.',
   alternates: { canonical: 'https://usmlepredictor.com/blog/' },
   openGraph: {
     title: 'USMLE Score Prediction Blog — Data, Guides & Analysis',

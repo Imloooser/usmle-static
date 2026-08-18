@@ -3,10 +3,10 @@ import type { BlogPostMeta } from './types';
 
 export const meta: BlogPostMeta = {
   slug: 'usmle-step-3-passing-score',
-  title: 'USMLE Step 3 Passing Score (2026): It’s 200 — What That Means',
+  title: 'USMLE Step 3 Passing Score (2026): It’s 200',
   h1: 'USMLE Step 3 Passing Score (2026): It’s 200 — and Why That Number Misleads People',
   description:
-    'The USMLE Step 3 passing score is 200, effective January 2024. Percentiles, pass rates by cohort, the four-attempt limit, retake timing rules, and what happens if you fail.',
+    'The Step 3 passing score is 200, effective January 2024. Percentiles, pass rates, the four-attempt limit and what happens if you fail.',
   excerpt:
     'Step 3 passing is 200 (since January 2024) — but that sits at roughly the 4th percentile, so it is a misleading target. Percentiles, pass rates, and the retake rules most students get wrong.',
   category: 'Step 3 Guide',

@@ -6,8 +6,8 @@ import SchemaMarkup from '@/components/SchemaMarkup';
 import { medicalWebPageSchema } from '@/lib/schemas';
 
 export const metadata: Metadata = {
-  title: 'What Is a Good USMLE Step 2 CK Score? (2026 Averages by Specialty)',
-  description: 'A good USMLE Step 2 CK score is ~250 (the matched-applicant mean). See 2026 average scores by specialty, percentiles, and what counts as competitive — backed by NRMP data.',
+  title: 'What Is a Good USMLE Step 2 CK Score? (2026)',
+  description: 'A good USMLE Step 2 CK score is ~250 — the matched-applicant mean. 2026 averages by specialty, percentiles and what counts as competitive.',
   alternates: { canonical: 'https://usmlepredictor.com/what-is-a-good-step-2-ck-score/' },
   openGraph: {
     title: 'What Is a Good USMLE Step 2 CK Score? (2026 by Specialty)',
@@ -259,6 +259,25 @@ export default function GoodStep2Score() {
             <span className="text-[#64748b]"> · </span>
             <Link href="/accuracyinsights/" className="text-indigo-400 hover:underline font-medium">See accuracy &amp; methodology →</Link>
           </div>
+        </section>
+
+        {/* Related reading — links the blog cluster into the core page graph */}
+        <section className="premium-section mt-12">
+          <h2 className="text-2xl font-bold text-white mb-4">Related reading</h2>
+          <ul className="accuracy-list">
+            <li>
+              <Link href="/blog/usmle-step-2-ck-score-prediction-guide/" className="text-indigo-400 hover:underline">
+                USMLE Step 2 CK score prediction guide
+              </Link>{' '}
+              — how ensemble predictors work and how to read a prediction range.
+            </li>
+            <li>
+              <Link href="/blog/which-nbme-form-is-most-accurate/" className="text-indigo-400 hover:underline">
+                Which NBME form is most accurate?
+              </Link>{' '}
+              — every major practice exam ranked by correlation and bias, from 5,039 verified outcomes.
+            </li>
+          </ul>
         </section>
 
         {/* FAQ */}

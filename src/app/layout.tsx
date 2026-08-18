@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
   title: {
     default: 'USMLE Step 2 CK Score Predictor (2026)',
-    template: '%s | USMLEPredictor',
+    template: '%s',
   },
 
   description:

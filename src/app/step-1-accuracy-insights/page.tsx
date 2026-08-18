@@ -10,9 +10,9 @@ import {
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'USMLE Step 1 Pass/Fail Accuracy Insights & Correlation Data',
+  title: 'USMLE Step 1 Pass/Fail Prediction Accuracy Data',
   description:
-    'How our USMLE Step 1 pass-probability predictor is calibrated and validated — anchored on NBME\'s official July 2024 CBSSA table plus IAMSE 2024 research and FSMB cohort data.',
+    'How our Step 1 pass-probability predictor is calibrated — anchored on NBME\'s July 2024 CBSSA table, with IAMSE 2024 and FSMB cohort validation.',
   alternates: {
     canonical: 'https://usmlepredictor.com/step-1-accuracy-insights/',
   },
@@ -742,6 +742,25 @@ export default function Step1AccuracyInsights() {
               preparation strategy alongside official NBME self-assessments.
             </p>
           </div>
+        </section>
+
+        {/* Related reading — links the blog cluster into the core page graph */}
+        <section className="premium-section mt-16">
+          <h2 className="text-2xl font-bold text-white mb-4">Related reading</h2>
+          <ul className="accuracy-list">
+            <li>
+              <Link href="/blog/how-to-calculate-step-1-pass-probability/" className="text-indigo-400 hover:underline">
+                How to calculate your Step 1 pass probability
+              </Link>{' '}
+              — a form-by-form walkthrough of NBME 25–33 and the failed-NBME recovery protocol.
+            </li>
+            <li>
+              <Link href="/blog/which-nbme-form-is-most-accurate/" className="text-indigo-400 hover:underline">
+                Which NBME form is most accurate?
+              </Link>{' '}
+              — how each practice assessment tracks the real score, from 5,039 verified outcomes.
+            </li>
+          </ul>
         </section>
       </main>
     </div>

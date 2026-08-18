@@ -4,10 +4,10 @@ import type { BlogPostMeta } from './types';
 
 export const meta: BlogPostMeta = {
   slug: 'how-to-calculate-step-1-pass-probability',
-  title: 'How to Calculate Your Step 1 Pass Probability (NBME Form-by-Form)',
+  title: 'How to Calculate Your Step 1 Pass Probability',
   h1: 'How to Calculate Your USMLE Step 1 Pass Probability: An NBME Form-by-Form Guide',
   description:
-    'A Pass/Fail-accurate guide to reading your USMLE Step 1 pass probability from NBME Forms 29–33, the Free 120, and UWorld — plus a recovery protocol for a failed practice form.',
+    'Read your USMLE Step 1 pass probability from NBME Forms 29–33, the Free 120 and UWorld — plus a recovery protocol for a failed practice form.',
   excerpt:
     'Step 1 is Pass/Fail — so the goal is a safe margin above the passing standard, not a 3-digit score. Here is how to read your NBME self-assessments (Forms 29–33) into a real pass probability, form by form.',
   category: 'Step 1 Guide',

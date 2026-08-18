@@ -14,7 +14,7 @@ const ACCURACY_DATA = [
 
 export const metadata: Metadata = {
   title: 'USMLE Step 2 CK Accuracy Insights & Correlation Data',
-  description: 'Statistical accuracy analysis of USMLE Step 2 CK score predictors based on 5,039 verified student score reports. Pearson correlations, precision ranges, and ensemble methodology.',
+  description: 'Accuracy analysis of our Step 2 CK predictor from 5,039 verified score reports — Pearson correlations, precision ranges and ensemble methodology.',
   alternates: {
     canonical: 'https://usmlepredictor.com/accuracyinsights/',
   },

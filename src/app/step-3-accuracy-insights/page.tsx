@@ -12,7 +12,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'USMLE Step 3 Score Predictor Accuracy & Correlation Data',
   description:
-    'How our USMLE Step 3 score predictor is calibrated, validated, and benchmarked. Anchored on peer-reviewed Step 2 CK → Step 3 correlation research (PMC8368809, n=27,118) with cross-referenced NBME 6/7 and FSMB cohort data.',
+    'How our Step 3 predictor is calibrated and validated — anchored on peer-reviewed Step 2 CK correlation research (PMC8368809, n=27,118).',
   alternates: {
     canonical: 'https://usmlepredictor.com/step-3-accuracy-insights/',
   },
@@ -756,6 +756,31 @@ export default function Step3AccuracyInsights() {
               </p>
             </div>
           </details>
+        </section>
+
+        {/* Related reading — links the blog cluster into the core page graph */}
+        <section className="premium-section mt-16">
+          <h2 className="text-2xl font-bold text-white mb-4">Related reading</h2>
+          <ul className="accuracy-list">
+            <li>
+              <Link href="/blog/usmle-step-3-passing-score/" className="text-indigo-400 hover:underline">
+                USMLE Step 3 passing score (2026)
+              </Link>{' '}
+              — the 200 standard in context, pass rates by cohort, and the four-attempt limit.
+            </li>
+            <li>
+              <Link href="/blog/ccs-cases-usmle-step-3/" className="text-indigo-400 hover:underline">
+                CCS cases on Step 3: how many you actually get
+              </Link>{' '}
+              — the 13–14 case count, the official scoring rules, and why CCS is scored separately.
+            </li>
+            <li>
+              <Link href="/blog/step-3-score-predictor-nbme-uwsa-correlation/" className="text-indigo-400 hover:underline">
+                NBME 6 &amp; 7 to Step 3 conversion
+              </Link>{' '}
+              — the per-form conversion table behind this methodology.
+            </li>
+          </ul>
         </section>
 
         {/* Disclaimer (no premium-section: that wrapper forces p to 18px) */}

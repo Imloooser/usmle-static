@@ -9,7 +9,7 @@ import { medicalWebPageSchema } from '@/lib/schemas';
 
 export const metadata: Metadata = {
   title: 'USMLE Step 3 Score Predictor | Free & Data-Backed',
-  description: 'Estimate your USMLE Step 3 score using Step 2 CK, UWorld, UWSA, NBME 6/7, and Free 137. Anchored on PMC8368809 (n=27,118) Step 2 CK to Step 3 correlation research.',
+  description: 'Estimate your USMLE Step 3 score from Step 2 CK, UWorld, UWSA, NBME 6/7 and Free 137 — anchored on PMC8368809 (n=27,118) research.',
   alternates: {
     canonical: 'https://usmlepredictor.com/usmle-step-3-score-predictor/',
   },
@@ -184,6 +184,30 @@ return (
         <Link href="/step-3-accuracy-insights/" className="text-indigo-400 hover:underline">
          👉 Read the full breakdown of our prediction methodology
         </Link>
+
+        <div className="mt-8 pt-6 border-t border-white/[0.06]">
+          <p className="text-sm font-semibold text-white mb-3">Related reading</p>
+          <ul className="accuracy-list">
+            <li>
+              <Link href="/blog/usmle-step-3-passing-score/" className="text-indigo-400 hover:underline">
+                USMLE Step 3 passing score (2026)
+              </Link>{' '}
+              — why 200 is a misleading target, plus retake rules and the four-attempt limit.
+            </li>
+            <li>
+              <Link href="/blog/ccs-cases-usmle-step-3/" className="text-indigo-400 hover:underline">
+                CCS cases on Step 3: how many you actually get
+              </Link>{' '}
+              — the 13–14 case count, scoring rules, and the &ldquo;9 cases&rdquo; myth.
+            </li>
+            <li>
+              <Link href="/blog/step-3-score-predictor-nbme-uwsa-correlation/" className="text-indigo-400 hover:underline">
+                NBME 6 &amp; 7 to Step 3 conversion
+              </Link>{' '}
+              — form-by-form percentages and the UWSA recalibration.
+            </li>
+          </ul>
+        </div>
       </section>
 
       {/* 🩺 CCS — the Step 3-specific component competitors gloss over */}
