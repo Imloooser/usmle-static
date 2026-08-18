@@ -6,7 +6,7 @@ export const meta: BlogPostMeta = {
   title: 'CCS Cases on USMLE Step 3 (2026): How Many You Actually Get',
   h1: 'CCS Cases on USMLE Step 3 (2026): How Many You Actually Get',
   description:
-    'Step 3 still has 13–14 CCS cases in 2026, not 9 — here is where that myth came from, plus the official scoring rules and what the research says about CCS performance.',
+    'Step 3 still has 13–14 CCS cases in 2026, not 9 — where that myth came from, plus the official scoring rules and what the research says.',
   excerpt:
     'Step 3 Day 2 still includes 13–14 case simulations — the “reduced to 9” claim is a misreading of USMLE’s own change table. The real format, the scoring rules quoted verbatim, and why CCS tests something your QBank score cannot predict.',
   category: 'Step 3 Guide',

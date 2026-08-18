@@ -3,10 +3,10 @@ import type { BlogPostMeta } from './types';
 
 export const meta: BlogPostMeta = {
   slug: 'which-nbme-form-is-most-accurate',
-  title: 'Which NBME Form Is Most Accurate? (5,039-Student Data Analysis)',
+  title: 'Which NBME Form Is Most Accurate? (5,039 Students)',
   h1: 'Which NBME Form Is Most Accurate? A 5,039-Student Analysis',
   description:
-    'We analyzed 5,039 verified Step 2 CK outcomes to rank every major practice exam by how well it predicts the real score. NBME Form 14 leads at r = 0.92. Full data inside.',
+    'We ranked every major practice exam by how well it predicts the real Step 2 CK score, using 5,039 verified outcomes. NBME Form 14 leads at r = 0.92.',
   excerpt:
     'We ranked every major practice exam by how closely it tracks the real Step 2 CK score — using 5,039 verified outcomes. NBME Form 14 wins at r = 0.92. Here is the full breakdown.',
   category: 'Data Analysis',

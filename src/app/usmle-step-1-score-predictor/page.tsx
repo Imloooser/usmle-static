@@ -8,13 +8,13 @@ import ExamSwitcher from '@/components/ExamSwitcher';
 import { medicalWebPageSchema } from '@/lib/schemas';
 
 export const metadata: Metadata = {
-  title: 'USMLE Step 1 Pass Probability Calculator — Free, NBME-Anchored',
-  description: 'Check your USMLE Step 1 pass probability from NBME forms 29–33, Free 120, and UWorld %. Anchored on NBME\'s official July 2024 pass-probability table — see what NBME score predicts a pass.',
+  title: 'USMLE Step 1 Pass Probability Calculator (Free)',
+  description: 'Check your USMLE Step 1 pass probability from NBME forms 29–33, Free 120 and UWorld %, anchored on NBME\'s July 2024 pass-probability table.',
   alternates: {
     canonical: 'https://usmlepredictor.com/usmle-step-1-score-predictor/',
   },
   openGraph: {
-    title: 'USMLE Step 1 Pass Probability Calculator — Free, NBME-Anchored',
+    title: 'USMLE Step 1 Pass Probability Calculator (Free)',
     description: 'Free Step 1 pass-probability predictor anchored on NBME\'s July 2024 published table. Calibrated on 100,000+ examinees.',
     url: 'https://usmlepredictor.com/usmle-step-1-score-predictor/',
     type: 'website',
@@ -243,6 +243,24 @@ export default function Step1Predictor() {
             and our{' '}
             <Link href="/methodology/" className="text-indigo-400 hover:underline">prediction methodology</Link>.
           </p>
+
+          <div className="mt-8 pt-6 border-t border-white/[0.06]">
+            <p className="text-sm font-semibold text-white mb-3">Related reading</p>
+            <ul className="accuracy-list">
+              <li>
+                <Link href="/blog/how-to-calculate-step-1-pass-probability/" className="text-indigo-400 hover:underline">
+                  How to calculate your Step 1 pass probability
+                </Link>{' '}
+                — a form-by-form guide to NBME 25–33, plus a recovery protocol if you fail a practice form.
+              </li>
+              <li>
+                <Link href="/blog/which-nbme-form-is-most-accurate/" className="text-indigo-400 hover:underline">
+                  Which NBME form is most accurate?
+                </Link>{' '}
+                — how each assessment tracks the real score, from 5,039 verified outcomes.
+              </li>
+            </ul>
+          </div>
         </section>
 
         {/* ❓ FAQ */}

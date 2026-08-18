@@ -9,7 +9,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: {
-    absolute: 'USMLE Score Predictor — Step 1, Step 2 CK & Step 3 (Free)',
+    absolute: 'USMLE Score Predictor — Step 1, 2 CK & 3 (Free)',
   },
   description: 'Free USMLE Step 2 CK score predictor built on 5,039 verified student outcomes. Enter your NBME, UWSA 2, or Free 120 score for an instant predicted Step 2 score.',
   alternates: {
@@ -81,6 +81,13 @@ export default function Home() {
       <p style={{ marginTop: 16, fontSize: 14, color: '#94a3b8' }}>
         Preparing for Step 1? Check your readiness with our{' '}
         <a href="/usmle-step-1-score-predictor/" className="methodology-link">Step 1 Pass Probability Calculator</a>.
+      </p>
+
+      <p style={{ marginTop: 10, fontSize: 14, color: '#94a3b8' }}>
+        New here? Start with the{' '}
+        <a href="/blog/usmle-step-2-ck-score-prediction-guide/" className="methodology-link">Step 2 CK score prediction guide</a>
+        {' '}or see{' '}
+        <a href="/blog/which-nbme-form-is-most-accurate/" className="methodology-link">which NBME form is most accurate</a>.
       </p>
 
     </div>
