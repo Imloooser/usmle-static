@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import SchemaMarkup from '@/components/SchemaMarkup'
 import { organizationSchema, websiteSchema, editorialTeamSchema } from '@/lib/schemas'
 import Footer from '@/components/Footer'
+import PostHogAnalytics from '@/components/analytics/PostHogAnalytics'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -154,6 +155,9 @@ export default function RootLayout({
           data-max-duration="1200000"
           strategy="afterInteractive"
         />
+
+        {/* PostHog (EU Cloud) — IP discarded, no session recording, prod-host only */}
+        <PostHogAnalytics />
 
       </body>
     </html>
